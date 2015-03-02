@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/24 14:28:09 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/02/24 15:49:28 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/02/26 17:08:25 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ t_struct	wlf_get_strc(char *s, int x, int y)
 		strc.door->y = y;
 		s++;
 	}
+	else
+		strc.door = NULL;
 	strc.z = ft_atoi(s);
 	return (strc);
 }

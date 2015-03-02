@@ -6,22 +6,26 @@
 #    By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/17 18:26:04 by mgrimald          #+#    #+#              #
-#    Updated: 2015/02/22 14:11:40 by mgrimald         ###   ########.fr        #
+#    Updated: 2015/02/28 17:11:22 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror
+MLX = -L/usr/X11/lib -lmlx -lXext -lX11
+
+CFLAGS = -Wall -Wextra -Werror $(MLX)
 
 DEBUG = $(CFLAGS) -g
 
-NAME = fractol
+NAME = wolf2d
 
 CC = gcc
 
 SRC = main.c \
 	  mlxr.c \
-	  data.c \
-	  wolf.h
+	  wlf_get_strc.c \
+	  wlf_get_tab.c \
+	  wolf2d_mlx.c \
+	  move.c
 
 HEADER = ./libft/includes/
 
@@ -39,7 +43,7 @@ $(NAME): $(SRC)
 	@make -C libft/
 	@$(CC) $(CFLAGS) -c $(SRC) -I $(HEADER)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/libft.a
-	@echo "\033[36mCreate fdf executable \033[0m"
+	@echo "\033[36mCreate $(NAME) executable \033[0m"
 
 
 clean:
@@ -49,7 +53,7 @@ clean:
 
 fclean: clean
 	@make -C libft/ fclean
-	@echo "\033[31mDelete fdf executable\033[0m"
+	@echo "\033[31mDelete $(NAME) executable\033[0m"
 	@$(RM) $(NAME)
 
 re: fclean all
@@ -58,9 +62,9 @@ debug:
 	@make -C libft/ fclean
 	@make -C libft/ debug
 	@echo "\033[32mCompile all \".c\" with debug flag\033[0m"
-	@$(CC) $(DEBUG) $(CFLAGS) -c $(SRC) -I $(HEADER)
-	@$(CC) $(DEBUG) $(CFLAGS) -o $(NAME) $(OBJ) libft/libft.a
-	@echo "\033[36mCreate fdf\033[0m"
+	@$(CC) $(DEBUG) -c $(SRC) -I $(HEADER)
+	@$(CC) $(DEBUG) -o $(NAME) $(OBJ) libft/libft.a
+	@echo "\033[36mCreate $(NAME)\033[0m"
 
 mlx_free:
 	@make -C libft/ fclean
@@ -68,4 +72,4 @@ mlx_free:
 	@echo -e "\033[32mCompile all \".c\" with debug flag\033[0m"
 	@$(CC) $(DEBUG) -c $(SRC) -I $(HEADER)
 	@$(CC) $(DEBUG) -o $(NAME) $(OBJ) libft/libft.a
-	@echo -e "\033[36mCreate fdf\033[0m"
+	@echo -e "\033[36mCreate \033[0m"

@@ -6,12 +6,12 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/24 15:00:58 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/02/24 19:50:59 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/02/28 15:17:24 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
-#include <stdio.h>
+
 t_struct	***wlf_get_tab(char *old)
 {
 	t_struct	***tab;
@@ -26,16 +26,13 @@ t_struct	***wlf_get_tab(char *old)
 	ptr = NULL;
 	while ((++i == 0 || (ptr = tab)) && ((ret = get_next_line(fd, &str)) > 0))
 	{
-		tab = (t_struct***)malloc(sizeof(t_struct**) * (1 + i));
+		tab = (t_struct***)ft_strnew(sizeof(t_struct**) * (1 + i));
 		ft_memcpy(tab, ptr , (sizeof(t_struct**) * i));
 		tab[i] = wlf_strsplit(str, ' ', i);
 		free(str);
 	}
 	if (tab == NULL || ret == -1)
 		exit(0);
-	printf("x : %d\t%d\ny : %d\t%d\nz = %d\n\n", 3, tab[3][0]->x, 0, tab[3][0]->y, tab[3][0]->z);
-	tab[i + 1] = NULL;
-	printf("x : %d\t%d\ny : %d\t%d\nz = %d\n\n", 3, tab[3][0]->x, 0, tab[3][0]->y, tab[3][0]->z);
 	close(fd);
 	return (tab);
 }
@@ -72,18 +69,13 @@ t_struct	**wlf_strsplit(char *str, int c, int x)
 	{
 		while (str[j] == c && str[j] != '\0')
 			j++;
-		if ((strc[i] = (t_struct*)malloc(sizeof(t_struct))) == NULL)
+		if ((strc[i] = (t_struct*)ft_strnew(sizeof(t_struct))) == NULL)
 			exit(0);
 		*(strc[i]) = wlf_get_strc(str + j, x, i);
-		ft_putnbr(x);
-		ft_putendl("<== oui ceci est degeulasse mais c'est la preuve que mes valeurs sont bonnes");
-		ft_putnbr(strc[i]->x);
-		ft_putendl("<== et ceci est la confirmation");
 		while (str[j] != c && str[j] != '\0')
 			j++;
 		i++;
 	}
-	ft_putendl("");
 	strc[i] = NULL;
 	return(strc);
 }
