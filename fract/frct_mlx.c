@@ -1,5 +1,10 @@
 #include "fract.h"
-
+/*
+int		frct_zoom(t_env *e, t_env *tmp, double center)
+{
+	return (0);
+}
+*/
 int		mouse_hook(int button, int x, int y, t_env *e)
 {
 	double	delta;
@@ -13,35 +18,34 @@ int		mouse_hook(int button, int x, int y, t_env *e)
 	if (button == 4)
 	{
 		delta = e->x_max - e->x_min;
-		delta = (delta * 4) / 3;
 		if (delta <= 0.0)
 			delta = 0.01;
-		center = (e->x_max + e->x_min) / 2;
-		e->x_min = center + (delta / 2);
-		e->x_max = center - (delta / 2);
+		delta = (delta * 3) / 4;
+		e->x_min = (e->x_min + (x / e->zoom)) + delta / 2;
+		e->x_max = (e->x_max + (x / e->zoom)) - delta / 2;
 		delta = e->y_max - e->y_min;
-		delta = (delta * 4) / 3;
 		if (delta <= 0.0)
 			delta = 0.01;
-		center = (e->x_max + e->x_min) / 2;
-		delta = (delta * 4) / 3;
-		e->y_min = center + (delta / 2);
-		e->y_max = center - (delta / 2);
+		delta = (delta * 3) / 4;
+		e->y_min = (e->y_min + (y / e->zoom)) + delta / 2;
+		e->y_max = (e->y_max + (y / e->zoom)) - delta / 2;
 	}
 	if (button == 5)
 	{
 		delta = e->x_max - e->x_min;
+		delta = (delta * 4) / 3;
 		if (delta <= 0.0)
 			delta = 0.01;
-		delta = (delta * 3) / 4;
-		e->x_min = e->x_min - (x - (delta / 2)) / e->zoom;
-		e->x_max = e->x_max + (x + (delta / 2)) / e->zoom;
+		center = (e->x_max + e->x_min) / 2;
+		e->x_min = center - (delta / 2);
+		e->x_max = center + (delta / 2);
 		delta = e->y_max - e->y_min;
+		delta = (delta * 4) / 3;
 		if (delta <= 0.0)
 			delta = 0.01;
-		delta = (delta * 3) / 4;
-		e->y_min = e->y_min - (y - (delta / 2)) / e->zoom;
-		e->y_max = e->y_max + (y - (delta / 2)) / e->zoom;
+		center = (e->y_max + e->y_min) / 2;
+		e->y_min = center - (delta / 2);
+		e->y_max = center + (delta / 2);
 	}
 	if (button == 1)
 		e->focus = e->focus ? 0 : 1;
