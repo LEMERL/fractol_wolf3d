@@ -21,14 +21,16 @@ int		mouse_hook(int button, int x, int y, t_env *e)
 		if (delta <= 0.0)
 			delta = 0.01;
 		delta = (delta * 3) / 4;
-		e->x_min = (e->x_min + (x / e->zoom)) + delta / 2;
-		e->x_max = (e->x_max + (x / e->zoom)) - delta / 2;
+		center = e->x_min + (x / e->zoom);
+		e->x_min = center - delta / 2;
+		e->x_max = center + delta / 2;
 		delta = e->y_max - e->y_min;
 		if (delta <= 0.0)
 			delta = 0.01;
 		delta = (delta * 3) / 4;
-		e->y_min = (e->y_min + (y / e->zoom)) + delta / 2;
-		e->y_max = (e->y_max + (y / e->zoom)) - delta / 2;
+		center = e->y_min + (y / e->zoom);
+		e->y_min = center - delta / 2;
+		e->y_max = center + delta / 2;
 	}
 	if (button == 5)
 	{
@@ -80,6 +82,10 @@ int		key_hook(int keycode, t_env *e)
 		e->y_min = -2.0;
 		e->y_max = 2.0;
 	}
+	if (keycode == 61)
+		e->iter_max += 10;
+	if (keycode == 45)
+		e->iter_max -= 10;
 	frct_draw(e);
 	(void)keycode;
 	(void)e;

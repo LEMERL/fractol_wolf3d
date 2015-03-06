@@ -21,13 +21,13 @@ int		key_hook(int keycode, t_env *e)
 		e->player.y = 20;
 	}
 	if (keycode == KEY_DOWN)
-		move(e, 0, 15);
+		move(e, 0, 25);
 	if (keycode == KEY_UP)
-		move(e, 0, -15);
+		move(e, 0, -25);
 	if (keycode == KEY_LEFT)
-		move(e, -15, 0);
+		move(e, -25, 0);
 	if (keycode == KEY_RIGHT)
-		move(e, 15, 0);
+		move(e, 25, 0);
 	expose_hook(e);
 	return (0);
 }

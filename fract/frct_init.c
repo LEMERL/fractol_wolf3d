@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 13:31:03 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/02/25 20:04:26 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/03/02 18:32:21 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ void	frct_init(t_env *e)
 	e->mlx = mlx_init();
 	if (e->mlx == NULL || e->win == NULL)
 		ft_fatal_error(e);
-	e->win->width = 200;
-	e->win->height = 200;
+	e->win->width = 100;
+	e->win->height = 100;
 	e->win->ptr = mlx_new_window(e->mlx, e->win->width, e->win->height, "frct");
 	if (e->win->ptr == NULL)
 		ft_fatal_error(e);
 	e->x_min = -2.0;
-	e->x_max = 2.0;
+	e->x_max = 1.0;
 	e->y_min = -2.0;
-	e->y_max = 2.0;
-	e->iter_max = 50;
+	e->y_max = 1.0;
+	e->iter_max = 200;
 	e->cst.real = 0.0;
 	e->cst.cplx = 0.0;
 	if (e->slc == JULIA)
