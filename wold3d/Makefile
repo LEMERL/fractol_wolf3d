@@ -6,13 +6,13 @@
 #    By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/17 18:26:04 by mgrimald          #+#    #+#              #
-#    Updated: 2015/02/28 17:11:22 by mgrimald         ###   ########.fr        #
+#    Updated: 2015/03/07 15:39:19 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-MLX = -L/usr/X11/lib -lmlx -lXext -lX11
+MLX = -framework OpenGL -framework AppKit -lmlx
 
-CFLAGS = -Wall -Wextra -Werror $(MLX)
+CFLAGS = -Wall -Wextra -Werror
 
 DEBUG = $(CFLAGS) -g
 
@@ -39,10 +39,9 @@ all:
 	@make $(NAME)
 
 $(NAME): $(SRC)
-	@make -C libft/ fclean
 	@make -C libft/
 	@$(CC) $(CFLAGS) -c $(SRC) -I $(HEADER)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/libft.a
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MLX) libft/libft.a
 	@echo "\033[36mCreate $(NAME) executable \033[0m"
 
 
@@ -52,7 +51,7 @@ clean:
 	@$(RM) $(OBJ)
 
 fclean: clean
-	@make -C libft/ fclean
+	@make -C libft/ clean
 	@echo "\033[31mDelete $(NAME) executable\033[0m"
 	@$(RM) $(NAME)
 
@@ -63,7 +62,7 @@ debug:
 	@make -C libft/ debug
 	@echo "\033[32mCompile all \".c\" with debug flag\033[0m"
 	@$(CC) $(DEBUG) -c $(SRC) -I $(HEADER)
-	@$(CC) $(DEBUG) -o $(NAME) $(OBJ) libft/libft.a
+	@$(CC) $(DEBUG) -o $(NAME) $(OBJ) $(MLX) libft/libft.a
 	@echo "\033[36mCreate $(NAME)\033[0m"
 
 mlx_free:

@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/06 13:25:34 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/01/10 18:12:17 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/03/07 18:29:27 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	delzero(void *ptr, size_t size)
 
 	str = ptr;
 	i = 0;
-	while (i < size);
+	while (i < size)
 	{
 		str[i] = 0;
 		i++;

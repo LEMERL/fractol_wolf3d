@@ -24,6 +24,16 @@ int		mouse_hook(int button, int x, int y, t_env *e)
 		center = e->x_min + (x / e->zoom);
 		e->x_min = center - delta / 2;
 		e->x_max = center + delta / 2;
+		if (e->x_min > tmp.x_min)
+		{
+			e->x_min = tmp.x_min;
+			e->x_max = tmp.x_min + delta;
+		}
+		else if (e->x_max < tmp.x_max)
+		{
+			e->x_max = tmp.x_max;
+			e->x_min = tmp.x_max + delta;
+		}
 		delta = e->y_max - e->y_min;
 		if (delta <= 0.0)
 			delta = 0.01;
@@ -31,6 +41,16 @@ int		mouse_hook(int button, int x, int y, t_env *e)
 		center = e->y_min + (y / e->zoom);
 		e->y_min = center - delta / 2;
 		e->y_max = center + delta / 2;
+		if (e->y_min > tmp.y_min)
+		{
+			e->y_min = tmp.y_min;
+			e->y_max = tmp.y_min + delta;
+		}
+		else if (e->y_max < tmp.y_max)
+		{
+			e->y_max = tmp.y_max;
+			e->y_min = tmp.y_max + delta;
+		}
 	}
 	if (button == 5)
 	{

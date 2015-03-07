@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/26 14:00:16 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/01/06 16:01:10 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/03/07 18:30:19 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_lstdelone_db(t_lst_db **alst, void (*del)(void*, size_t))
 {
 	t_lst_db	*tmp;
 
+	tmp = NULL;
 	if (alst && *alst)
 	{
 		if ((*alst)->prev || (*alst)->next)
