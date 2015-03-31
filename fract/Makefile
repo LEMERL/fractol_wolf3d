@@ -6,7 +6,7 @@
 #    By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/17 18:26:04 by mgrimald          #+#    #+#              #
-#    Updated: 2015/03/07 18:28:12 by mgrimald         ###   ########.fr        #
+#    Updated: 2015/03/21 16:05:21 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC = main.c \
 	  mlxr.c \
 	  frct_calculus.c \
 	  frct_init.c \
-	  ft_fatal_error.c
+	  ft_fatal_error.c \
+	  frct_mlx.c
 
 HEADER = ./libft/includes/
 
@@ -39,8 +40,9 @@ all:
 
 $(NAME): $(SRC)
 	@make -C libft/
-	@$(CC) $(CFLAGS) -c $(SRC) -I $(HEADER)
-	@$(CC) $(CFLAGS) -o $(OBJ) $(MLX) -o $(NAME) libft/libft.a
+#	@$(CC) $(CFLAGS) -c $(SRC) -I $(HEADER)
+#	@$(CC) $(CFLAGS) -o $(OBJ) $(MLX) -o $(NAME) libft/libft.a
+	@$(CC) $(CFLAGS) $(SRC) -I $(HEADER) $(MLX) -o $(NAME) libft/libft.a
 	@echo "\033[36mCreate $(NAME) executable \033[0m"
 
 

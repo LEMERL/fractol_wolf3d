@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 14:49:40 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/03/07 19:13:22 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/03/21 16:01:10 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_fatal_error(t_env *e)
 {
+	(void)e;
 	ft_putendl_fd("ANNILITATION OF THE SOFTWARE", 2);
 	ft_putendl_fd("this may have been caused by :", 2);
 	ft_putendl_fd("\t\t\t-> An error occuring during the running process", 2);
