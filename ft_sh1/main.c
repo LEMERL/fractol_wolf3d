@@ -10,6 +10,7 @@ int			main(int argc, char **argv, char **env)
 	(void)argc;
 	(void)argv;
 
+//		gestion_signal();
 	get_env(&strc_env, env);
 	ft_putstr("$>");
 	while((ret = get_next_line(0, &line)) > 0)
@@ -27,7 +28,6 @@ int			main(int argc, char **argv, char **env)
 			exit(0);
 		}
 	}
-	gestion_signal();
 //	if (pid > 0)
 //		liberation(&strc_env);
 	return(0);
@@ -38,6 +38,8 @@ void		built_in(t_env *strc_env, char **tab_line)
 {
 	(void)strc_env;
 	(void)tab_line;
+	if (ft_strcmp(tab_line[0], "exit"))
+		exit(1);
 /*	int		val;
 
 	val = 0;
@@ -72,7 +74,9 @@ char		**get_command(t_env *strc_env, char *line)
 */	
 	j = -1;
 	going = 1;
-	built_in(strc_env, tab_line);
+	//built_in(strc_env, tab_line);
+	if (ft_strcmp(tab_line[0], "exit") == 0)
+		kill(0, SIGINT);
 	cmd = (char*)ft_strnew(1024);
 	while (going == 1 && strc_env->path[++j] != NULL)
 	{
