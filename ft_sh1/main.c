@@ -17,21 +17,23 @@ int			main(int argc, char **argv, char **env)
 //		gestion_signal();
 	get_env(&strc_env, env);
 	ft_putstr("$>");
+	pid = 1;
 	while((ret = get_next_line(0, &line)) > 0)
 	{
 		tab_line = ft_strsplit(line, ' ');
 		if (built_in(&strc_env, tab_line) == 0)
 			pid = fork();
-		if (pid > 0)
-		{
-			wait(&status);
-			ft_putstr("\n$>");
-			free(line);
-		}
 		if (pid == 0)
 		{
 			get_command(&strc_env, tab_line);
 			exit(0);
+		}
+		if (pid > 0)
+		{
+			wait(&status);
+			ft_putstr("\n$>");
+		//	free_tab(tab_line);
+			free(line);
 		}
 	}
 //	if (pid > 0)
@@ -42,16 +44,34 @@ int			main(int argc, char **argv, char **env)
 
 int		built_in(t_env *strc_env, char **tab_line)
 {
+	printf("test of the built_in command:\n");
 	(void)strc_env;
 	(void)tab_line;
-	if (ft_strcmp(tab_line[0], "exit"))
+	if (ft_strcmp(tab_line[0], "exit") == 0)
 	{
 		ft_putendl("goodbye, see you soooooon");
 		exit(1);
 	}
-	if (ft_strcmp(tab_line[0], "cd"))
+	if (ft_strcmp(tab_line[0], "cd") == 0)
 	{
-		sh_cd(strc_env);
+		printf("so it is CD :D \n");
+//		sh_cd(strc_env);
+		return (1);
+	}
+	if (ft_strcmp(tab_line[0], "env") == 0)
+	{
+		printf("so it is ENV :D \n");
+		print_env(strc_env->env);
+		return (1);
+	}
+	if (ft_strcmp(tab_line[0], "setenv") == 0)
+	{
+		printf("so it is SETENV :D \n");
+		return (1);
+	}
+	if (ft_strcmp(tab_line[0], "unsetenv") == 0)
+	{
+		printf("so it is UNSETENV :D \n");
 		return (1);
 	}
 	return (0);
@@ -77,7 +97,9 @@ char		**get_command(t_env *strc_env, char **tab_line)
 	cmd = (char*)ft_strnew(1024);
 	while (going == 1 && strc_env->path[++j] != NULL)
 	{
-		cmd = ft_strcat(strc_env->path[j], "/");
+		ft_strclr(cmd);
+		cmd = ft_strcat(cmd, strc_env->path[j]);
+		cmd = ft_strcat(cmd, "/");
 		cmd = ft_strcat(cmd, tab_line[0]);
 		printf("command tested: %s\n", cmd);
 		if (access(cmd, F_OK|X_OK) == 0)
@@ -93,7 +115,7 @@ char		**get_command(t_env *strc_env, char **tab_line)
 	{
 		printf("command not in the PATH: %s\n", tab_line[0]);
 	}
-		free(cmd);
+	free(cmd);
 	free(tab_line);
 	(void)strc_env;
 	return (NULL);

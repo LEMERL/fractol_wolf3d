@@ -6,7 +6,7 @@ int		main(int ac, char **av, char **env)
 {
 	int		i;
 	char	**env_tmp;
-(void)ac;
+	(void)ac;
 	print_env(env);
 	i = 0;
 	while (env[i] != NULL)
