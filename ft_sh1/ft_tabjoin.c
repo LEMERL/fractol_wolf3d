@@ -6,13 +6,57 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/04 22:45:29 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/04/04 22:53:30 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/04/05 07:14:00 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh1.h"
 
+void	print_env(char **env)
+{
+	int		i;
+
+	i = -1;
+	while (env[++i] != NULL)
+		ft_putendl(env[i]);
+	ft_putstr("\n\n");
+}
+
+void	free_tab(char **tab)
+{
+	int		i;
+
+	i = 0;
+	while (tab[i] != NULL)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
+
 char	**ft_tabadd(char **tab, char *add)
+{
+	char		**new_tab;
+	int			i;
+
+	i = 0;
+	while (tab[i] != NULL)
+		i++;
+	new_tab = (char**)malloc((sizeof(char*) * (i + 2)));
+	i = 0;
+	while (tab[i] != NULL)
+	{
+		new_tab[i] = ft_strdup(tab[i]);
+		i++;
+	}
+	new_tab[i] = add;
+	new_tab[i + 1] = NULL;
+	free(tab);
+	return (new_tab);
+}
+
+char	**ft_remove_1(char **tab, char *str)
 {
 	char		**new_tab;
 	int			i;
@@ -22,14 +66,27 @@ char	**ft_tabadd(char **tab, char *add)
 	j = 0;
 	while (tab[i] != NULL)
 		i++;
-	new_tab = (char**)malloc((sizeof(char*) * i + 1));
+	new_tab = (char**)malloc((sizeof(char*) * (i + 1)));
 	i = 0;
+	j = 0;
 	while (tab[i] != NULL)
 	{
-		new_tab[i] = tab[i];
-		i++;
+		if (ft_strcmp(tab[i], str) == 0)
+		{
+		//	free(tab[i]);
+			tab[i] = NULL;
+			i++;
+		}
+		else
+		{
+			new_tab[j] = tab[i];
+			i++;
+			j++;
+		}
 	}
-	new_tab[i] = add;
-	new_tab[i + 1] = NULL;
-	return (tab);
+	while (tab[i] != NULL)
+		new_tab[j++] = tab[i++];
+	new_tab[j] = NULL;
+	free(tab);
+	return (new_tab);
 }

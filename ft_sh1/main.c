@@ -1,5 +1,8 @@
 #include "sh1.h"
 
+int		built_in(t_env *strc_env, char **tab_line);
+void	sh_cd(t_env *strc_env);
+
 int			main(int argc, char **argv, char **env)
 {
 	t_env	strc_env;
@@ -7,6 +10,7 @@ int			main(int argc, char **argv, char **env)
 	int		status;
 	int		ret;
 	pid_t	pid;
+	char	**tab_line;
 	(void)argc;
 	(void)argv;
 
@@ -15,7 +19,9 @@ int			main(int argc, char **argv, char **env)
 	ft_putstr("$>");
 	while((ret = get_next_line(0, &line)) > 0)
 	{
-		pid = fork();
+		tab_line = ft_strsplit(line, ' ');
+		if (built_in(&strc_env, tab_line) == 0)
+			pid = fork();
 		if (pid > 0)
 		{
 			wait(&status);
@@ -24,7 +30,7 @@ int			main(int argc, char **argv, char **env)
 		}
 		if (pid == 0)
 		{
-			get_command(&strc_env, line);
+			get_command(&strc_env, tab_line);
 			exit(0);
 		}
 	}
@@ -34,38 +40,29 @@ int			main(int argc, char **argv, char **env)
 }
 
 
-void		built_in(t_env *strc_env, char **tab_line)
+int		built_in(t_env *strc_env, char **tab_line)
 {
 	(void)strc_env;
 	(void)tab_line;
 	if (ft_strcmp(tab_line[0], "exit"))
-		exit(1);
-/*	int		val;
-
-	val = 0;
-	if (ft_strcmp(tab_line[0], "exit"))
 	{
-		if (tab_line[1] != NULL)
-			val = ft_atoi(tab_line[1]);
-		exit(val);
+		ft_putendl("goodbye, see you soooooon");
+		exit(1);
 	}
 	if (ft_strcmp(tab_line[0], "cd"))
 	{
-//		if (tab_line[1] != NULL)
-		//	cd();
-		printf("we should be moving");
-		exit(0);
-	}*/
+		sh_cd(strc_env);
+		return (1);
+	}
+	return (0);
 }
 
-char		**get_command(t_env *strc_env, char *line)
+char		**get_command(t_env *strc_env, char **tab_line)
 {
 	char		*cmd;
-	char		**tab_line;
 	int			j;
 	int			going;
 
-	tab_line = ft_strsplit(line, ' ');
 /*	if (ft_strncmp(tab_line[0], "./", 2) == 0)
 	{
 		cmd = ft_strcat(cmd, (tab_line[0] + 2));
@@ -86,7 +83,6 @@ char		**get_command(t_env *strc_env, char *line)
 		if (access(cmd, F_OK|X_OK) == 0)
 			going = 0;
 	}
-	printf("line receveid: %s\n", line);
 	printf("command receveid: %s\n", tab_line[0]);
 	if (going == 0)
 	{

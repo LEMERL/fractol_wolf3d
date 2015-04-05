@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/04 14:32:21 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/04/05 01:31:01 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/04/05 08:00:01 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ void	gestion_signal();
 void	sighandler(int);
 
 void		get_env(t_env *strc_env, char **env);
-char		**get_command(t_env *strc_env, char *line);
+char		**get_command(t_env *strc_env, char **tab_line);
 
+void	free_tab(char **tab);
+void	print_env(char **env);
+char	**ft_remove_1(char **tab, char *str);
+char	**ft_tabadd(char **tab, char *add);
 #endif
