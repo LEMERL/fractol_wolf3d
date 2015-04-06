@@ -6,11 +6,24 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/04 22:45:29 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/04/05 07:14:00 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/04/06 21:29:25 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh1.h"
+
+void	maj_env(t_env *env, char ***tab_env)
+{
+	int		j;
+
+	j = 0;
+	while (tab_env[j] != NULL)
+	{
+		while (strcmp("PATH", tab_env[j][0]) == 0 && tab_env[j][v + 1] != NULL)
+		j++;
+	}
+	while 
+}
 
 void	print_env(char **env)
 {

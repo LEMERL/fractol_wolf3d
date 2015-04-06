@@ -1,13 +1,23 @@
 #include "sh1.h"
 
-void	gestion_signal()
+void ft_exit()
 {
-	signal(SIGFPE, sighandler);
-	signal(SIGTERM, sighandler);
-	signal(SIGINT, sighandler);
-	signal(SIGILL, sighandler);
-	signal(SIGABRT, sighandler);
-	signal(SIGSEGV, sighandler);
+	exit(0);
+}
+
+void	gestion_signal(int cons)
+{
+	void	*ft;
+
+	ft = sighandler;
+	if (cons == 1)
+		ft = ft_exit;
+	signal(SIGFPE, ft);
+	signal(SIGTERM, ft);
+	signal(SIGINT, ft);
+	signal(SIGILL, ft);
+	signal(SIGABRT, ft);
+	signal(SIGSEGV, ft);
 }
 
 void sighandler(int signum)
@@ -24,6 +34,7 @@ void sighandler(int signum)
 	if (signum == SIGTERM)
 		printf("SIGTERM: terminate\n");
 	if (signum == SIGINT)
-		printf("SIGINT: Interupt, (?continue with bg?)\n");
-	exit(0);
+		printf("SIGINT: Interupt\n");
+	ft_putstr("\n$>");
+//	exit(0);
 }

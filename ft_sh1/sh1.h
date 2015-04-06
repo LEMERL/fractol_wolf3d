@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/04 14:32:21 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/04/05 08:00:01 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/04/06 18:24:41 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct		s_env
 }					t_env;
 
 void	gestion_signal();
+void	ignore_signal();
 void	sighandler(int);
 
 void		get_env(t_env *strc_env, char **env);

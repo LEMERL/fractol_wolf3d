@@ -1,7 +1,7 @@
 #include "sh1.h"
 
 int		built_in(t_env *strc_env, char **tab_line);
-void	sh_cd(t_env *strc_env);
+void	sh_cd(t_env *strc_env, char **arg);
 
 int			main(int argc, char **argv, char **env)
 {
@@ -14,9 +14,9 @@ int			main(int argc, char **argv, char **env)
 	(void)argc;
 	(void)argv;
 
-//		gestion_signal();
+	gestion_signal(0);
 	get_env(&strc_env, env);
-	ft_putstr("$>");
+	ft_putstr("\n$>");
 	pid = 1;
 	while((ret = get_next_line(0, &line)) > 0)
 	{
@@ -25,6 +25,7 @@ int			main(int argc, char **argv, char **env)
 			pid = fork();
 		if (pid == 0)
 		{
+			gestion_signal(1);
 			get_command(&strc_env, tab_line);
 			exit(0);
 		}
@@ -55,7 +56,7 @@ int		built_in(t_env *strc_env, char **tab_line)
 	if (ft_strcmp(tab_line[0], "cd") == 0)
 	{
 		printf("so it is CD :D \n");
-//		sh_cd(strc_env);
+		sh_cd(strc_env, tab_line + 1);
 		return (1);
 	}
 	if (ft_strcmp(tab_line[0], "env") == 0)
