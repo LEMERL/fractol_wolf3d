@@ -2,6 +2,7 @@
 
 void ft_exit()
 {
+	ft_putstr("\n$>");
 	exit(0);
 }
 
@@ -35,6 +36,5 @@ void sighandler(int signum)
 		printf("SIGTERM: terminate\n");
 	if (signum == SIGINT)
 		printf("SIGINT: Interupt\n");
-	ft_putstr("\n$>");
 //	exit(0);
 }

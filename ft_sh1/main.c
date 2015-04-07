@@ -2,6 +2,7 @@
 
 int		built_in(t_env *strc_env, char **tab_line);
 void	sh_cd(t_env *strc_env, char **arg);
+void	gt_env(t_env *strc_env, char **env);
 
 int			main(int argc, char **argv, char **env)
 {
@@ -15,7 +16,7 @@ int			main(int argc, char **argv, char **env)
 	(void)argv;
 
 	gestion_signal(0);
-	get_env(&strc_env, env);
+	gt_env(&strc_env, env);
 	ft_putstr("\n$>");
 	pid = 1;
 	while((ret = get_next_line(0, &line)) > 0)
@@ -42,9 +43,12 @@ int			main(int argc, char **argv, char **env)
 	return(0);
 }
 
+void		sh_unset_env(char *str, t_env *env);
 
 int		built_in(t_env *strc_env, char **tab_line)
 {
+	int		i;
+
 	printf("test of the built_in command:\n");
 	(void)strc_env;
 	(void)tab_line;
@@ -70,8 +74,11 @@ int		built_in(t_env *strc_env, char **tab_line)
 		printf("so it is SETENV :D \n");
 		return (1);
 	}
+	i = 0;
 	if (ft_strcmp(tab_line[0], "unsetenv") == 0)
 	{
+		while (tab_line[++i] != NULL)
+			sh_unset_env(tab_line[i], strc_env);
 		printf("so it is UNSETENV :D \n");
 		return (1);
 	}

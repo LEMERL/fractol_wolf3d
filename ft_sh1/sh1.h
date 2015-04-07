@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/04 14:32:21 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/04/06 18:24:41 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/04/07 16:51:24 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,16 @@
 #include <stdio.h>
 
 
+typedef struct		s_sub_env
+{
+	char			*full;
+	char			*head;
+	char			*body;
+}					t_sub_env;
+
 typedef struct		s_env
 {
+	t_list			*list;
 	char			**env;
 	char			***tab;
 	char			**path;
