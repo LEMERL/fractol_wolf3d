@@ -6,14 +6,14 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/07 13:25:27 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/04/07 18:09:12 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/04/15 17:45:30 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh1.h"
 
-char	**prefabriced_env(void);
-void	*sh_fill_strc(char *str);
+char		**prefabriced_env(void);
+t_sub_env	sh_fill_strc(char *str);
 
 char	**tab_dup(char **tab)
 {
@@ -34,35 +34,6 @@ char	**tab_dup(char **tab)
 	return (ret);
 }
 
-void	gt_env(char **env, t_env *strc)
-{
-	t_list		*lst;
-	t_sub_env	*st;
-	int			i;
-
-//	if (env == NULL || *env == NULL)
-//		env = prefabriced_env();
-//	else
-		env = tab_dup(env);
-	lst = ft_lstnew(NULL, 0);
-	i = -1;
-	while (env[++i] != NULL)
-	{
-		st = sh_fill_strc(env[i]);
-		ft_lstadd(&lst, ft_lstnew(st, sizeof(*st)));
-		if (ft_strcmp(((t_sub_env*)lst->content)->head, "PATH") == 0)
-			strc->path = ft_strsplit(((t_sub_env*)lst->content)->body, ':');
-		if (ft_strcmp(((t_sub_env*)lst->content)->head, "HOME") == 0)
-			strc->home = ((t_sub_env*)lst->content)->body;
-		if (ft_strcmp(((t_sub_env*)lst->content)->head, "PWD") == 0)
-			strc->pwd = ((t_sub_env*)lst->content)->body;
-		if (ft_strcmp(((t_sub_env*)lst->content)->head, "OLDPWD") == 0)
-			strc->oldpwd = ((t_sub_env*)lst->content)->body;
-	}
-	strc->env = env;
-	strc->list = lst;
-}
-
 void	sh_print_env(t_env *env);
 
 void	delete_strc(void *tmp, size_t size)
@@ -74,21 +45,6 @@ void	delete_strc(void *tmp, size_t size)
 	free(strc->head);
 	free(strc->body);
 	free(strc);
-}
-
-void	*sh_fill_strc(char *str)
-{
-	t_sub_env	*strc;
-	int			i;
-
-	strc = malloc(sizeof(t_sub_env));
-	strc->full = str;
-	while (str[i] != '\0' && str[i] != '=')
-		i++;
-	str[i] = '\0';
-	strc->head = ft_strdup(str);
-	strc->body = ft_strdup(str + i);
-	return (strc);
 }
 
 void	sh_unset_env(char *str, t_env *env)
