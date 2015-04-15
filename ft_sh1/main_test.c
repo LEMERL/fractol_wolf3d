@@ -5,19 +5,24 @@ char	**sh_unsetenv(char **old_env, char *str);
 int		main(int ac, char **av, char **env)
 {
 	int		i;
-	char	**env_tmp;
+	char	env_tmp;
 	(void)ac;
+	t_env	strc_env;
+
 	print_env(env);
+	gt_env(env, &strc_env);
+	print_env(strc_env.env);
 	i = 0;
 	while (av[i] != NULL)
 	{
 //		env_tmp = ft_tabadd(env_tmp, av[i++]);
-		print_env(env_tmp);
+	print_env(strc_env.env);
+		i++;
 	}
 	while (--i >= 0)
 	{
 //		env_tmp = sh_unsetenv(env_tmp, av[i]);
-		print_env(env_tmp);
+	print_env(strc_env.env);
 	}
 	return (0);
 }

@@ -6,10 +6,11 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/15 16:29:03 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/04/15 17:48:15 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/04/15 21:22:34 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "sh1.h"
 
 t_sub_env	sh_fill_strc(char *str)
 {
@@ -52,22 +53,32 @@ char	**maj_env(t_list *lst)
 	return (env);
 }
 
+char	**prefabriced_env(void)
+{
+	char	**tab;
+	tab = (char**)malloc(sizeof(char*) * 6);
+	tab[5] = NULL;
+	tab[0] = ft_strdup("PATH=");
+	tab[1] = ft_strdup("PWD=/");
+	tab[2] = ft_strdup("OLDPWD=/");
+	tab[3] = ft_strdup("SHLVL=1");
+	tab[4] = ft_strdup("SHELL=minishell");
+}
+
 void	gt_env(char **env, t_env *strc)
 {
 	t_list		*lst;
 	t_sub_env	st;
 	int			i;
 
-	//	if (env == NULL || *env == NULL)
-	//		env = prefabriced_env();
-	//	else
-	env = tab_dup(env);
+	if (env == NULL || *env == NULL)
+		env = prefabriced_env();
 	lst = ft_lstnew(NULL, 0);
 	i = -1;
 	while (env[++i] != NULL)
 	{
 		st = sh_fill_strc(env[i]);
-		ft_lstadd(&lst, ft_lstnew(st, sizeof(*st)));
+		ft_lstadd(&lst, ft_lstnew(&st, sizeof(t_sub_env)));
 		if (ft_strcmp(((t_sub_env*)lst->content)->head, "PATH") == 0)
 			strc->path = ft_strsplit(((t_sub_env*)lst->content)->body, ':');
 		if (ft_strcmp(((t_sub_env*)lst->content)->head, "HOME") == 0)
