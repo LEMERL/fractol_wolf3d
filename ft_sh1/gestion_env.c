@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/15 16:29:03 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/04/15 21:22:34 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/04/16 16:08:17 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,24 @@ char	**prefabriced_env(void)
 	tab[2] = ft_strdup("OLDPWD=/");
 	tab[3] = ft_strdup("SHLVL=1");
 	tab[4] = ft_strdup("SHELL=minishell");
+	return (tab);
+}
+
+t_env	sh_setenv(t_env env, char *add)
+{
+		if (ft_strncmp(add, "PATH", 4) == 0)
+			env.path = ft_strsplit(((t_sub_env*)envilist->content)->body, ':');
+		if (ft_strncmp(add, "HOME", 4) == 0)
+		{
+			env.home = ((t_sub_env*)env.list->content)->body;
+			}
+			if (ft_strncmp(add, "PWD", 3) == 0)
+			env.pwd = ((t_sub_env*)env.list->content)->body;
+		if (ft_strncmp(add, "OLDPWD", 6) == 0)
+			env.oldpwd = ((t_sub_env*)env.list->content)->body;
+	ft_tabdel(env.env);
+	env.env = maj_env(env.list);
+	return (env);
 }
 
 void	gt_env(char **env, t_env *strc)
