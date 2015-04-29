@@ -2,7 +2,7 @@
 
 t_env	sh_unsetenv(t_env env, char *del);
 t_env	sh_setenv(t_env env, char *del);
-
+void	print_strc(t_env *strc);
 
 int		main(int ac, char **av, char **env)
 {
@@ -10,20 +10,26 @@ int		main(int ac, char **av, char **env)
 	(void)ac;
 	t_env	strc_env;
 
+	strc_env.path = NULL;
+	strc_env.home = NULL;
+	strc_env.pwd = NULL;
+	strc_env.oldpwd = NULL;
+	strc_env.env = NULL;
 	print_env(env);
-	gt_env(env, &strc_env);
+	get_first_env(env, &strc_env);
 	print_env(strc_env.env);
+	print_strc(&strc_env);
 	i = 0;
 	while (av[i] != NULL)
 	{
-	strc_env = sh_setenv(strc_env, av[i++]);
-	print_env(strc_env.env);
+//	strc_env = sh_setenv(strc_env, av[i++]);
+//	print_env(strc_env.env);
 		i++;
 	}
 	while (--i >= 0)
 	{
 //		env_tmp = sh_unsetenv(env_tmp, av[i]);
-	print_env(strc_env.env);
+//	print_env(strc_env.env);
 	}
 	return (0);
 }

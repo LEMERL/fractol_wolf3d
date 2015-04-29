@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/04 22:45:29 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/04/15 20:46:20 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/04/29 17:17:18 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ void	print_env(char **env)
 	while (env[++i] != NULL)
 		ft_putendl(env[i]);
 	ft_putstr("\n\n");
+}
+
+void	print_strc(t_env *strc)
+{
+	print_env(strc->env);
+	ft_putstr("$HOME is :\t");
+	ft_putendl(strc->home);
+	ft_putstr("$PWD is :\t");
+	ft_putendl(strc->pwd);
+	ft_putstr("$OLDPWD is :\t");
+	ft_putendl(strc->oldpwd);
+	ft_putendl("$PATH is composed of :\t");
+	print_env(strc->path);
 }
 
 void	free_tab(char **tab)
