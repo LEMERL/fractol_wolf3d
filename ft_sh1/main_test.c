@@ -1,7 +1,7 @@
 #include "sh1.h"
 
-t_env	sh_unsetenv(t_env env, char *del);
-t_env	sh_setenv(t_env env, char *del);
+void	sh_unsetenv(t_env *strc, char *del);
+void	sh_setenv(t_env *strc, char *del);
 void	print_strc(t_env *strc);
 
 int		main(int ac, char **av, char **env)
@@ -22,7 +22,7 @@ int		main(int ac, char **av, char **env)
 	i = 0;
 	while (av[i] != NULL)
 	{
-//	strc_env = sh_setenv(strc_env, av[i++]);
+//	sh_setenv(strc_env, av[i++]);
 //	print_env(strc_env.env);
 		i++;
 	}
@@ -31,6 +31,7 @@ int		main(int ac, char **av, char **env)
 //		env_tmp = sh_unsetenv(env_tmp, av[i]);
 //	print_env(strc_env.env);
 	}
+	while (1);
 	return (0);
 }
 

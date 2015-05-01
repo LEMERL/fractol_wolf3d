@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/04 14:32:21 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/04/28 18:08:31 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/01 19:02:46 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,9 @@
 #include <stdio.h>
 
 
-typedef struct		s_sub_env
-{
-	char			*full;
-	char			*head;
-	char			*body;
-}					t_sub_env;
-
 typedef struct		s_env
 {
-	t_list			*list;
 	char			**env;
-	char			***tab;
 	char			**path;
 	char			*home;
 	char			*pwd;
@@ -45,7 +36,7 @@ void	sighandler(int);
 void	get_first_env(char **env, t_env *strc);
 
 void		get_env(t_env *strc_env, char **env);
-char		**get_command(t_env *strc_env, char **tab_line);
+void		get_command(t_env *strc_env, char **tab_line);
 
 void	free_tab(char **tab);
 void	print_env(char **env);
