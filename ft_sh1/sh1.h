@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/04 14:32:21 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/01 19:02:46 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/04 17:10:36 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,23 @@
 #include <signal.h>
 #include <stdio.h>
 
-
-typedef struct		s_env
-{
-	char			**env;
-	char			**path;
-	char			*home;
-	char			*pwd;
-	char			*oldpwd;
-}					t_env;
-
 void	gestion_signal();
 void	ignore_signal();
 void	sighandler(int);
 
-void	get_first_env(char **env, t_env *strc);
+void	get_command(char **tab_line);
 
-void		get_env(t_env *strc_env, char **env);
-void		get_command(t_env *strc_env, char **tab_line);
+/*env_autre.c*/
 
-void	free_tab(char **tab);
+char	**prefabriced_env();
+char	**get_env(char **env, char action);
+//f == free // r == replace // s == start (debut)
+
+char	*get_str_env(char *head);
 void	print_env(char **env);
-char	**ft_remove_1(char **tab, char *str);
-char	**ft_tabadd(char **tab, char *add);
+char	**get_addr_str_env(char *head);
+
+void	sh_setenv(char **argv);
+void	sh_unsetenv(char **argv);
+
 #endif

@@ -6,25 +6,11 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 14:48:21 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/04/03 14:08:53 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/04 15:09:26 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int		ft_strclen(const char *s, int c)
-{
-	int size;
-
-	size = 0;
-	if (s == NULL)
-		return (-1);
-	while (s[size] != '\0' && s[size] != (unsigned char)c)
-		size++;
-	if (s[size] == (unsigned char)c)
-		return (size);
-	return (-1);
-}
 
 static t_list	*gnl_rest(char *rst)
 {

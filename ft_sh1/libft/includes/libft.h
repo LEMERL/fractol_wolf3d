@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 14:53:36 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/04/02 19:53:30 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/04 15:55:11 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ typedef struct		s_lst_db
 	struct s_lst_db	*prev;
 }					t_lst_db;
 
+int					ft_tablen(char **tab);
+int					ft_strclen(const char *s, int c);
+char				**ft_tabadd(char **tab, char *add);
+char				**ft_tabret(char **tab, char *ret);
+void				free_tab(char **tab);
+char				**ft_tabdup(char **tab);
+char				**ft_tabchrstr(char **tab, char *str, int len);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *s1, const void *s2, size_t n);

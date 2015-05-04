@@ -1,36 +1,20 @@
 #include "sh1.h"
 
-void	sh_unsetenv(t_env *strc, char *del);
-void	sh_setenv(t_env *strc, char *del);
-void	print_strc(t_env *strc);
-
 int		main(int ac, char **av, char **env)
 {
-	int		i;
 	(void)ac;
-	t_env	strc_env;
 
-	strc_env.path = NULL;
-	strc_env.home = NULL;
-	strc_env.pwd = NULL;
-	strc_env.oldpwd = NULL;
-	strc_env.env = NULL;
+	ft_putendl("env d'origine");
 	print_env(env);
-	get_first_env(env, &strc_env);
-	print_env(strc_env.env);
-	print_strc(&strc_env);
-	i = 0;
-	while (av[i] != NULL)
-	{
-//	sh_setenv(strc_env, av[i++]);
-//	print_env(strc_env.env);
-		i++;
-	}
-	while (--i >= 0)
-	{
-//		env_tmp = sh_unsetenv(env_tmp, av[i]);
-//	print_env(strc_env.env);
-	}
+	env = get_env(env, 's');
+	ft_putendl("env copie");
+	print_env(env);
+	sh_setenv(av);
+	ft_putendl("sh_setenv");
+	print_env(get_env(NULL, 0));
+	ft_putendl("sh_unsetenv");
+	sh_unsetenv(av);
+	print_env(get_env(NULL, 0));
 	while (1);
 	return (0);
 }

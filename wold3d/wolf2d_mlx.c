@@ -36,9 +36,9 @@ void	wolf2d_mlx(t_env *env)
 {
 	mlx_key_hook(env->win, key_hook, env);
 	mlx_expose_hook(env->win, expose_hook, env);
-//	mlx_mouse_hook(env->win, mouse_hook, env);
 	mlx_loop(env->mlx);
 }
 
+//	mlx_mouse_hook(env->win, mouse_hook, env);
 //	mlx_hook(env->win->ptr, 6, (1L << 6), motion_hook, env);
 

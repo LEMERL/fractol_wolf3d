@@ -1,91 +1,91 @@
+
 #include "sh1.h"
 
 void	sh_fatal_error(char *msg);
-int		built_in(t_env *strc_env, char **tab_line);
-void	sh_cd(t_env *strc_env, char **arg);
-void	gt_env(t_env *strc_env, char **env);
-void	sh_boucle_lecture(t_env *strc);
-int		sh_prompt();
+int		built_in(char **argv);
+void	sh_cd(char **arg);
+void	sh_boucle_lecture();
+
+int		sh_prompt()
+{
+	ft_putendl("");
+	ft_putstr(get_str_env("PWD"));
+	ft_putendl(" : ");
+	return (1);
+}
 
 int			main(int argc, char **argv, char **env)
 {
-	t_env	strc;
 	(void)argc;
 	(void)argv;
 
 	gestion_signal(0);
-	get_env(&strc, env);
-	sh_boucle_lecture(&strc);
+	get_env(env, 's');
+	sh_boucle_lecture();
 	return(0);
 }
 
-void	sh_boucle_lecture(t_env *strc)
+void	sh_boucle_lecture()
 {
 	char	*line;
-	int		status;
 	int		ret;
 	pid_t	pid;
-	char	**tab_line;
+	char	**argv;
 
 	pid = 1;
 	while(sh_prompt() && (ret = get_next_line(0, &line)) > 0)//change gnl par ((ret = get_command(0, &line)) > 0)
 	{
-		tab_line = ft_strsplit(line, ' ');
-		if (built_in(strc, tab_line) == 0)
-			if ((pid = fork()) < 0)
-				sh_fatal_error("fork failled");
+		argv = ft_strsplit(line, ' ');// " " << >> && || ~ \'/' + change $PATH par bonne valeur
+		if (built_in(argv) == 0)
+			pid = fork();
+//				sh_fatal_error("fork failled");
 		if (pid == 0)
 		{
 			gestion_signal(1);
-			get_command(strc, tab_line);
+			get_command(argv);
 			exit(0);
 		}
 		if (pid > 0)
 		{
-			wait(&status);
-			ft_putstr("\n$>");
-		//	free_tab(tab_line);
+			wait(NULL);
+			free_tab(argv);
 			free(line);
 		}
 	}
 }
 
-void		sh_unset_env(char *str, t_env *env);
-
-int		built_in(t_env *strc_env, char **tab_line)
+int		built_in(char **argv)
 {
 	int		i;
 
 	i = 0;
 	printf("test of the built_in command:\n");
-	(void)strc_env;
-	(void)tab_line;
-	if (ft_strcmp(tab_line[0], "exit") == 0)
+	if (ft_strcmp(argv[0], "exit") == 0)
 	{
 		ft_putendl("goodbye, see you soooooon");
 		exit(1);
 	}
-	else if (ft_strcmp(tab_line[0], "cd") == 0)
+	else if (ft_strcmp(argv[0], "cd") == 0)
 	{
 		printf("so it is CD :D \n");
-		sh_cd(strc_env, tab_line + 1);
+		sh_cd(argv);
 		return (1);
 	}
-	else if (ft_strcmp(tab_line[0], "env") == 0)
+	else if (ft_strcmp(argv[0], "env") == 0)
 	{
 		printf("so it is ENV :D \n");
-		print_env(strc_env->env);
+		print_env(get_env(NULL, 0));
 		return (1);
 	}
-	else if (ft_strcmp(tab_line[0], "setenv") == 0)
+	else if (ft_strcmp(argv[0], "setenv") == 0)
 	{
 		printf("so it is SETENV :D \n");
 		return (1);
 	}
-	else if (ft_strcmp(tab_line[0], "unsetenv") == 0)
+	else if (ft_strcmp(argv[0], "unsetenv") == 0)
 	{
-		while (tab_line[++i] != NULL)
-			sh_unset_env(tab_line[i], strc_env);
+		while (argv[++i] != NULL)
+			sh_unsetenv(argv);
 		printf("so it is UNSETENV :D \n");
 		return (1);
 	}
@@ -93,12 +93,20 @@ int		built_in(t_env *strc_env, char **tab_line)
 	return (0);
 }
 
-void		get_command(char **tab_line)
+void		command_not_in_path(char **argv)
 {
-	if (tab_line[0][0] == '.' || tab_line[0][0] == '/' || tab_line[0][0] == '~')
-		command_not_in_path(tab_line);
+	if (access(argv[0], F_OK|X_OK) == 0)
+		execve(argv[0], argv, get_env(NULL, 0));
+}
+
+void		command_in_path(char **tab_cmd);
+
+void		get_command(char **argv)
+{
+	if (argv[0][0] == '.' || argv[0][0] == '/' || argv[0][0] == '~')
+		command_not_in_path(argv);
 	else
-		command_in_path(tab_line);
+		command_in_path(argv);
 }
 
 void		command_in_path(char **tab_cmd)
@@ -106,19 +114,22 @@ void		command_in_path(char **tab_cmd)
 	char		*cmd;
 	int			j;
 	int			going;
+	char		**path;
 
 	j = -1;
 	going = 1;
-	//built_in(strc_env, tab_line);
+	if ((path = get_addr_str_env("PATH")) == NULL)
+		exit (-1);
 	if (ft_strcmp(tab_cmd[0], "exit") == 0)
 		kill(0, SIGINT);
-	cmd = (char*)ft_strnew(1024);
-	while (going == 1 && strc_env->path[++j] != NULL)
+	cmd = (char*)ft_strnew(ft_strlen(*path) + ft_strlen(tab_cmd[0] + 3));
+	path = ft_strsplit(*path, ':');
+	while (going == 1 && path[++j] != NULL)
 	{
 		ft_strclr(cmd);
-		cmd = ft_strcat(cmd, strc_env->path[j]);
+		cmd = ft_strcat(cmd, path[j]);
 		cmd = ft_strcat(cmd, "/");
-		cmd = ft_strcat(cmd, tab_line[0]);
+		cmd = ft_strcat(cmd, tab_cmd[0]);
 		printf("command tested: %s\n", cmd);
 		if (access(cmd, F_OK|X_OK) == 0)
 			going = 0;
@@ -127,14 +138,12 @@ void		command_in_path(char **tab_cmd)
 	if (going == 0)
 	{
 		printf("command executed: %s\n", cmd);
-		execve(cmd, tab_cmd, strc_env->env);
+		execve(cmd, tab_cmd, get_env(NULL, 0));
 	}
 	else
 	{
-		printf("command not in the PATH: %s\n", tab_line[0]);
+		printf("command not in the PATH: %s\n", tab_cmd[0]);
 	}
 	free(cmd);
-	free(tab_line);
-	(void)strc_env;
-	return (NULL);
+	free_tab(path);
 }

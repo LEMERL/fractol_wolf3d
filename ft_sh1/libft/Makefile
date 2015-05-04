@@ -6,7 +6,7 @@
 #    By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/10 17:46:31 by mgrimald          #+#    #+#              #
-#    Updated: 2015/04/03 14:06:12 by mgrimald         ###   ########.fr        #
+#    Updated: 2015/05/04 15:04:03 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,8 +90,9 @@ SRC = del.c \
 	  ft_lsttochar_db.c \
 	  ft_lstdelall_db.c \
 	  ft_lstdel_db.c \
-	  get_next_line.c
-
+	  ft_tab_divers.c \
+	  get_next_line.c \
+	  ft_strclen.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

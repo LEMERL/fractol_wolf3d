@@ -6,34 +6,39 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/06 18:49:29 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/04/06 19:17:07 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/04 19:23:08 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh1.h"
 
-void	sh_cd(t_env *env, char **arg)
+void	sh_cd(char **arg)
 {
-	int		ret;
 	char	*dir;
-	char	*str;
+	char	**pwd;
+	char	**oldpwd;
 
 	dir = NULL;
-	if (arg == NULL || arg[0] == NULL)
-		ret = chdir(env->home);
-	else if (arg[1] != NULL)
+	if (arg == NULL || arg[1] == NULL)
+		dir = ft_strdup(get_str_env("HOME"));
+	else if (arg[1] != NULL && arg[2] != NULL)
 		ft_putendl("error: cd: too many arguments");
-	else if (ft_strcmp(arg[0], "-") == 0)
-		dir = env->oldpwd;
-	else if (ft_strncmp(arg[0], "~", 1) == 0)
-		dir = ft_strjoin(env->home, arg[0] + 1);
+	else if (ft_strcmp(arg[1], "-") == 0)
+		dir = ft_strdup(get_str_env("OLDPWD"));
+	else if (ft_strncmp(arg[1], "~", 1) == 0)
+		dir = ft_strjoin(get_str_env("HOME"), arg[1] + 1);
 	else
-		dir = arg[0];
+		dir = arg[1];
 	if (dir != NULL && access(dir, F_OK|X_OK) == 0 && chdir(dir) == 0)
 	{
-		free(env->oldpwd);
-		env->oldpwd = env->pwd;
-		str = ft_strnew(1024);
-		env->pwd = getcwd(str, 1024);
+		pwd = get_addr_str_env("PWD");
+		oldpwd = get_addr_str_env("OLDPWD");
+		free(*oldpwd);
+		*oldpwd = *pwd;
+		*pwd = getcwd(NULL, 0);
 	}
+	else
+		ft_putendl("cd: usage: cd [~|~/dir|-|dir]");
+	if (dir != NULL)
+		free(dir);
 }
