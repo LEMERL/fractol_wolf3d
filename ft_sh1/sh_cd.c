@@ -6,12 +6,13 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/06 18:49:29 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/06 20:06:24 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/06 20:22:50 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh1.h"
-void	change_pwd_old()
+
+void	change_pwd_old(void)
 {
 	char	**pwd;
 	char	**oldpwd;
