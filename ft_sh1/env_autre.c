@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 18:42:09 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/04 17:06:16 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/06 19:29:56 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,13 @@ char	*get_str_env(char *head)
 {
 	char	**env;
 	int		i;
+	char	*str;
 
 	i = 0;
 	env = get_env(NULL, 0);
-	return (*(ft_tabchrstr(env, head, ft_strlen(head))));
+	str = *(ft_tabchrstr(env, head, ft_strlen(head)));
+	str = ft_strchr(str, '=');
+	return (str + 1);
 }
 
 char	**get_env(char **env, char action)
