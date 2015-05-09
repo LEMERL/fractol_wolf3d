@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 14:48:21 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/04 15:09:26 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/09 16:44:50 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ static int		gnl_act(int fd, char **line, t_list **alst, char *str)
 	int		i;
 
 	rd = 1;
-	str = ft_strnew(BUFF_SIZE);
+	if (str == NULL)
+		str = ft_strnew(BUFF_SIZE);
 	while (rd >= 0)
 	{
 		if ((i = ft_strclen((*alst)->content, '\n')) >= 0 || rd == 0)
@@ -104,9 +105,11 @@ int				get_next_line(const int fd, char **line)
 		if (str == NULL)
 			return (-1);
 		if ((rd = read(fd, str, BUFF_SIZE)) <= 0)
+		{
+			free(str);
 			return (rd);
+		}
 		lst = ft_lstnew(str, rd);
-		free(str);
 	}
 	return (gnl_act(fd, line, &lst, str));
 }

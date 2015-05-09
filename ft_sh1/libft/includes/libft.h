@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 14:53:36 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/04 15:55:11 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/08 15:23:19 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct		s_lst_db
 	struct s_lst_db	*prev;
 }					t_lst_db;
 
+char				*ft_strndup(const char *s1, int n);
+int					ft_isspace(char c);
 int					ft_tablen(char **tab);
 int					ft_strclen(const char *s, int c);
 char				**ft_tabadd(char **tab, char *add);

@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/04 14:32:21 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/04 17:10:36 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/08 15:47:01 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,8 @@ char	**get_addr_str_env(char *head);
 void	sh_setenv(char **argv);
 void	sh_unsetenv(char **argv);
 
+int			get_next_command(char ***tab_command);
+int			sh_prompt(int v);
+
+char		**split_cmd(char *str);
 #endif

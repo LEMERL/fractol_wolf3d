@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/15 16:29:03 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/04 18:36:01 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/08 19:19:57 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ void	sh_setenv(char **argv)
 	{
 		free(*tmp);
 		*tmp = str;
+		printf("\n\talready in : %s\n\t%s", argv[1], str);
 		return ;
 	}
 	env = ft_tabadd(env, str);
 	get_env(env, 'r');
+	printf("\n\tnot in : %s\n\t%s", argv[1], *get_addr_str_env(argv[1]));
 	free_tab(env);
 	free(str);
 }

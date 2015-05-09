@@ -6,14 +6,6 @@ int		built_in(char **argv);
 void	sh_cd(char **arg);
 void	sh_boucle_lecture();
 
-int		sh_prompt()
-{
-	ft_putendl("");
-	ft_putstr(get_str_env("PWD"));
-	ft_putendl(" : ");
-	return (1);
-}
-
 int			main(int argc, char **argv, char **env)
 {
 	(void)argc;
@@ -25,23 +17,24 @@ int			main(int argc, char **argv, char **env)
 	return(0);
 }
 
+
 void	sh_boucle_lecture()
 {
-	char	*line;
 	int		ret;
 	pid_t	pid;
 	char	**argv;
 
 	pid = 1;
-	while(sh_prompt() && (ret = get_next_line(0, &line)) > 0)//change gnl par ((ret = get_command(0, &line)) > 0)
+	while((ret = get_next_command(&argv)) > 0)
 	{
-		argv = ft_strsplit(line, ' ');// " " << >> && || ~ \'/' + change $PATH par bonne valeur
 		if (built_in(argv) == 0)
-			pid = fork();
+			if ((pid = fork()) < 0)
+				ft_putendl("fatal error");
 //				sh_fatal_error("fork failled");
 		if (pid == 0)
 		{
 			gestion_signal(1);
+			print_env(argv);
 			get_command(argv);
 			exit(0);
 		}
@@ -49,7 +42,6 @@ void	sh_boucle_lecture()
 		{
 			wait(NULL);
 			free_tab(argv);
-			free(line);
 		}
 	}
 }
@@ -63,6 +55,7 @@ int		built_in(char **argv)
 	if (ft_strcmp(argv[0], "exit") == 0)
 	{
 		ft_putendl("goodbye, see you soooooon");
+		kill(0, 0);
 		exit(1);
 	}
 	else if (ft_strcmp(argv[0], "cd") == 0)
@@ -80,16 +73,16 @@ int		built_in(char **argv)
 	else if (ft_strcmp(argv[0], "setenv") == 0)
 	{
 		printf("so it is SETENV :D \n");
+		sh_setenv(argv);
 		return (1);
 	}
 	else if (ft_strcmp(argv[0], "unsetenv") == 0)
 	{
-		while (argv[++i] != NULL)
-			sh_unsetenv(argv);
 		printf("so it is UNSETENV :D \n");
+		sh_unsetenv(argv);
 		return (1);
 	}
-	else
+	printf("return (0);\n");
 	return (0);
 }
 
@@ -97,6 +90,11 @@ void		command_not_in_path(char **argv)
 {
 	if (access(argv[0], F_OK|X_OK) == 0)
 		execve(argv[0], argv, get_env(NULL, 0));
+	else
+	{
+		ft_putstr("command not found or not allowed:");
+		ft_putendl(argv[0]);
+	}
 }
 
 void		command_in_path(char **tab_cmd);
@@ -118,12 +116,13 @@ void		command_in_path(char **tab_cmd)
 
 	j = -1;
 	going = 1;
-	if ((path = get_addr_str_env("PATH")) == NULL)
+	if ((path = (char**)get_str_env("PATH")) == NULL)
+	{
+		ft_putendl("ERROR : THERE IS NO PATH");
 		exit (-1);
-	if (ft_strcmp(tab_cmd[0], "exit") == 0)
-		kill(0, SIGINT);
-	cmd = (char*)ft_strnew(ft_strlen(*path) + ft_strlen(tab_cmd[0] + 3));
-	path = ft_strsplit(*path, ':');
+	}
+	cmd = (char*)ft_strnew(ft_strlen((char*)path) + ft_strlen(tab_cmd[0]) + 3);
+	path = ft_strsplit((char*)path, ':');
 	while (going == 1 && path[++j] != NULL)
 	{
 		ft_strclr(cmd);

@@ -6,7 +6,7 @@
 #    By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/10 17:46:31 by mgrimald          #+#    #+#              #
-#    Updated: 2015/05/04 15:04:03 by mgrimald         ###   ########.fr        #
+#    Updated: 2015/05/08 14:28:37 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ FLAGS = -Wall -Wextra -Werror -g
 DIR = includes
 
 SRC = del.c \
+	  ft_issmt.c \
 	  ft_memset.c \
 	  ft_bzero.c \
 	  ft_memcpy.c \
