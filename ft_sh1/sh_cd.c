@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/06 18:49:29 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/09 17:54:51 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/10 18:28:25 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,25 @@
 
 void	change_pwd_old(char *futur_old)
 {
-	char	**pwd;
-	char	**oldpwd;
 	char	*str;
-	char	*tmp;
+	char	**tab;
 
-	pwd = get_addr_str_env("PWD");
+	tab = (char**)ft_tabnew(4);
+	tab[0] = ft_strdup("setenv");
+	tab[1] = ft_strdup("OLDPWD");
+	tab[2] = ft_strdup(futur_old);
+	tab[3] = NULL;
+	sh_setenv(tab);
+	free_tab(tab);
 	str = getcwd(NULL, 0);
-	tmp = ft_strjoin("OLDPWD=", futur_old);
-	if ((oldpwd = get_addr_str_env("OLDPWD"))== NULL)
-		ft_tabadd(get_env(NULL, 0), tmp);
-	else
-	{
-		free(*oldpwd);
-		*oldpwd = ft_strjoin("OLDPWD=", futur_old);
-	}
-	free(tmp);
-	tmp = ft_strjoin("OLDPWD=", str);
-	if ((pwd = get_addr_str_env("PWD")) == NULL)
-		ft_tabadd(get_env(NULL, 0), tmp);
-	else
-	{
-		free(*pwd);
-		*pwd = ft_strjoin("PWD=", str);
-	}
-	free(str);
-	free(tmp);
+	tab = (char**)ft_tabnew(4);
+	tab[0] = ft_strdup("setenv");
+	tab[1] = ft_strdup("PWD");
+	tab[2] = ft_strdup(str);
+	tab[3] = NULL;
+	sh_setenv(tab);
+	free_tab(tab);
+	ft_strdel(&str);
 	ft_putstr("\ncd: success\nnew PWD:\t");
 	ft_putendl(get_str_env("PWD"));
 	ft_putstr("new OLDPWD :\t");
@@ -60,7 +53,7 @@ void	try_access(char *dir)
 			ft_putstr("cd: permission denied: ");
 			ft_putendl(dir);
 		}
-		free(futur_old);
+		ft_strdel(&futur_old);
 	}
 	else
 	{
@@ -79,15 +72,21 @@ void	sh_cd(char **arg)
 	else if (arg[1] != NULL && arg[2] != NULL)
 		ft_putendl("error: cd: too many arguments");
 	else if (ft_strcmp(arg[1], "-") == 0)
-		dir = ft_strdup(get_str_env("OLDPWD"));
-	else if (ft_strncmp(arg[1], "~", 1) == 0)
-		dir = ft_strjoin(get_str_env("HOME"), arg[1] + 1);
+	{
+		if ((dir = get_str_env("OLDPWD")) == NULL || *dir == '\0')
+		{
+			ft_putstr("I've got a very bad sense of direction.\nI think I'm ");
+			ft_putendl("lost, I can't find my way to my previous localisation");
+			return ;
+		}
+		dir = ft_strdup(dir);
+	}
 	else
 		dir = ft_strdup(arg[1]);
-	if (dir != NULL)
+	if (dir != NULL && *dir != '\0')
 	{
 		try_access(dir);
-		free(dir);
+		ft_strdel(&dir);
 	}
 	else
 		ft_putendl("cd: usage \"cd [~|-| |path-to-dir]\"");

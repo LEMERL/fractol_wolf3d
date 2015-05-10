@@ -11,6 +11,17 @@ int			main(int argc, char **argv, char **env)
 	(void)argc;
 	(void)argv;
 
+	ft_putendl("\nWelcome in this basic shell.\nAvaible functionnalities are:");
+	ft_putstr("\tbasic built_in : gestion of the environment (set, unset and");
+	ft_putstr(" print), deplacement and exit\n\tbasic gestion for a few ");
+	ft_putstr("signals (^C, segfaults), (^Z acts as ^C)\n");
+	ft_putstr("\texecution avaible of file in and out of the path (.|..|path/");
+	ft_putstr("to/exec|exec_in_the_path\n");
+	ft_putstr("\tgestion of quotes: ' ' \" \"\n\tgestion of inhibitor \\\n\t");
+	ft_putstr("gestion of $ (advanced) and ~ (basic)\n");
+	ft_putstr("to exit this shell, please use \"exit\", \nif you are in the ");
+	ft_putstr("inability to use it, ^\\ will do the job (please avoid this)\n");
+	ft_putendl("Enjoy and have a nice time :-D \n");
 	gestion_signal(0);
 	get_env(env, 's');
 	sh_boucle_lecture();
@@ -101,7 +112,7 @@ void		command_in_path(char **tab_cmd);
 
 void		get_command(char **argv)
 {
-	if (argv[0][0] == '.' || argv[0][0] == '/' || argv[0][0] == '~')
+	if (argv[0][0] == '.' || ft_strchr(argv[0], '/') != NULL)
 		command_not_in_path(argv);
 	else
 		command_in_path(argv);
@@ -143,6 +154,6 @@ void		command_in_path(char **tab_cmd)
 	{
 		printf("command not in the PATH: %s\n", tab_cmd[0]);
 	}
-	free(cmd);
+	ft_strdel(&cmd);
 	free_tab(path);
 }

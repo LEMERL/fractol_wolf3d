@@ -6,11 +6,19 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/04 22:45:29 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/04 18:29:08 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/10 18:28:06 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	**ft_tabnew(size_t size)
+{
+	char	**tab;
+
+	tab = (char**)ft_strnew((size + 1)* sizeof(char*) - 1);
+	return ((void*)tab);
+}
 
 char	**ft_tabdup(char **tab)
 {
@@ -53,12 +61,15 @@ void	free_tab(char **tab)
 	int		i;
 
 	i = 0;
-	while (tab[i] != NULL)
+	if (tab)
 	{
-		free(tab[i]);
-		i++;
-	}
+		while (tab[i] != NULL)
+		{
+			free(tab[i]);
+			i++;
+		}
 	free(tab);
+	}
 }
 
 int		ft_tablen(char **tab)
@@ -98,11 +109,11 @@ char	**ft_tabadd(char **tab, char *add)
 	int			i;
 
 	i = 0;
-	while (tab[i] != NULL)
+	while (tab && tab[i] != NULL)
 		i++;
 	new_tab = (char**)malloc((sizeof(char*) * (i + 2)));
 	i = 0;
-	while (tab[i] != NULL)
+	while (tab && tab[i] != NULL)
 	{
 		new_tab[i] = ft_strdup(tab[i]);
 		i++;

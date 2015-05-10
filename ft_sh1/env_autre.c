@@ -6,20 +6,22 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 18:42:09 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/08 16:55:05 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/10 19:31:50 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh1.h"
 
-char	**prefabriced_env()
+char	**prefabriced_env(void)
 {
 	char	**env;
 
-	env = (char**)malloc(sizeof(char*) * 3);
+	env = (char**)ft_tabnew(4);
+	ft_putendl("not nice buddy");
 	env[0] = ft_strdup("PATH=/bin:/usr/bin:/usr/sbin");
-	env[1] = ft_strdup("LEVEL=1");
-	env[2] = NULL;
+	env[1] = ft_strdup("SHLVL=1");
+	env[3] = ft_strdup("PROMPT_MESS=that's not nice");
+	env[4] = getcwd(NULL, 0);
 	return (env);
 }
 
@@ -28,31 +30,35 @@ void	print_env(char **env)
 	int		i;
 
 	i = -1;
-	while (env[++i] != NULL)
+	while (env && env[++i] != NULL)
 		ft_putendl(env[i]);
 	ft_putstr("\n\n");
 }
 
 char	**get_addr_str_env(char *head)
 {
-	char	**env;
 	int		i;
+	char	**env;
+	int		len;
 
-	i = 0;
+	len = ft_strlen(head);
 	env = get_env(NULL, 0);
-	return (ft_tabchrstr(env, head, ft_strlen(head)));
+	i = 0;
+	while (env != NULL && env[i] != NULL)
+	{
+		if (ft_strncmp(env[i], head, len) == 0 && env[i][len] == '=')
+			return (env + i);
+		i++;
+	}
+	return (NULL);
 }
 
 char	*get_str_env(char *head)
 {
-	char	**env;
-	int		i;
 	char	**str;
 	char	*tmp;
 
-	i = 0;
-	env = get_env(NULL, 0);
-	if ((str = ft_tabchrstr(env, head, ft_strlen(head))) == NULL || *str == NULL)
+	if ((str = get_addr_str_env(head)) == NULL || *str == NULL)
 		return ("");
 	if ((tmp = ft_strchr(*str, '=')) == NULL)
 		return ("");
@@ -71,7 +77,7 @@ char	**get_env(char **env, char action)
 	if (ret == NULL && (action == 'r' || action == 's'))
 	{
 		if ((env == NULL || *env == NULL) && action == 's')
-			return (prefabriced_env());
+			ret = prefabriced_env();
 		else if (env != NULL && *env != NULL)
 			ret = ft_tabdup(env);
 	}
