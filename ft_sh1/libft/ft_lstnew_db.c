@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/25 18:03:24 by mgrimald          #+#    #+#             */
-/*   Updated: 2014/11/26 14:30:17 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/12 21:03:03 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_lst_db	*ft_lstnew_db(void const *cont, size_t cont_size)
 	t_lst_db	*new;
 	t_lst_db	*ptr;
 
-	if ((new = (t_lst_db*)malloc(sizeof(t_lst_db))) == NULL)
+	if ((new = (t_lst_db*)ft_strnew(sizeof(t_lst_db) - 1)) == NULL)
 		return (NULL);
 	if (cont == NULL)
 	{

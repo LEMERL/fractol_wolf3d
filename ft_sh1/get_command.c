@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/07 14:29:58 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/11 14:53:47 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/12 20:42:06 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,18 @@ int		sh_prompt(void)
 	else if ((str = get_str_env("USER")) != NULL && *str != '\0')
 		ft_putstr(str);
 	else
-		ft_putstr("Y U DO DIS ? (╯°□°）╯︵ ┻━┻ ");
+		ft_putstr("Y U DO DIS TO ME ?");
+		//		ft_putstr("Y U DO DIS ? (╯°□°）╯︵ ┻━┻ ");
 	ft_putstr(" : ");
 	return (1);
 }
 
-int			get_next_command(char ***tab_command)
+int		get_next_command(char ***tab_command)
 {
 	int		ret;
 	char	*line;
 
-	while(sh_prompt() && (ret = get_next_line(0, &line)) > 0)
+	while (sh_prompt() && (ret = get_next_line(0, &line)) > 0)
 	{
 		if (line != NULL)
 		{

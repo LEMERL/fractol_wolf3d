@@ -1,17 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/05/12 20:43:12 by mgrimald          #+#    #+#             */
+/*   Updated: 2015/05/12 20:47:52 by mgrimald         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "sh1.h"
 
-void	sh_fatal_error(char *msg);
-int		built_in(char **argv);
-void	sh_cd(char **arg);
-void	sh_boucle_lecture();
-
-void		command_in_path(char **tab_cmd, char **env);
 int			main(int argc, char **argv, char **env)
 {
 	(void)argc;
 	(void)argv;
-
 	gestion_signal(0);
 	get_env(env, 's');
 	ft_putendl("\nWelcome in this basic shell.\nAvaible functionnalities are:");
@@ -26,19 +30,17 @@ int			main(int argc, char **argv, char **env)
 	ft_putstr("inability to use it, ^\\ will do the job (please avoid this)\n");
 	ft_putendl("Enjoy and have a nice time :-D \n");
 	sh_boucle_lecture();
-	return(0);
+	return (0);
 }
 
-void	exec_command(char **argv, char *cmd, char **env);
-
-void	sh_boucle_lecture()
+void		sh_boucle_lecture(void)
 {
 	int		ret;
 	pid_t	pid;
 	char	**argv;
 
 	pid = 1;
-	while((ret = get_next_command(&argv)) > 0)
+	while ((ret = get_next_command(&argv)) > 0)
 	{
 		gestion_signal(2);
 		if (ft_strchr(argv[0], '/') != NULL || built_in(argv) == 0)

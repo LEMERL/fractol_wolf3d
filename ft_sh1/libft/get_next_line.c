@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 14:48:21 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/09 16:44:50 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/12 20:50:38 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,7 @@ static int		gnl_act(int fd, char **line, t_list **alst, char *str)
 	int		rd;
 	int		i;
 
-	rd = 1;
-	if (str == NULL)
+	if ((rd = 1) && str == NULL)
 		str = ft_strnew(BUFF_SIZE);
 	while (rd >= 0)
 	{

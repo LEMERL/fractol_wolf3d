@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 14:53:36 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/08 15:23:19 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/12 20:49:53 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void				del(void *ptr, size_t size);
 void				ft_lstdelall_db(t_lst_db **alst);
 
 # define BUFF_SIZE 1024
+
 int					get_next_line(int const fd, char **line);
 
 #endif

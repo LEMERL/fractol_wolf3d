@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   signal.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/05/12 20:29:20 by mgrimald          #+#    #+#             */
+/*   Updated: 2015/05/12 20:29:22 by mgrimald         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "sh1.h"
 
 void	signal_in_fork(int value)
@@ -9,7 +21,7 @@ void	signal_in_fork(int value)
 	exit(value);
 }
 
-void signal_message(int signum)
+void	signal_message(int signum)
 {
 	if (signum == SIGINT)
 		ft_putstr("SIGINT: Interupt\n");

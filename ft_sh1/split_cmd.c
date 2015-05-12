@@ -6,13 +6,13 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/08 14:07:41 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/12 20:14:05 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/12 20:25:53 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh1.h"
 
-void	guillemet(char *str, char *ret, int *j, char c)
+void		guillemet(char *str, char *ret, int *j, char c)
 {
 	int		i;
 
@@ -27,7 +27,7 @@ void	guillemet(char *str, char *ret, int *j, char c)
 		(*j)++;
 }
 
-char	*gestion_dollar(char *ret, char *str, int *j)
+char		*gestion_dollar(char *ret, char *str, int *j)
 {
 	int		k;
 	char	*tmp;
@@ -56,7 +56,7 @@ char	*gestion_dollar(char *ret, char *str, int *j)
 	return (aut);
 }
 
-char	*gestion_tilde(char *str, int *j)
+char		*gestion_tilde(char *str, int *j)
 {
 	char	*ret;
 	char	*tmp;
@@ -79,7 +79,7 @@ char	*gestion_tilde(char *str, int *j)
 	return (ret);
 }
 
-char	*ft_fill_tab(char *str, int *j)
+char		*ft_fill_tab(char *str, int *j)
 {
 	char	*ret;
 

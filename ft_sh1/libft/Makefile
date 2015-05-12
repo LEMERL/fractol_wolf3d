@@ -6,7 +6,7 @@
 #    By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/10 17:46:31 by mgrimald          #+#    #+#              #
-#    Updated: 2015/05/08 14:28:37 by mgrimald         ###   ########.fr        #
+#    Updated: 2015/05/12 21:16:44 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,19 +94,19 @@ SRC = del.c \
 	  ft_tab_divers.c \
 	  get_next_line.c \
 	  ft_strclen.c
+
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@echo "\033[1;36m[Compile all \".o\"]\033[0m"
-	@ar rc $(NAME) $(OBJ)
-	@echo "\033[1;34m[Create libft.a]\033[0m"
-	@ranlib $(NAME)
-
-$(OBJ): $(SRC)
+$(NAME): $(SRC)
 	@echo "\033[1;36m[Compile all \".c\" using $(CC)]\033[0m"
 	@$(CC) $(FLAGS) -I $(DIR) -c $(SRC)
+	@echo "\033[1;36m[Compile all \".o\"]\033[0m"
+	@ar rc $(NAME) $(OBJ)
+	@echo "\033[1;34m[Create $(NAME)]\033[0m"
+	@ranlib $(NAME)
+
 
 clean:
 	@echo "\033[1;31m[Delete all \".o\"]\033[0m"

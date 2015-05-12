@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/18 09:45:21 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/08 14:10:43 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/12 20:56:13 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char			**ft_strsplit(char const *s, char c)
 	if (s)
 	{
 		k = count_str(s, c);
-		tab = malloc(sizeof(*tab) * (k + 1));
+		tab = (char**)ft_tabnew(k);
 	}
 	if (!tab)
 		return (NULL);

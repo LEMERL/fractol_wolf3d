@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 12:00:25 by mgrimald          #+#    #+#             */
-/*   Updated: 2014/11/18 18:39:09 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/12 21:01:11 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char		*ft_itoa(int n)
 	if (n < 0)
 		i = 1;
 	p = nbr_inside_nbr(n);
-	if ((str = (char*)malloc(sizeof(char) * i + p)) == NULL)
+	if ((str = ft_strnew(i + p)) == NULL)
 		return (NULL);
 	return (ft_sec_itoa(n, 1, i, str));
 }

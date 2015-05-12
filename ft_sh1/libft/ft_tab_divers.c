@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/04 22:45:29 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/10 18:28:06 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/12 21:23:14 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	**ft_tabnew(size_t size)
 {
 	char	**tab;
 
-	tab = (char**)ft_strnew((size + 1)* sizeof(char*) - 1);
+	tab = (char**)ft_strnew((size + 1) * sizeof(char*) - 1);
 	return ((void*)tab);
 }
 
@@ -30,8 +30,8 @@ char	**ft_tabdup(char **tab)
 	i = 0;
 	while (tab[i] != NULL)
 		i++;
-	if ((ret = (char**)malloc(sizeof(char*) * (i + 1))) == NULL)
-		return (NULL);//ft_error();
+	if ((ret = (char**)ft_tabnew(i)) == NULL)
+		return (NULL);
 	i = 0;
 	while (tab[i] != NULL)
 	{
@@ -56,32 +56,6 @@ char	**ft_tabchrstr(char **tab, char *str, int len)
 	return (NULL);
 }
 
-void	free_tab(char **tab)
-{
-	int		i;
-
-	i = 0;
-	if (tab)
-	{
-		while (tab[i] != NULL)
-		{
-			free(tab[i]);
-			i++;
-		}
-	free(tab);
-	}
-}
-
-int		ft_tablen(char **tab)
-{
-	int		i;
-
-	i = 0;
-	while (tab[i] != NULL)
-		i++;
-	return (i);
-}
-
 char	**ft_tabret(char **tab, char *ret)
 {
 	char		**new_tab;
@@ -91,7 +65,7 @@ char	**ft_tabret(char **tab, char *ret)
 	j = 0;
 	i = 0;
 	i = ft_tablen(tab);
-	new_tab = (char**)malloc(sizeof(char*) * (i));
+	new_tab = (char**)ft_tabnew(i - 1);
 	i = 0;
 	while (tab[i] != NULL)
 	{
@@ -111,7 +85,7 @@ char	**ft_tabadd(char **tab, char *add)
 	i = 0;
 	while (tab && tab[i] != NULL)
 		i++;
-	new_tab = (char**)malloc((sizeof(char*) * (i + 2)));
+	new_tab = (char**)ft_tabnew(i + 1);
 	i = 0;
 	while (tab && tab[i] != NULL)
 	{
