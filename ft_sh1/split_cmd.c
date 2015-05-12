@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/08 14:07:41 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/10 19:36:06 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/12 20:14:05 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ char	*gestion_dollar(char *ret, char *str, int *j)
 	int		k;
 	char	*tmp;
 	char	*aut;
+	char	*tip;
 
 	(*j)++;
 	k = 0;
-	while (ft_isalnum(str[*j + k]))
+	while (ft_isalnum(str[*j + k]) || str[*j + k] == '_')
 		k++;
 	if (k == 0)
 	{
@@ -43,9 +44,11 @@ char	*gestion_dollar(char *ret, char *str, int *j)
 		return (ret);
 	}
 	tmp = ft_strndup(str + *j, k - 1);
-	aut = ft_strnew(ft_strlen(ret) + ft_strlen(str + *j) + ft_strlen(get_str_env(tmp)) + 3);
+	tip = get_str_env(tmp);
+//	printf("\ta\t%s\n\tn\t%s\n", tmp, tip);
+	aut = ft_strnew(ft_strlen(ret) + ft_strlen(str + *j) + ft_strlen(tip) + 3);
 	aut = ft_strcpy(aut, ret);
-	aut = ft_strcat(aut, get_str_env(tmp));
+	aut = ft_strcat(aut, tip);
 	ft_strdel(&ret);
 	ft_strdel(&tmp);
 	ft_putendl(aut);

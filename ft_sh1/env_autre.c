@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 18:42:09 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/10 19:31:50 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/11 14:30:47 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ char	**prefabriced_env(void)
 	char	**env;
 
 	env = (char**)ft_tabnew(4);
-	ft_putendl("not nice buddy");
-	env[0] = ft_strdup("PATH=/bin:/usr/bin:/usr/sbin");
+	env[0] = ft_strdup("PATH=/bin:/usr/bin");
 	env[1] = ft_strdup("SHLVL=1");
+	env[2] = ft_strdup("USER=John Doe");
 	env[3] = ft_strdup("PROMPT_MESS=that's not nice");
 	env[4] = getcwd(NULL, 0);
+	ft_putendl("Nobody likes an empty shell, default PATH set as");
+	ft_putstr(get_str_env("PATH"));
 	return (env);
 }
 

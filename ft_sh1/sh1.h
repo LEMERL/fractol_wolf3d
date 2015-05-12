@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/04 14:32:21 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/08 15:47:01 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/12 18:34:14 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 #include <signal.h>
 #include <stdio.h>
 
-void	gestion_signal();
-void	ignore_signal();
+void	gestion_signal(int value);
 void	sighandler(int);
 
 void	get_command(char **tab_line);
@@ -39,7 +38,11 @@ void	sh_setenv(char **argv);
 void	sh_unsetenv(char **argv);
 
 int			get_next_command(char ***tab_command);
-int			sh_prompt(int v);
+int			sh_prompt(void);
+
+void		sh_cd(char **arg);
 
 char		**split_cmd(char *str);
+int			check_file(char *path);
+
 #endif

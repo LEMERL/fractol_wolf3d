@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 13:32:20 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/08 15:23:02 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/12 20:12:53 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ char	*ft_strndup(const char *s1, int n)
 
 	i = 0;
 	j = 0;
-	while (s1[i] != '\0' && n > i)
+	while (s1[i] != '\0' && n >= i)
 		i++;
 	s2 = ft_strnew(i);
-	while (j <= i)
+	while (j < i)
 	{
 		s2[j] = s1[j];
 		j++;

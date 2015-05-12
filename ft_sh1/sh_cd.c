@@ -6,13 +6,13 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/06 18:49:29 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/10 18:28:25 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/12 18:35:33 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh1.h"
 
-void	change_pwd_old(char *futur_old)
+static void	change_pwd_old(char *futur_old)
 {
 	char	*str;
 	char	**tab;
@@ -33,59 +33,51 @@ void	change_pwd_old(char *futur_old)
 	sh_setenv(tab);
 	free_tab(tab);
 	ft_strdel(&str);
-	ft_putstr("\ncd: success\nnew PWD:\t");
-	ft_putendl(get_str_env("PWD"));
-	ft_putstr("new OLDPWD :\t");
-	ft_putendl(get_str_env("OLDPWD"));
+	ft_putstr(get_str_env("PWD"));
 }
 
-void	try_access(char *dir)
+static void	try_cd(char *dir)
 {
 	char	*futur_old;
+	int		type;
 
-	if (access(dir, F_OK) == 0)
+	ft_putstr("cd: ");
+	if ((type = check_file(dir)) == 2)
 	{
 		futur_old = getcwd(NULL, 0);
-		if (access(dir, X_OK) == 0 && chdir(dir) == 0)
+		if (chdir(dir) == 0)
 			change_pwd_old(futur_old);
-		else
-		{
-			ft_putstr("cd: permission denied: ");
-			ft_putendl(dir);
-		}
-		ft_strdel(&futur_old);
+		free(futur_old);
 	}
-	else
+	else if (type == 1)
 	{
-		ft_putstr("cd: no such file or directory: ");
+		ft_putstr("not a directory: ");
 		ft_putendl(dir);
 	}
 }
 
-void	sh_cd(char **arg)
+void		sh_cd(char **arg)
 {
 	char	*dir;
 
 	dir = NULL;
 	if (arg == NULL || arg[1] == NULL)
-		dir = ft_strdup(get_str_env("HOME"));
+		dir = get_str_env("HOME");
 	else if (arg[1] != NULL && arg[2] != NULL)
 		ft_putendl("error: cd: too many arguments");
-	else if (ft_strcmp(arg[1], "-") == 0)
+	else if (ft_strcmp(arg[1], "-") == 0 &&
+			((dir = get_str_env("OLDPWD")) == NULL || *dir == '\0'))
 	{
-		if ((dir = get_str_env("OLDPWD")) == NULL || *dir == '\0')
-		{
-			ft_putstr("I've got a very bad sense of direction.\nI think I'm ");
-			ft_putendl("lost, I can't find my way to my previous localisation");
-			return ;
-		}
-		dir = ft_strdup(dir);
+		ft_putstr("I've got a very bad sense of direction.\nI think I'm ");
+		ft_putendl("lost, I can't find my way to my previous localisation");
+		return ;
 	}
 	else
-		dir = ft_strdup(arg[1]);
+		dir = arg[1];
 	if (dir != NULL && *dir != '\0')
 	{
-		try_access(dir);
+		dir = ft_strdup(dir);
+		try_cd(dir);
 		ft_strdel(&dir);
 	}
 	else
