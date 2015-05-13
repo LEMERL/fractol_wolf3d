@@ -6,11 +6,20 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/15 16:29:03 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/11 14:26:12 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/13 22:46:47 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh1.h"
+
+void		print_env(char **env)
+{
+	int		i;
+
+	i = -1;
+	while (env && env[++i] != NULL)
+		ft_putendl(env[i]);
+}
 
 static int	setenv_verif(char **argv)
 {
@@ -38,9 +47,9 @@ void		sh_setenv(char **argv)
 	char	*str;
 	char	**tmp;
 
+	env = get_env(NULL, 0);
 	if (setenv_verif(argv) == 1)
 		return ;
-	env = get_env(NULL, 0);
 	str = ft_strnew(ft_strlen(argv[1]) + ft_strlen(argv[2]) + 1);
 	str = ft_strcat(ft_strcat(ft_strcpy(str, argv[1]), "="), argv[2]);
 	if ((tmp = get_addr_str_env(argv[1])) != NULL)
@@ -77,6 +86,6 @@ void		sh_unsetenv(char **argv)
 	if (i == 1)
 	{
 		ft_putendl("unsetenv: invalid number of argument");
-		ft_putendl("setenv: correct usage \"setenv HEAD_1 body\"");
+		ft_putendl("unsetenv: correct usage \"unsetenv HEAD_1 Head_2 ...\"");
 	}
 }

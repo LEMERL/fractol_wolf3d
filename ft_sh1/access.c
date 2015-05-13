@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/12 20:27:22 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/12 20:28:49 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/13 20:11:36 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,16 @@ static int	try_access(struct stat s, char *path)
 		if (access(path, X_OK) == 0)
 			ret = file_dir_link(s, path);
 		else
+		{
 			ft_putstr("permission denied: ");
+			ft_putendl(path);
+		}
 	}
 	else
+	{
 		ft_putstr("no such file or directory: ");
-	ft_putendl(path);
+		ft_putendl(path);
+	}
 	return (ret);
 }
 

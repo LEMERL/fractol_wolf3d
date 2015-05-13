@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/08 14:07:41 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/12 20:25:53 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/13 17:05:56 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		guillemet(char *str, char *ret, int *j, char c)
 		(*j)++;
 }
 
-char		*gestion_dollar(char *ret, char *str, int *j)
+char		*gestion_dollar(char *ret, char *str, int *j, int space)
 {
 	int		k;
 	char	*tmp;
@@ -45,7 +45,15 @@ char		*gestion_dollar(char *ret, char *str, int *j)
 	}
 	tmp = ft_strndup(str + *j, k - 1);
 	tip = get_str_env(tmp);
+	(void)space;
 //	printf("\ta\t%s\n\tn\t%s\n", tmp, tip);
+//	int		m;
+//	char	*home;
+//	home = get_str_env("HOME");
+//	if (tip != NULL && *tip != '\0' && space == 1 &&
+//			ft_strcmp(tmp, "HOME") != 0 &&
+//			ft_strncmp(tip, home, (m = ft_strlen(home))))
+//		ft_memmove(tip, tip, '~');
 	aut = ft_strnew(ft_strlen(ret) + ft_strlen(str + *j) + ft_strlen(tip) + 3);
 	aut = ft_strcpy(aut, ret);
 	aut = ft_strcat(aut, tip);
@@ -79,14 +87,14 @@ char		*gestion_tilde(char *str, int *j)
 	return (ret);
 }
 
-char		*ft_fill_tab(char *str, int *j)
+char		*ft_fill_tab(char *str, int *j, int space)
 {
 	char	*ret;
 
 	ret = gestion_tilde(str, j);
 	if (ret == NULL)
 		*j = -1;
-	while (ret && str[*j] != '\0' && ft_isspace(str[*j]) == 0)
+	while (ret && str[*j] != '\0' && (space == 1 || ft_isspace(str[*j]) == 0))
 	{
 		if (str[*j] == '\\')
 			(*j)++;
@@ -97,7 +105,7 @@ char		*ft_fill_tab(char *str, int *j)
 		}
 		else if (str[*j] == '$')
 		{
-			ret = gestion_dollar(ret, str, j);
+			ret = gestion_dollar(ret, str, j, space);
 			continue ;
 		}
 		ret[ft_strlen(ret)] = str[(*j)++];
@@ -120,7 +128,7 @@ char		**split_cmd(char *str)
 			j++;
 		if (str[j] == '\0')
 			break ;
-		tmp = ft_fill_tab(str, &j);
+		tmp = ft_fill_tab(str, &j, 0);
 		if ((t = NULL) || tmp != NULL)
 			t = ft_tabadd(tab, tmp);
 		if (tmp != NULL || j == -1)

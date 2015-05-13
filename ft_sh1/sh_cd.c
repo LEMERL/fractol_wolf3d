@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/06 18:49:29 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/12 18:35:33 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/13 21:11:34 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	change_pwd_old(char *futur_old)
 	sh_setenv(tab);
 	free_tab(tab);
 	ft_strdel(&str);
-	ft_putstr(get_str_env("PWD"));
+	ft_putendl(get_str_env("PWD"));
 }
 
 static void	try_cd(char *dir)
@@ -49,7 +49,7 @@ static void	try_cd(char *dir)
 			change_pwd_old(futur_old);
 		free(futur_old);
 	}
-	else if (type == 1)
+	else
 	{
 		ft_putstr("not a directory: ");
 		ft_putendl(dir);
@@ -72,7 +72,7 @@ void		sh_cd(char **arg)
 		ft_putendl("lost, I can't find my way to my previous localisation");
 		return ;
 	}
-	else
+	else if (ft_strcmp(arg[1], "-") != 0)
 		dir = arg[1];
 	if (dir != NULL && *dir != '\0')
 	{

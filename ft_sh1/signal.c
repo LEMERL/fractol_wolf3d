@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/12 20:29:20 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/12 20:29:22 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/13 18:49:03 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	signal_in_fork(int value)
 	ft_putnbr(value);
 	ft_putendl("coming out...");
 	ft_putendl("goodbye");
-	exit(value);
+	sh_exit(NULL, value);
 }
 
 void	signal_message(int signum)
@@ -35,7 +35,6 @@ void	signal_message(int signum)
 		ft_putstr("SIGSEG: Segmentation violation\n");
 	if (signum == SIGTSTP)
 		ft_putstr("SIGTSTP: sorry, you are not allowed to do so.\n");
-	sh_prompt();
 }
 
 void	passif(int value)
@@ -47,14 +46,12 @@ void	passif(int value)
 void	gestion_signal(int value)
 {
 	void	*ft;
-	int		i;
 
-	i = 0;
-	ft = signal_message;
+	ft = NULL;
 	if (value == 1)
-		ft = exit;
+		ft = signal_in_fork;
 	else if (value == 2)
-		ft = passif;
+		ft = signal_message;
 	signal(SIGFPE, ft);
 	signal(SIGSEGV, ft);
 	signal(SIGABRT, ft);
