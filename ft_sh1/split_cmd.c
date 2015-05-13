@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/08 14:07:41 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/13 17:05:56 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/13 23:01:38 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ char		*gestion_dollar(char *ret, char *str, int *j, int space)
 	aut = ft_strcat(aut, tip);
 	ft_strdel(&ret);
 	ft_strdel(&tmp);
-	ft_putendl(aut);
 	*j = *j + k;
 	return (aut);
 }

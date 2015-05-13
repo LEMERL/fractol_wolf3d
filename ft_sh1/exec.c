@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/13 22:30:42 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/13 22:45:23 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/13 22:59:05 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static void	exec_itself(char **argv, char *cmd, char **env)
 		exit(i);
 	}
 	wait(NULL);
-	gestion_signal(0);
 }
 
 void		exec_command(char **argv, char *cmd, char **env)

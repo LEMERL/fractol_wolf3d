@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/12 20:29:20 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/13 18:49:03 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/13 22:59:02 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	gestion_signal(int value)
 {
 	void	*ft;
 
-	ft = NULL;
+	ft = passif;
 	if (value == 1)
 		ft = signal_in_fork;
 	else if (value == 2)
