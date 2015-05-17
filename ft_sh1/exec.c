@@ -6,11 +6,12 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/13 22:30:42 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/13 22:59:05 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/17 14:51:37 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh1.h"
+#include <sys/wait.h>
 
 void		exec_glob(char **argv, char **env)
 {
@@ -18,7 +19,7 @@ void		exec_glob(char **argv, char **env)
 		if (ft_strchr(argv[0], '/') != NULL || built_in(argv, env) == 0)
 		{
 			if (argv[0][0] == '.' || ft_strchr(argv[0], '/') != NULL)
-				exec_command(argv, argv[1], env);
+				exec_command(argv, argv[0], env);
 			else
 				command_in_path(argv, env);
 		}
@@ -42,6 +43,7 @@ static void	exec_itself(char **argv, char *cmd, char **env)
 	char	*tmp;
 	int		i;
 
+	gestion_signal(3);
 	if ((pid = fork()) < 0)
 	{
 		ft_putendl("Crash of the FORK, EXIT");
@@ -58,6 +60,7 @@ static void	exec_itself(char **argv, char *cmd, char **env)
 		exit(i);
 	}
 	wait(NULL);
+	gestion_signal(0);
 }
 
 void		exec_command(char **argv, char *cmd, char **env)
@@ -68,15 +71,19 @@ void		exec_command(char **argv, char *cmd, char **env)
 		cmd = *argv;
 	if ((i = check_file(cmd)) == 1)
 		exec_itself(argv, cmd, env);
-	else if (i == 2)
+	else if (i == 3)
 	{
 		ft_putstr(cmd);
 		ft_putendl(": is a symboling link");
 	}
-	else if (i == 0)
+	else if (i == 2)
 	{
 		ft_putstr(cmd);
 		ft_putendl(": is a directory");
 	}
+	else if (i == 0)
+	{
+		ft_putstr(cmd);
+		ft_putendl(": is not an executable file");
+	}
 }
-

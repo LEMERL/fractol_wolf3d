@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 14:48:21 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/12 20:50:38 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/16 16:15:55 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static char		*gnl_lsttochar(t_list **alst)
 		lst = lst->next;
 	}
 	lst = *alst;
-	str = ft_strnew(size);
+	str = ft_strnew(size + 1);
 	while (lst)
 	{
 		size = size - lst->content_size;

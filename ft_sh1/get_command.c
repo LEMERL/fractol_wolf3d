@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/07 14:29:58 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/13 21:14:01 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/16 20:18:54 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int			sh_prompt(void)
 	{
 		ft_putstr("\033[1;36m|");
 		ft_putstr(str);
-		ft_putstr("|\033[0m");
+		ft_putstr("|\033[0m ");
 	}
 	i = 0;
 	if ((str = get_str_env("PROMPT_MESS")) != NULL && *str != '\0')
@@ -61,9 +61,9 @@ int			sh_prompt(void)
 	}
 	else if (unseted_promt() == 0)
 	{
-		ft_putstr("\033[1;41;37mY U DO DIS TO ME ? ... ( ` - _- `) ... ");
+		ft_putstr("\033[1;41;37mY U DO DIS TO ME ? ... ( ` - _- `) ...");
 	}
-	ft_putstr("$>\033[0m ");
+	ft_putstr(" $>\033[0m ");
 	return (1);
 }
 
@@ -76,6 +76,8 @@ int			get_next_command(char ***tab_command, int fd)
 	{
 		if (line != NULL)
 		{
+			if (fd != 0)
+				ft_putendl(line);
 			if (*line != '\0' && (*tab_command = split_cmd(line)) != NULL)
 			{
 				ft_strdel(&line);

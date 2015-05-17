@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/11 13:24:09 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/13 22:45:03 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/17 14:44:25 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void		sh_exit(char **argv, int value)
 	if (err == 0 && (argv || (argv && argv[0] && argv[1] && argv[2] == NULL)))
 	{
 		ft_putendl("goodbye, see you soooooon");
-//	kill(0, ret);
 		exit(ret);
 	}
 	ft_putendl("Error: Expression Syntax.\nexit: valid use: exit [value]");

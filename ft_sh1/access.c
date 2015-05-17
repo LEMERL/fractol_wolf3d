@@ -6,12 +6,11 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/12 20:27:22 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/13 20:11:36 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/17 14:49:14 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh1.h"
-#include <sys/types.h>
 #include <sys/stat.h>
 
 static int	file_dir_link(struct stat s, char *path)
@@ -20,8 +19,7 @@ static int	file_dir_link(struct stat s, char *path)
 	char	*tmp;
 	int		len;
 
-	ret = 0;
-	if (S_ISDIR(s.st_mode) != 0)
+	if ((ret = 0) || S_ISDIR(s.st_mode) != 0)
 		ret = 2;
 	else if (S_ISREG(s.st_mode) != 0)
 		ret = 1;
@@ -29,7 +27,10 @@ static int	file_dir_link(struct stat s, char *path)
 	{
 		tmp = ft_strnew(1024);
 		if ((len = readlink(path, tmp, 1023)) == -1)
-			exit (-1);//error();
+		{
+			ft_putendl("Readlink : error: aborbtion of the readlink");
+			return (-1);
+		}
 		tmp[len] = '\0';
 		ft_putendl("gestion of the symlinks has not been implented yet");
 		ft_putstr(path);
@@ -45,7 +46,7 @@ static int	try_access(struct stat s, char *path)
 {
 	int		ret;
 
-	ret = 0;
+	ret = -1;
 	if (access(path, F_OK) == 0)
 	{
 		if (access(path, X_OK) == 0)
@@ -75,14 +76,17 @@ int			check_file(char *path)
 	{
 		pwd = getcwd(NULL, 0);
 		f = ft_strnew(ft_strlen(path) + ft_strlen(pwd) + 2);
-		f = ft_strcat(ft_strcat(ft_strcpy(f, pwd), "/"), path);
+		ft_strcpy(f, pwd);
+		if (pwd[ft_strlen(pwd) - 1] != '/')
+			ft_strcat(f, "/");
+		f = ft_strcat(f, path);
 		ft_memdel((void**)&pwd);
 	}
 	else
 		f = ft_strdup(path);
-	ret = 0;
-	if (stat(f, &s) == 0)
-		ret = try_access(s, f);
+	ret = -1;
+	stat(f, &s);
+	ret = try_access(s, f);
 	ft_memdel((void**)&f);
 	return (ret);
 }

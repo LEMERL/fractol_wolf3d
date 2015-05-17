@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 12:00:25 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/12 21:01:11 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/14 14:25:39 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static char	*ft_sec_itoa(int n, int p, int i, char *str)
 {
 	if (n < 0)
 		n = -n;
-	while (n / 10 > p)
+	while (n / 10 >= p)
 		p = p * 10;
 	if (i == 1)
 		str[0] = '-';
@@ -47,28 +47,6 @@ static int	nbr_inside_nbr(int n)
 	return (nbr);
 }
 
-static char	*ft_spec_nbr(void)
-{
-	char	*str;
-
-	str = NULL;
-	str = ft_strnew(10);
-	if (str == NULL)
-		return (NULL);
-	str[0] = '-';
-	str[1] = '2';
-	str[2] = '1';
-	str[3] = '4';
-	str[4] = '7';
-	str[5] = '4';
-	str[6] = '8';
-	str[7] = '3';
-	str[8] = '6';
-	str[9] = '4';
-	str[10] = '8';
-	return (str);
-}
-
 char		*ft_itoa(int n)
 {
 	int		i;
@@ -76,7 +54,7 @@ char		*ft_itoa(int n)
 	char	*str;
 
 	if (n == -2147483648)
-		return (ft_spec_nbr());
+		return (ft_strdup("-2147483648"));
 	i = 0;
 	if (n < 0)
 		i = 1;

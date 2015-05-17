@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 14:53:36 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/12 20:49:53 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/16 14:13:48 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_tree
+{
+	void			*content;
+	size_t			size;
+	int				value;
+	struct s_tree	*right;
+	struct s_tree	*left;
+}					t_tree;
+
 typedef struct		s_lst_db
 {
 	void			*content;
@@ -32,6 +41,8 @@ typedef struct		s_lst_db
 	struct s_lst_db	*prev;
 }					t_lst_db;
 
+t_tree				*ft_treenew(void const *content, size_t size, int value);
+void				ft_lstaddnew(t_list **alst, void *content, size_t size);
 char				*ft_strndup(const char *s1, int n);
 int					ft_isspace(char c);
 int					ft_tablen(char **tab);

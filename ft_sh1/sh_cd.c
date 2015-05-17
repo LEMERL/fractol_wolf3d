@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/06 18:49:29 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/13 21:11:34 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/17 14:26:51 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,6 @@ static void	try_cd(char *dir)
 		if (chdir(dir) == 0)
 			change_pwd_old(futur_old);
 		free(futur_old);
-	}
-	else
-	{
-		ft_putstr("not a directory: ");
-		ft_putendl(dir);
 	}
 }
 

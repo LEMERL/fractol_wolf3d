@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/12 20:43:12 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/13 22:40:53 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/17 13:51:02 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@ void		sh_help(void)
 {
 	ft_putendl("Avaible functionnalities are:");
 	ft_putstr("\tbasic built_in : gestion of the environment (set, unset and");
-	ft_putstr(" print), and deplacement\n\tbasic gestion for a few ");
+	ft_putstr(" print), and deplacement\n\tbasic catching of a few ");
 	ft_putstr("signals during execution of external executable");
 	ft_putstr(" time.\n\texecution avaible of file in and out of the path ");
-	ft_putstr("(.|..|path/to/exec|exec_in_the_path\n");
+	ft_putstr("(.|..|path/to/exec|exec_in_the_path)\n");
 	ft_putstr("\tgestion of quotes: ' ' \" \"\n\tgestion of inhibitor \\\n\t");
 	ft_putstr("gestion of $ (advanced) and ~\n");
-	ft_putstr("PROMPT_MESS can be set as a personalised prompt\n");
-	ft_putstr("(gestion of '$' avaible)");
+	ft_putstr("\tPROMPT_MESS can be set as a personalised prompt ");
+	ft_putstr("(gestion of '$' inside itself avaible)\n");
 	ft_putstr("to exit this shell, please use \"exit\"\n");
 	ft_putendl("you can also execute it with a file. as 'sh file.sh'");
+	ft_putendl("\"env -i cmd\" executes the command in an empty environment");
 	ft_putendl("Enjoy and have a nice time :-D \n");
 	ft_putendl("nb: you can find back this notice with the command 'help'");
 }
@@ -86,7 +87,7 @@ void		command_in_path(char **tab_cmd, char **env)
 	char		*cmd;
 	char		**path;
 
-	if ((path = (char**)get_str_env("PATH")) == NULL)
+	if ((path = (char**)get_str_env("PATH")) == NULL || *path == '\0')
 	{
 		ft_putendl("ERROR : THERE IS NO PATH");
 		return ;
