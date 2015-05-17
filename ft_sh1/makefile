@@ -6,7 +6,7 @@
 #    By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/17 18:26:04 by mgrimald          #+#    #+#              #
-#    Updated: 2015/05/17 14:21:10 by mgrimald         ###   ########.fr        #
+#    Updated: 2015/05/17 20:06:26 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC = access.c \
 	  main.c \
 	  sh_cd.c \
 	  signal.c \
-	  split_cmd.c
+	  split_cmd.c \
+	  pipe_test.c
 
 HEADER = ./libft/includes/
 
@@ -40,7 +41,7 @@ RM = rm -f
 all:
 	@make $(NAME)
 
-$(NAME): $(OBJ) libft/libft.a
+$(NAME): libft/libft.a $(OBJ)
 	@$(CC) $(CFLAGS) $(SRC) -I $(HEADER) -o $(NAME) libft/libft.a
 	@echo "\033[36mCreate $(NAME) executable \033[0m"
 

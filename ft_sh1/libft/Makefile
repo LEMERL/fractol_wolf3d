@@ -6,7 +6,7 @@
 #    By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/10 17:46:31 by mgrimald          #+#    #+#              #
-#    Updated: 2015/05/12 21:16:44 by mgrimald         ###   ########.fr        #
+#    Updated: 2015/05/17 20:06:06 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = clang
 
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror
 
 DIR = includes
 
@@ -106,6 +106,15 @@ $(NAME): $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@echo "\033[1;34m[Create $(NAME)]\033[0m"
 	@ranlib $(NAME)
+
+debug:
+	@echo "\033[1;36m[Compile all \".c\" using $(CC) with debug flag]\033[0m"
+	@$(CC) $(FLAGS) -g -I $(DIR) -c $(SRC)
+	@echo "\033[1;36m[Compile all \".o\"]\033[0m"
+	@ar rc $(NAME) $(OBJ)
+	@echo "\033[1;34m[Create $(NAME)]\033[0m"
+	@ranlib $(NAME)
+
 
 
 clean:

@@ -6,12 +6,14 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/13 22:30:42 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/17 14:51:37 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/17 19:52:08 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh1.h"
 #include <sys/wait.h>
+
+void		usable_pipe(char **argv_1, char **argv_2, char **env);
 
 void		exec_glob(char **argv, char **env)
 {
@@ -29,9 +31,22 @@ void		sh_boucle_lecture(int fd)
 {
 	int		ret;
 	char	**argv;
+	int		i;
+	char	*tmp;
 
 	while ((ret = get_next_command(&argv, fd)) > 0)
 	{
+		i = 0;
+		while (argv[++i] != NULL)
+			if (*(argv[i]) == '|')
+				break ;
+		if (argv[i] != NULL)
+		{
+			tmp = argv[i];
+			argv[i] = NULL;
+			usable_pipe(argv, argv + i, get_env(NULL, 0));
+			argv[i] = tmp;
+		}
 		exec_glob(argv, get_env(NULL, 0));
 		free_tab(argv);
 	}
