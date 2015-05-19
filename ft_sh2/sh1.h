@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/04 14:32:21 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/17 14:47:56 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/19 18:55:31 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		sh_prompt(void);
 void	sh_cd(char **arg);
 
 char	**split_cmd(char *str);
-int		check_file(char *path);
+int		check_file(char *path, int bol);
 char	*ft_fill_tab(char *str, int *j, int space);
 
 void	sh_fatal_error(char *msg);

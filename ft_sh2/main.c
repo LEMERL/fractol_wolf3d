@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/12 20:43:12 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/17 13:51:02 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/19 20:30:46 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	try_path(char **path, char *cmd, char **tab_cmd, char **env)
 		cmd = ft_strcat(cmd, path[j]);
 		cmd = ft_strcat(cmd, "/");
 		cmd = ft_strcat(cmd, tab_cmd[0]);
-		if (access(cmd, F_OK) == 0)
+		if (access(cmd, F_OK) == 0 && check_file(cmd, 0) == 1)
 			break ;
 	}
 	if (path[j] == NULL)

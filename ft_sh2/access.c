@@ -6,14 +6,14 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/12 20:27:22 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/17 14:49:14 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/19 18:53:54 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh1.h"
 #include <sys/stat.h>
 
-static int	file_dir_link(struct stat s, char *path)
+static int	file_dir_link(struct stat s, char *path, int bol)
 {
 	int		ret;
 	char	*tmp;
@@ -23,7 +23,7 @@ static int	file_dir_link(struct stat s, char *path)
 		ret = 2;
 	else if (S_ISREG(s.st_mode) != 0)
 		ret = 1;
-	else if (S_ISLNK(s.st_mode))
+	else if (S_ISLNK(s.st_mode) && bol == 1)
 	{
 		tmp = ft_strnew(1024);
 		if ((len = readlink(path, tmp, 1023)) == -1)
@@ -42,7 +42,7 @@ static int	file_dir_link(struct stat s, char *path)
 	return (ret);
 }
 
-static int	try_access(struct stat s, char *path)
+static int	try_access(struct stat s, char *path, int bol)
 {
 	int		ret;
 
@@ -50,14 +50,14 @@ static int	try_access(struct stat s, char *path)
 	if (access(path, F_OK) == 0)
 	{
 		if (access(path, X_OK) == 0)
-			ret = file_dir_link(s, path);
-		else
+			ret = file_dir_link(s, path, bol);
+		else if (bol == 1)
 		{
 			ft_putstr("permission denied: ");
 			ft_putendl(path);
 		}
 	}
-	else
+	else if (bol == 1)
 	{
 		ft_putstr("no such file or directory: ");
 		ft_putendl(path);
@@ -65,7 +65,7 @@ static int	try_access(struct stat s, char *path)
 	return (ret);
 }
 
-int			check_file(char *path)
+int			check_file(char *path, int bol)
 {
 	struct stat	s;
 	char		*f;
@@ -86,7 +86,7 @@ int			check_file(char *path)
 		f = ft_strdup(path);
 	ret = -1;
 	stat(f, &s);
-	ret = try_access(s, f);
+	ret = try_access(s, f, bol);
 	ft_memdel((void**)&f);
 	return (ret);
 }

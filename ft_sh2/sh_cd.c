@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/06 18:49:29 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/17 14:26:51 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/19 18:54:55 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	try_cd(char *dir)
 	int		type;
 
 	ft_putstr("cd: ");
-	if ((type = check_file(dir)) == 2)
+	if ((type = check_file(dir, 1)) == 2)
 	{
 		futur_old = getcwd(NULL, 0);
 		if (chdir(dir) == 0)

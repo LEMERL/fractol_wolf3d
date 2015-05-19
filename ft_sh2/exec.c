@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/13 22:30:42 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/17 19:52:08 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/19 21:02:24 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <sys/wait.h>
 
 void		usable_pipe(char **argv_1, char **argv_2, char **env);
+int			redir_to_file(int bol, char **cmd, char *path, char **env);
 
 void		exec_glob(char **argv, char **env)
 {
@@ -36,18 +37,35 @@ void		sh_boucle_lecture(int fd)
 
 	while ((ret = get_next_command(&argv, fd)) > 0)
 	{
+		int		select;
+
+		select = 0;
 		i = 0;
-		while (argv[++i] != NULL)
-			if (*(argv[i]) == '|')
-				break ;
-		if (argv[i] != NULL)
+		while (select == 0 && argv[++i] != NULL)
+		{
+			if ((argv[i][0]) == '|')
+				select = 1;
+			else if ((argv[i][0]) == '>')
+			{
+				select = 2;
+				if (argv[i][1] == '>')
+					select = 3;
+			}
+		}
+		if (select != 0)
 		{
 			tmp = argv[i];
 			argv[i] = NULL;
-			usable_pipe(argv, argv + i, get_env(NULL, 0));
+			if (select == 1)
+				usable_pipe(argv, argv + i + 1, get_env(NULL, 0));
+			if (select == 2)
+				redir_to_file(0, argv, argv[i + 1], get_env(NULL, 0));
+			if (select == 3)
+				redir_to_file(1, argv, argv[i + 1], get_env(NULL, 0));
 			argv[i] = tmp;
 		}
-		exec_glob(argv, get_env(NULL, 0));
+		else
+			exec_glob(argv, get_env(NULL, 0));
 		free_tab(argv);
 	}
 }
@@ -84,7 +102,7 @@ void		exec_command(char **argv, char *cmd, char **env)
 
 	if (cmd == NULL)
 		cmd = *argv;
-	if ((i = check_file(cmd)) == 1)
+	if ((i = check_file(cmd, 1)) == 1)
 		exec_itself(argv, cmd, env);
 	else if (i == 3)
 	{

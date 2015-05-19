@@ -6,15 +6,15 @@
 #    By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/17 18:26:04 by mgrimald          #+#    #+#              #
-#    Updated: 2015/05/17 20:06:26 by mgrimald         ###   ########.fr        #
+#    Updated: 2015/05/19 18:23:19 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 DEBUG = $(CFLAGS) -g
 
-NAME = ft_minishell1
+NAME = ft_minishell2
 
 CC = gcc
 
@@ -28,7 +28,8 @@ SRC = access.c \
 	  sh_cd.c \
 	  signal.c \
 	  split_cmd.c \
-	  pipe_test.c
+	  pipe_test.c \
+	  redirection_0_to_file.c
 
 HEADER = ./libft/includes/
 
