@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/24 20:07:43 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/03/07 18:29:49 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/04/03 14:07:07 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_strrev(char *str)
 	int		j;
 
 	i = ft_strlen(str) - 1;
-	j = 0;
 	if ((temp = ft_strnew(i)) == NULL)
 		return (NULL);
+	j = 0;
 	while (i > 0)
 	{
 		temp[j] = str[i];

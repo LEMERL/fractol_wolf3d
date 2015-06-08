@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 16:20:41 by mgrimald          #+#    #+#             */
-/*   Updated: 2014/11/27 17:05:09 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/12 21:22:33 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,14 @@ size_t	ft_strlen(const char *s)
 	while (s[size] != '\0')
 		size++;
 	return (size);
+}
+
+int		ft_tablen(char **tab)
+{
+	int		i;
+
+	i = 0;
+	while (tab[i] != NULL)
+		i++;
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/07 18:02:36 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/01/07 18:20:45 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/01/24 15:07:25 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	ft_lstdelall_db(t_lst_db **alst)
 			tmp = (*alst)->next;
 			bzero((*alst)->content, (*alst)->content_size);
 			free((*alst)->content);
-			(*alst)->prev= NULL;
-			(*alst)->next= NULL;
+			(*alst)->prev = NULL;
+			(*alst)->next = NULL;
 			free((*alst));
 			*alst = tmp;
 		}

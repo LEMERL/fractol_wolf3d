@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/13 22:30:42 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/19 21:02:24 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/20 16:16:09 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,44 +28,63 @@ void		exec_glob(char **argv, char **env)
 		}
 }
 
+void	boucle_exec(char **argv)
+{
+	int		select;
+	int		i;
+
+	if (argv == NULL || argv[0] == NULL)
+	{
+		ft_putendl("syntax error");
+		exit(-1);
+	}
+	select = 0;
+	i = 0;
+	while (select == 0 && argv[++i] != NULL)
+	{
+		if (argv[i][0] == ';')
+			select = 1;
+		else if ((argv[i][0]) == '|')
+			select = 2;
+		else if ((argv[i][0]) == '>')
+		{
+			select = 3;
+			if (argv[i][1] == '>')
+				select = 4;
+		}
+		else if (argv[i][0] == '<')
+		{
+			select = 5;
+			if (argv[i][1] == '<')
+				select = 6;
+		}
+	}
+	char	*tmp;
+
+	if (select != 0)
+	{
+		tmp = argv[i];
+		argv[i] = NULL;
+		if (select == 1)
+			usable_pipe(argv, argv + i + 1, get_env(NULL, 0));
+		if (select == 2)
+			redir_to_file(0, argv, argv[i + 1], get_env(NULL, 0));
+		if (select == 3)
+			redir_to_file(1, argv, argv[i + 1], get_env(NULL, 0));
+		argv[i] = tmp;
+	}
+	else
+		exec_glob(argv, get_env(NULL, 0));
+}
+
 void		sh_boucle_lecture(int fd)
 {
 	int		ret;
 	char	**argv;
-	int		i;
-	char	*tmp;
 
 	while ((ret = get_next_command(&argv, fd)) > 0)
 	{
-		int		select;
-
-		select = 0;
-		i = 0;
-		while (select == 0 && argv[++i] != NULL)
-		{
-			if ((argv[i][0]) == '|')
-				select = 1;
-			else if ((argv[i][0]) == '>')
-			{
-				select = 2;
-				if (argv[i][1] == '>')
-					select = 3;
-			}
-		}
-		if (select != 0)
-		{
-			tmp = argv[i];
-			argv[i] = NULL;
-			if (select == 1)
-				usable_pipe(argv, argv + i + 1, get_env(NULL, 0));
-			if (select == 2)
-				redir_to_file(0, argv, argv[i + 1], get_env(NULL, 0));
-			if (select == 3)
-				redir_to_file(1, argv, argv[i + 1], get_env(NULL, 0));
-			argv[i] = tmp;
-		}
-		else
-			exec_glob(argv, get_env(NULL, 0));
+		boucle_exec(argv);
 		free_tab(argv);
 	}
 }

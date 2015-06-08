@@ -6,19 +6,20 @@
 #    By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/10 17:46:31 by mgrimald          #+#    #+#              #
-#    Updated: 2015/01/10 15:03:29 by mgrimald         ###   ########.fr        #
+#    Updated: 2015/06/08 01:24:00 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC = gcc
+CC = clang
 
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror
 
 DIR = includes
 
 SRC = del.c \
+	  ft_issmt.c \
 	  ft_memset.c \
 	  ft_bzero.c \
 	  ft_memcpy.c \
@@ -79,7 +80,6 @@ SRC = del.c \
 	  ft_lstiter.c \
 	  ft_lstadd_db.c \
 	  ft_strrev.c \
-	  ft_strclen.c \
 	  ft_memdup.c \
 	  ft_lstnew_db.c \
 	  ft_lstlen_db.c \
@@ -89,30 +89,31 @@ SRC = del.c \
 	  ft_lstgetstart_db.c \
 	  ft_lstgetend_db.c \
 	  ft_lsttochar_db.c \
-	  ft_lstdelone_db.c \
 	  ft_lstdelall_db.c \
 	  ft_lstdel_db.c \
+	  ft_tab_divers.c \
+	  get_next_line.c \
+	  ft_strclen.c
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@echo "\033[1;36m[Compile all \".o\"]\033[0m"
+$(NAME): $(SRC)
+	@echo "\033[1;36m[$(NAME)][Compile all \".c\" using $(CC)]\033[0m"
+	@$(CC) $(FLAGS) -I $(DIR) -c $(SRC)
+	@echo "\033[1;36m[$(NAME)][Compile all \".o\"]\033[0m"
 	@ar rc $(NAME) $(OBJ)
-	@echo "\033[1;34m[Create libft.a]\033[0m"
+	@echo "\033[1;34m[$(NAME)][Create $(NAME)]\033[0m"
 	@ranlib $(NAME)
 
-$(OBJ): $(SRC)
-	@echo "\033[1;36m[Compile all \".c\"]\033[0m"
-	@$(CC) $(FLAGS) -I $(DIR) -c $(SRC)
 
 clean:
-	@echo "\033[1;31m[Delete all \".o\"]\033[0m"
+	@echo "\033[1;31m[$(NAME)][Delete all \".o\"]\033[0m"
 	@rm -f $(OBJ)
 
 fclean: clean
-	@echo "\033[1;31m[Delete libft.a]\033[0m"
+	@echo "\033[1;31m[$(NAME)][Delete $(NAME)]\033[0m"
 	@rm -f $(NAME)
 
 re: fclean all

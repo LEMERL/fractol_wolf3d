@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:44:45 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/02/25 19:46:15 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/06/08 09:49:56 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ int	mandel(t_env *e, int x, int y)
 	t_comp	next;
 	t_comp	c;
 
-	c.real = e->x_min + (x / e->zoom);
-	c.cplx = e->y_min + (y / e->zoom);
+	c.real = e->min.real + (x * e->zoom);
+	c.cplx = e->min.cplx + (y * e->zoom);
 	z.real = e->cst.real;
 	z.cplx = e->cst.cplx;
 	i = 0;
-	while (i < e->iter_max && z.real * z.real + z.cplx * z.cplx < 4)
+	while (i < e->iter_max && z.real * z.real + z.cplx * z.cplx <= 4)
 	{
 		next.real = (z.real * z.real) - (z.cplx * z.cplx) + c.real;
 		next.cplx = 2 * z.real * z.cplx + c.cplx;
@@ -66,7 +66,10 @@ int	mandel(t_env *e, int x, int y)
 		i++;
 	}
 	mlxr_pixel_put_img(e, x, y, color((double)i / (double)e->iter_max));
-	if ((e->x_min + (x / e->zoom) >= -0.01 && e->x_min + (x / e->zoom) <= 0.01) || (e->y_min + (y / e->zoom) >= -0.01 && e->y_min + (y / e->zoom) <= 0.01))
+	if ((e->min.real + (x * e->zoom) >= -0.01 && e->min.real + (x * e->zoom) <= 0.01) || (e->min.cplx + (y * e->zoom) >= -0.01 && e->min.cplx + (y * e->zoom) <= 0.01))
+	{
+//		printf("%d : %d\n", x, y);
 		mlxr_pixel_put_img(e, x, y, 0xFF0000);
+	}
 	return (0);
 }

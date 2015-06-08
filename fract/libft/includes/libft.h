@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 14:53:36 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/01/07 18:21:58 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/16 14:13:48 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_tree
+{
+	void			*content;
+	size_t			size;
+	int				value;
+	struct s_tree	*right;
+	struct s_tree	*left;
+}					t_tree;
+
 typedef struct		s_lst_db
 {
 	void			*content;
@@ -32,6 +41,17 @@ typedef struct		s_lst_db
 	struct s_lst_db	*prev;
 }					t_lst_db;
 
+t_tree				*ft_treenew(void const *content, size_t size, int value);
+void				ft_lstaddnew(t_list **alst, void *content, size_t size);
+char				*ft_strndup(const char *s1, int n);
+int					ft_isspace(char c);
+int					ft_tablen(char **tab);
+int					ft_strclen(const char *s, int c);
+char				**ft_tabadd(char **tab, char *add);
+char				**ft_tabret(char **tab, char *ret);
+void				free_tab(char **tab);
+char				**ft_tabdup(char **tab);
+char				**ft_tabchrstr(char **tab, char *str, int len);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *s1, const void *s2, size_t n);
@@ -94,20 +114,21 @@ void				ft_lstadd(t_list **alst, t_list *nw);
 void				*ft_memdup(const void *s, int len);
 void				ft_lstadd_db(t_lst_db **alstdb, t_lst_db *nw);
 void				ft_lstdel_db(t_lst_db **alst, void (*del)(void*, size_t));
-void				ft_lstdelone_db(t_lst_db **alst, void (*del)(void*, size_t));
 t_lst_db			*ft_lstgetend_db(t_lst_db **lst);
 t_lst_db			*ft_lstgetstart_db(t_lst_db **lst);
 int					ft_lstlen_db(t_lst_db *lst);
 t_lst_db			*ft_lstnew_db(void const *cont, size_t cont_size);
 int					ft_lstsumsize_db(t_lst_db *lst);
 char				*ft_strrev(char *str);
-int					ft_strclen(const char *s, int c);
 int					ft_lstlen(t_list *list);
 t_lst_db			*ft_lstgo_n_next(t_lst_db *lst, int n);
 t_lst_db			*ft_lstgo_n_prev(t_lst_db *lst, int n);
 char				*ft_lsttochar_db(t_lst_db **lst);
-void				delzero(void *ptr, size_t size);
 void				del(void *ptr, size_t size);
 void				ft_lstdelall_db(t_lst_db **alst);
+
+# define BUFF_SIZE 1024
+
+int					get_next_line(int const fd, char **line);
 
 #endif

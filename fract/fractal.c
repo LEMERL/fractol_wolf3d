@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/15 16:45:51 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/02/25 20:38:37 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/06/08 13:40:41 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void	frct_draw(t_env *e)
 	int		x;
 	int		y;
 
-	e->zoom = e->win->height / (e->x_max - e->x_min);
+	e->min.real = e->centre.real - ((e->win->width / 2) * e->zoom);
+	e->min.cplx = e->centre.cplx - ((e->win->height / 2) * e->zoom);
+	e->max.real = e->centre.real + ((e->win->width / 2) * e->zoom);
+	e->max.cplx = e->centre.cplx + ((e->win->height / 2) * e->zoom);
 	x = -1;
 	mlx_clear_window(e->mlx, e->win->ptr);
 	while (++x < e->img->width)

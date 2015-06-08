@@ -6,11 +6,11 @@
 #    By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/02/17 18:26:04 by mgrimald          #+#    #+#              #
-#    Updated: 2015/05/17 14:21:10 by mgrimald         ###   ########.fr        #
+#    Updated: 2015/06/03 18:01:51 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 DEBUG = $(CFLAGS) -g
 

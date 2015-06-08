@@ -7,83 +7,21 @@ int		frct_zoom(t_env *e, t_env *tmp, double center)
 */
 int		mouse_hook(int button, int x, int y, t_env *e)
 {
-	double	delta;
-	double	center;
-	t_env	tmp;
 
-	tmp.y_max = e->y_max;
-	tmp.y_min = e->y_min;
-	tmp.x_max = e->x_max;
-	tmp.x_min = e->x_min;
 	if (button == 4)
-	{
-		delta = e->x_max - e->x_min;
-		if (delta <= 0.0)
-			delta = 0.01;
-		delta = (delta * 3) / 4;
-		center = e->x_min + (x / e->zoom);
-		e->x_min = center - delta / 2;
-		e->x_max = center + delta / 2;
-		if (e->x_min > tmp.x_min)
-		{
-			e->x_min = tmp.x_min;
-			e->x_max = tmp.x_min + delta;
-		}
-		else if (e->x_max < tmp.x_max)
-		{
-			e->x_max = tmp.x_max;
-			e->x_min = tmp.x_max + delta;
-		}
-		delta = e->y_max - e->y_min;
-		if (delta <= 0.0)
-			delta = 0.01;
-		delta = (delta * 3) / 4;
-		center = e->y_min + (y / e->zoom);
-		e->y_min = center - delta / 2;
-		e->y_max = center + delta / 2;
-		if (e->y_min > tmp.y_min)
-		{
-			e->y_min = tmp.y_min;
-			e->y_max = tmp.y_min + delta;
-		}
-		else if (e->y_max < tmp.y_max)
-		{
-			e->y_max = tmp.y_max;
-			e->y_min = tmp.y_max + delta;
-		}
-	}
+		e->zoom = e->zoom * 0.75;
 	if (button == 5)
-	{
-		delta = e->x_max - e->x_min;
-		delta = (delta * 4) / 3;
-		if (delta <= 0.0)
-			delta = 0.01;
-		center = (e->x_max + e->x_min) / 2;
-		e->x_min = center - (delta / 2);
-		e->x_max = center + (delta / 2);
-		delta = e->y_max - e->y_min;
-		delta = (delta * 4) / 3;
-		if (delta <= 0.0)
-			delta = 0.01;
-		center = (e->y_max + e->y_min) / 2;
-		e->y_min = center - (delta / 2);
-		e->y_max = center + (delta / 2);
-	}
+		e->zoom = e->zoom * 1.5;
 	if (button == 1)
 		e->focus = e->focus ? 0 : 1;
-	if (e->x_min >= e->x_max || e->x_min >= e->x_max)
-	{
-		e->y_max = tmp.y_max;
-		e->x_max = tmp.x_max;
-		e->y_min = tmp.y_min;
-		e->x_min = tmp.x_min;
-	}
+//	if (e->min.real >= e->max.real || e->min.real >= e->max.real)
 	printf("button: %d\n", button);
-	printf("delta: %f\n", delta);
 	printf("x: %d\ty%d\n", x, y);
-	printf("x_min: %f\tx_max$%f\n", e->x_min, e->x_max);
-	printf("y_min: %f\ty_max$%f\n", e->x_min, e->x_max);
-	printf("zoom: %f\n", e->win->height / (e->x_max - e->x_min));
+	printf("center.real: %f\tcenter.cmplx: %f\n", e->centre.real, e->centre.cplx);
+	printf("min.real: %f\tmax.real: %f\n", e->min.real, e->max.real);
+	printf("min.cplx: %f\tmax.cplx: %f\n", e->min.real, e->max.real);
+	printf("zoom: %f\n", e->zoom);
+	printf("e->win->height / (e->max.real - e->min.real) == %f\n", e->win->height / (e->max.real - e->min.real));
 	frct_draw(e);
 	return (0);
 }
@@ -95,13 +33,13 @@ int		key_hook(int keycode, t_env *e)
 		ft_fatal_error(e);
 //	if (keycode == 65451 || keycode == 61)
 //	if (keycode == 65453 || keycode == 45)
-	if (keycode == 65461)
+/*	if (keycode == 65461)
 	{
-		e->x_min = -2.0;
-		e->x_max = 2.0;
-		e->y_min = -2.0;
-		e->y_max = 2.0;
-	}
+		e->min.real = -2.0;
+		e->max.real = 2.0;
+		e->min.cplx = -2.0;
+		e->max.cplx = 2.0;
+	}*/
 	if (keycode == 61)
 		e->iter_max += 10;
 	if (keycode == 45)

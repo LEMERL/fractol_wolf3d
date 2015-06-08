@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/06 18:49:29 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/17 14:26:51 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/06/03 17:59:05 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,12 @@ static void	try_cd(char *dir)
 	ft_putstr("cd: ");
 	if ((type = check_file(dir)) == 2)
 	{
+		ft_putendl_fd("before getcwd", 2);
 		futur_old = getcwd(NULL, 0);
+		ft_putendl_fd("after getcwd", 2);
 		if (chdir(dir) == 0)
 			change_pwd_old(futur_old);
+		ft_putendl_fd("changed", 2);
 		free(futur_old);
 	}
 }

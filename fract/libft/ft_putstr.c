@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:05:13 by mgrimald          #+#    #+#             */
-/*   Updated: 2014/11/03 19:17:11 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/05/10 18:43:41 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ void	ft_putstr(char const *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	if (str == NULL)
 	{
-		ft_putchar(str[i]);
-		i++;
+		write(1, "~~~NULL~~~", 10);
+		return ;
 	}
+	write(1, str, ft_strlen(str));
 }

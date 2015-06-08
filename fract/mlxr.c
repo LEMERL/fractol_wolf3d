@@ -16,7 +16,7 @@ void	mlxr_new_img(t_env *e)
 {
 	if (e->img != NULL && e->img->ptr != NULL)
 			mlx_destroy_image(e->mlx, e->img->ptr);
-	else if ((e->img = (t_img*)malloc(sizeof(t_img))) == NULL)
+	else if ((e->img = (t_img*)ft_strnew(sizeof(t_img))) == NULL)
 			ft_fatal_error(e);
 	e->img->width = e->win->width;
 	e->img->height = e->win->height;

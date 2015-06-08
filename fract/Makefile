@@ -3,29 +3,32 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: scoudert <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/02/17 18:26:04 by mgrimald          #+#    #+#              #
-#    Updated: 2015/03/21 16:05:21 by mgrimald         ###   ########.fr        #
+#    Created: 2015/01/13 14:48:43 by scoudert          #+#    #+#              #
+#    Updated: 2015/06/08 01:22:33 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 DEBUG = $(CFLAGS) -g
 
 NAME = fractol
 
-CC = gcc
+MLX_DIR = mlx/minilibx_macos/
 
-MLX = -framework OpenGL -framework AppKit -lmlx
+MLX = -L$(MLX_DIR) -framework OpenGL -framework AppKit -lmlx
+
+CC = gcc
 
 SRC = main.c \
 	  mlxr.c \
 	  frct_calculus.c \
 	  frct_init.c \
 	  ft_fatal_error.c \
-	  frct_mlx.c
+	  frct_mlx.c \
+	  fractal.c
 
 HEADER = ./libft/includes/
 
@@ -38,38 +41,25 @@ RM = rm -f
 all:
 	@make $(NAME)
 
-$(NAME): $(SRC)
-	@make -C libft/
-#	@$(CC) $(CFLAGS) -c $(SRC) -I $(HEADER)
-#	@$(CC) $(CFLAGS) -o $(OBJ) $(MLX) -o $(NAME) libft/libft.a
-	@$(CC) $(CFLAGS) $(SRC) -I $(HEADER) $(MLX) -o $(NAME) libft/libft.a
-	@echo "\033[36mCreate $(NAME) executable \033[0m"
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
 
+$(NAME): $(OBJ)
+	@make -C libft/
+	@make -C $(MLX_DIR)
+	@echo "[frct]\033[32mCompile all \".c\"\033[0m"
+	$(CC) $(CFLAGS) -o $(NAME) $(MLX_DIR)/libmlx.a $(OBJ) mlx/minilibx_macos/libmlx.a $(MLX) libft/libft.a
+	@echo "[frct]\033[36mCreate $(NAME) executable \033[0m"
 
 clean:
 	@make -C libft/ clean
-	@echo "\033[31mDelete all \".o\"\033[0m"
-	@$(RM) $(OBJ)
+	@echo "[frct]\033[31mDelete all \".o\"\033[0m"
+	$(RM) $(OBJ)
 
 fclean: clean
 	@make -C libft/ fclean
-	@echo "\033[31mDelete $(NAME) executable\033[0m"
+	@make -C $(MLX_DIR) clean
+	@echo "[frct]\033[31mDelete $(NAME) executable\033[0m"
 	@$(RM) $(NAME)
 
 re: fclean all
-
-debug:
-	@make -C libft/ fclean
-	@make -C libft/ debug
-	@echo "\033[32mCompile all \".c\" with debug flag\033[0m"
-	@$(CC) $(DEBUG) $(CFLAGS) -c $(SRC) -I $(HEADER)
-	@$(CC) $(DEBUG) $(CFLAGS) -o $(NAME) $(OBJ) libft/libft.a
-	@echo "\033[36mCreate $(NAME)\033[0m"
-
-mlx_free:
-	@make -C libft/ fclean
-	@make -C libft/ debug
-	@echo -e "\033[32mCompile all \".c\" with debug flag\033[0m"
-	@$(CC) $(DEBUG) -c $(SRC) -I $(HEADER)
-	@$(CC) $(DEBUG) -o $(NAME) $(OBJ) libft/libft.a
-	@echo -e "\033[36mCreate fdf\033[0m"

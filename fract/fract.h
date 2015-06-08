@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/16 16:06:13 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/02/26 17:53:54 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/06/08 07:04:21 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,9 @@ typedef struct	s_env
 	int			iter_max;
 	int			mouse_x;
 	int			mouse_y;
-	double		x_min;
-	double		x_max;
-	double		y_min;
-	double		y_max;
+	t_comp		centre;
+	t_comp		min;
+	t_comp		max;
 	double		zoom;//float ?
 	int			focus;
 	t_comp		cst;

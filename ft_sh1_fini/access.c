@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/12 20:27:22 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/17 14:49:14 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/06/03 18:08:39 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,13 @@ int			check_file(char *path)
 	if (*path != '/')
 	{
 		pwd = getcwd(NULL, 0);
+		if (pwd == NULL)
+		{
+			pwd = get_str_env("PWD");
+			if (pwd == NULL || *pwd == '\0')
+				return (-1);
+			pwd = ft_strdup(pwd);
+		}
 		f = ft_strnew(ft_strlen(path) + ft_strlen(pwd) + 2);
 		ft_strcpy(f, pwd);
 		if (pwd[ft_strlen(pwd) - 1] != '/')
