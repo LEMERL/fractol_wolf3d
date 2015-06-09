@@ -6,18 +6,18 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:44:45 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/06/08 09:49:56 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/06/09 18:13:59 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
 
-int	rgb(int r, int g, int b)
+int		rgb(int r, int g, int b)
 {
 	return (((r * 255) + g) * 255 + b);
 }
 
-int	color(double pos)
+int		color_1(double pos)
 {
 	int		hex;
 	double	p;
@@ -46,30 +46,41 @@ int	color(double pos)
 	return (hex);
 }
 
-int	mandel(t_env *e, int x, int y)
+static t_comp	init_comp(t_env *e, t_comp *c, int x, int y)
+{
+	t_comp	z;
+	t_comp	n;
+
+	c->real = e->min.real + (x * e->zoom);
+	c->cplx = e->min.cplx + (y * e->zoom);
+	z.real = e->cst.real;
+	z.cplx = e->cst.cplx;
+	if (e->slc == JULIA)
+	{
+		n = z;
+		z = *c;
+		*c = n;
+	}
+	return (z);
+}
+
+void	mandel(t_env *e, int x, int y)
 {
 	int		i;
 	t_comp	z;
 	t_comp	next;
 	t_comp	c;
 
-	c.real = e->min.real + (x * e->zoom);
-	c.cplx = e->min.cplx + (y * e->zoom);
-	z.real = e->cst.real;
-	z.cplx = e->cst.cplx;
-	i = 0;
-	while (i < e->iter_max && z.real * z.real + z.cplx * z.cplx <= 4)
+	i = -1;
+	z = init_comp(e, &c, x, y);
+	while (++i < e->iter_max && z.real * z.real + z.cplx * z.cplx <= 4)
 	{
 		next.real = (z.real * z.real) - (z.cplx * z.cplx) + c.real;
 		next.cplx = 2 * z.real * z.cplx + c.cplx;
 		z = next;
-		i++;
 	}
-	mlxr_pixel_put_img(e, x, y, color((double)i / (double)e->iter_max));
-	if ((e->min.real + (x * e->zoom) >= -0.01 && e->min.real + (x * e->zoom) <= 0.01) || (e->min.cplx + (y * e->zoom) >= -0.01 && e->min.cplx + (y * e->zoom) <= 0.01))
-	{
-//		printf("%d : %d\n", x, y);
-		mlxr_pixel_put_img(e, x, y, 0xFF0000);
-	}
-	return (0);
+	if (e->color == 0)
+		mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
+	else
+		mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
 }

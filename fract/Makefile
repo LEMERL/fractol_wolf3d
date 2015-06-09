@@ -6,7 +6,7 @@
 #    By: scoudert <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/13 14:48:43 by scoudert          #+#    #+#              #
-#    Updated: 2015/06/08 01:22:33 by mgrimald         ###   ########.fr        #
+#    Updated: 2015/06/09 14:34:08 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = fractol
 
 MLX_DIR = mlx/minilibx_macos/
 
-MLX = -L$(MLX_DIR) -framework OpenGL -framework AppKit -lmlx
+MLX = $(MLX_DIR)/libmlx.a -I$(MLX_DIR) -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
 CC = gcc
 
@@ -44,11 +44,11 @@ all:
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
 
-$(NAME): $(OBJ)
+$(NAME): $(SRC)
 	@make -C libft/
 	@make -C $(MLX_DIR)
 	@echo "[frct]\033[32mCompile all \".c\"\033[0m"
-	$(CC) $(CFLAGS) -o $(NAME) $(MLX_DIR)/libmlx.a $(OBJ) mlx/minilibx_macos/libmlx.a $(MLX) libft/libft.a
+	$(CC) $(CFLAGS) -o $(NAME) $(SRC) libft/libft.a $(MLX)
 	@echo "[frct]\033[36mCreate $(NAME) executable \033[0m"
 
 clean:

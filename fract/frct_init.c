@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 13:31:03 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/06/08 14:27:30 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/06/09 17:40:13 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,31 +30,30 @@ void	frct_argument(t_env *env, int argc, char **argv)
 	}
 }
 
-void	frct_init(t_env *e)
+void	frct_init(t_env *e, int n)
 {
-	e->win = (t_win*)ft_strnew((sizeof(t_win)));
-	e->mlx = mlx_init();
-	if (e->mlx == NULL || e->win == NULL)
-		ft_fatal_error(e);
-	e->win->width = 1000;
-	e->win->height = 1000;
-	e->win->ptr = mlx_new_window(e->mlx, e->win->width, e->win->height, "frct");
-	if (e->win->ptr == NULL)
-		ft_fatal_error(e);
-	e->zoom = 0.004;
-/*	e->min.real = -2.0;
-	e->max.real = 1.0;
-	e->min.cplx = -2.0;
-	e->max.cplx = 1.0;*/
-	e->centre.real = 0.0;
+	void	*win;
+	void	*mlx;
+	void	*img;
+
+	img = e->img;
+	win = e->win;
+	mlx = e->mlx;
+	if (n == -1)
+		n = e->slc;
+	ft_bzero(e, sizeof(t_env));
+	e->mlx = mlx;
+	e->win = win;
+	e->img = img;
+	e->zoom = 0.003;
+	e->centre.real = -0.85;
 	e->centre.cplx = 0.0;
-	e->iter_max = 200;
-	e->cst.real = -1.0;
+	e->iter_max = 50;
+	e->cst.real = 0.0;
 	e->cst.cplx = 0.0;
-	if (e->slc == JULIA)
+	if ((e->slc = n) == JULIA)
 		e->focus = 1;
 	else 
 		e->focus = 0;
 	mlxr_new_img(e);
 }
-

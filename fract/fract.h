@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/16 16:06:13 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/06/08 07:04:21 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/06/09 17:30:56 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,14 @@ typedef struct	s_env
 	t_img		*img;
 	t_select	slc;
 	int			iter_max;
-	int			mouse_x;
-	int			mouse_y;
+	t_comp		mouse;
 	t_comp		centre;
 	t_comp		min;
 	t_comp		max;
-	double		zoom;//float ?
+	double		zoom;
 	int			focus;
+	int			color;
 	t_comp		cst;
-	int			restart;
 }				t_env;
 
 void			mlxr_new_img(t_env *env);
@@ -75,10 +74,10 @@ int				mlxr_pixel_put_img(t_env *e, int x, int y, int color);
 
 void			frct_mlx(t_env *env);
 void			frct_argument(t_env *env, int argc, char **argv);
-void			frct_init(t_env *e);
+void			frct_init(t_env *e, int n);
 
 void			frct_draw(t_env *e);
-int				mandel(t_env *e, int x, int y);
+void			mandel(t_env *e, int x, int y);
 
 void			ft_fatal_error(t_env *env);
 
