@@ -6,7 +6,7 @@
 #    By: scoudert <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/13 14:48:43 by scoudert          #+#    #+#              #
-#    Updated: 2015/06/09 14:34:08 by mgrimald         ###   ########.fr        #
+#    Updated: 2015/07/30 12:18:58 by mgrimald         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,17 +34,17 @@ HEADER = ./libft/includes/
 
 OBJ = $(SRC:.c=.o)
 
-RM = rm -f
+RM = rm -rf
 
 .PHONY: all, clean, fclean, re
 
 all:
 	@make $(NAME)
 
-%.o: %.c
+%.o: %.c Makefile
 	$(CC) $(CFLAGS) -c $<
 
-$(NAME): $(SRC)
+$(NAME): $(OBJ) Makefile
 	@make -C libft/
 	@make -C $(MLX_DIR)
 	@echo "[frct]\033[32mCompile all \".c\"\033[0m"
@@ -60,6 +60,6 @@ fclean: clean
 	@make -C libft/ fclean
 	@make -C $(MLX_DIR) clean
 	@echo "[frct]\033[31mDelete $(NAME) executable\033[0m"
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(NAME).dSYM
 
 re: fclean all
