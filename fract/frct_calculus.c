@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:44:45 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/06/09 18:13:59 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/30 17:44:33 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static t_comp	init_comp(t_env *e, t_comp *c, int x, int y)
 	c->cplx = e->min.cplx + (y * e->zoom);
 	z.real = e->cst.real;
 	z.cplx = e->cst.cplx;
-	if (e->slc == JULIA)
+	if (e->slc == JULIA || e->slc == JUL_3)
 	{
 		n = z;
 		z = *c;
@@ -77,6 +77,27 @@ void	mandel(t_env *e, int x, int y)
 	{
 		next.real = (z.real * z.real) - (z.cplx * z.cplx) + c.real;
 		next.cplx = 2 * z.real * z.cplx + c.cplx;
+		z = next;
+	}
+	if (e->color == 0)
+		mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
+	else
+		mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
+}
+
+void	mandel_ter(t_env *e, int x, int y)
+{
+	int		i;
+	t_comp	z;
+	t_comp	next;
+	t_comp	c;
+
+	i = -1;
+	z = init_comp(e, &c, x, y);
+	while (++i < e->iter_max && z.real * z.real + z.cplx * z.cplx <= 4)
+	{
+		next.real = z.real * z.real * z.real - 3 * z.real;
+		next.cplx = 3 * z.real * z.real * z.cplx - z.cplx;
 		z = next;
 	}
 	if (e->color == 0)

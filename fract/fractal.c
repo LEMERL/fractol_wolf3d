@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/15 16:45:51 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/06/09 16:16:01 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/30 17:41:43 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	frct_draw(t_env *e)
 		{
 			if (e->slc == MANDELBROT || e->slc == JULIA)
 				mandel(e, x, y);
-			if (e->slc == OTHER)
-				mandel(e, x, y);
+			else
+				mandel_ter(e, x, y);
 		}
 	}
 	mlx_put_image_to_window(e->mlx, e->win->ptr, e->img->ptr, 0, 0);

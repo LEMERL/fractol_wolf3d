@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/16 16:06:13 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/06/09 17:30:56 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/30 17:42:02 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ typedef enum	e_select
 {
 	MANDELBROT,
 	JULIA,
-	OTHER,
+	MANDEL_3,
+	JUL_3,
 }				t_select;
 
 typedef struct	s_img
@@ -78,6 +79,7 @@ void			frct_init(t_env *e, int n);
 
 void			frct_draw(t_env *e);
 void			mandel(t_env *e, int x, int y);
+void			mandel_ter(t_env *e, int x, int y);
 
 void			ft_fatal_error(t_env *env);
 

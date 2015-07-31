@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 13:31:03 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/06/09 17:40:13 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/30 19:11:11 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@ void	frct_argument(t_env *env, int argc, char **argv)
 		env->slc = MANDELBROT;
 	else if (argc == 2 && ft_strcmp(argv[1], "julia") == 0)
 		env->slc = JULIA;
-	else if (argc == 2 && ft_strcmp(argv[1], "other") == 0)
-		env->slc = OTHER;
+	else if (argc == 2 && ft_strcmp(argv[1], "ternaire") == 0)
+		env->slc = MANDEL_3;
+	else if (argc == 2 && ft_strcmp(argv[1], "another") == 0)
+		env->slc = JUL_3;
 	else
 	{
 		ft_putendl_fd("parameter(s) invalid.\nList of valid parameters :", 2);
 		ft_putendl_fd("\t\tmandelbrot", 2);
 		ft_putendl_fd("\t\tjulia", 2);
-		ft_putendl_fd("\t\tother", 2);
+		ft_putendl_fd("\t\tternaire", 2);
 		exit(0);
 	}
 }
@@ -53,7 +55,7 @@ void	frct_init(t_env *e, int n)
 	e->cst.cplx = 0.0;
 	if ((e->slc = n) == JULIA)
 		e->focus = 1;
-	else 
+	else
 		e->focus = 0;
 	mlxr_new_img(e);
 }

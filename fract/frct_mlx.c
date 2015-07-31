@@ -1,19 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   frct_mlx.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/07/30 14:04:54 by mgrimald          #+#    #+#             */
+/*   Updated: 2015/07/30 19:12:26 by mgrimald         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fract.h"
 #include "ft_event.h"
 
-/*
-int		frct_zoom(t_env *e, t_env *tmp, double center)
-{
-	return (0);
-}
-*/
 int		mouse_hook(int button, int x, int y, t_env *e)
 {
-	if (button == 4)
+	if (button == 4 && (e->iter_max += 5))
 		e->zoom = e->zoom * 0.75;
-	else if (button == 5)
+	else if (button == 5 && (e->iter_max -= 5))
 		e->zoom = e->zoom * 1.5;
-	if (button == 2 && e->focus == 1)
+	if (button == 2)
 	{
 		e->cst.real = e->min.real + x * e->zoom;
 		e->cst.cplx = e->min.cplx + y * e->zoom;
@@ -25,15 +31,26 @@ int		mouse_hook(int button, int x, int y, t_env *e)
 	printf("center.real: %f\tcenter.cmplx: %f\n", e->centre.real, e->centre.cplx);
 	printf("min.real: %f\tmax.real: %f\n", e->min.real, e->max.real);
 	printf("min.cplx: %f\tmax.cplx: %f\n", e->min.real, e->max.real);
+	printf("cst.real: %f\tcst.cplx: %f\n", e->cst.real, e->cst.cplx);
 	printf("zoom: %f\n", e->zoom);
-	printf("e->win->height / (e->max.real - e->min.real) == %f\n", e->win->height / (e->max.real - e->min.real));
 	frct_draw(e);
+	return (0);
+}
+
+int		motion_hook(int x, int y, t_env *e)
+{
+	if (x >= 0 && y >= 0 && y <= e->win->width && x <= e->win->height
+			&& e->focus)
+	{
+		e->cst.real = e->min.real + x * e->zoom;
+		e->cst.cplx = e->min.cplx + y * e->zoom;
+		frct_draw(e);
+	}
 	return (0);
 }
 
 int		key_hook(int keycode, t_env *e)
 {
-	printf("key: %d\n", keycode);
 	if (keycode == KEY_ESCAPE)
 		ft_fatal_error(e);
 	else if (keycode == ARROW_LEFT)
@@ -59,16 +76,13 @@ int		key_hook(int keycode, t_env *e)
 	if (keycode == KEY_M)
 		frct_init(e, MANDELBROT);
 	if (keycode == KEY_K)
-		frct_init(e, MANDELBROT);
+		frct_init(e, JUL_3);
+	printf("key: %d\n", keycode);
 	printf("iter_max: %d\n", e->iter_max);
-	printf("zoom: %g\n", e->zoom);
-	printf("1000 / zoom: %g\n\n", 1000.0 / e->zoom);
 	frct_draw(e);
-	(void)keycode;
-	(void)e;
 	return (0);
 }
-//if (e->zoom / (1000 * 1000) < 3284788053552)
+
 int		expose_hook(t_env *e)
 {
 	mlx_put_image_to_window(e->mlx, e->win->ptr, e->img->ptr, 0, 0);
@@ -77,11 +91,9 @@ int		expose_hook(t_env *e)
 
 void	frct_mlx(t_env *env)
 {
-	mlx_key_hook(env->win->ptr, key_hook, env);
-	mlx_expose_hook(env->win->ptr, expose_hook, env);
+	mlx_hook(env->win->ptr, 6, (1L << 6), motion_hook, env);
+	mlx_hook(env->win->ptr, KEYPRESS, PRESSMASK, key_hook, env);
 	mlx_mouse_hook(env->win->ptr, mouse_hook, env);
+	mlx_expose_hook(env->win->ptr, expose_hook, env);
 	mlx_loop(env->mlx);
 }
-
-//	mlx_hook(env->win->ptr, 6, (1L << 6), motion_hook, env);
-

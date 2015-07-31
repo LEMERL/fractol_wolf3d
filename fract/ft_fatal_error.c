@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 14:49:40 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/03/21 16:01:10 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/30 18:43:21 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,5 @@ void	ft_fatal_error(t_env *e)
 	ft_putendl_fd("\t\t\t-> An error occuring during the running process", 2);
 	ft_putendl_fd("\t\t\t-> Any of the user action.", 2);
 	ft_putendl_fd("\t\t\t\tI told you to NOT push the red button", 2);
-/*	if (e)
-	{
-		if (e->img)
-		{
-			if (e->img->ptr)
-				mlx_destroy_image(e->mlx, e->img->ptr);
-			free(e->img);
-		}
-		if (e->win)
-		{
-			if (e->win->ptr)
-				mlx_destroy_window(e->mlx, e->win->ptr);
-			free(e->win);
-		}
-		if (e->mlx)
-			free(e->mlx);
-		free(e);
-	}
-*/	exit (0);
+	exit (0);
 }

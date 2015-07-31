@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 13:28:31 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/03/02 17:02:26 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/30 19:10:45 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	mlxr_new_img(t_env *e)
 {
 	if (e->img != NULL && e->img->ptr != NULL)
-			mlx_destroy_image(e->mlx, e->img->ptr);
+		mlx_destroy_image(e->mlx, e->img->ptr);
 	else if ((e->img = (t_img*)ft_strnew(sizeof(t_img))) == NULL)
-			ft_fatal_error(e);
+		ft_fatal_error(e);
 	e->img->width = e->win->width;
 	e->img->height = e->win->height;
 	e->img->ptr = mlx_new_image(e->mlx, e->img->width, e->img->height);
 	if (e->img->ptr == NULL)
 		ft_fatal_error(e);
-	e->img->data = mlx_get_data_addr(e->img->ptr, &(e->img->bpp),
+	e->img->data = mlx_get_data_addr(e->img->ptr, &(e->img->bpp), 
 			&(e->img->size_line), &(e->img->endian));
 }
 
