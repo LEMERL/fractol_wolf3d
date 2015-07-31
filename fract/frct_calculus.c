@@ -6,18 +6,11 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:44:45 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/07/31 16:35:48 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/31 17:01:44 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
-
-int		a(int x)
-{
-	if (x < 0)
-		return (-x);
-	return (x);
-}
 
 int		rgb(int r, int g, int b)
 {
@@ -86,10 +79,7 @@ void	mandel(t_env *e, int x, int y)
 		next.cplx = 2 * z.real * z.cplx + c.cplx;
 		z = next;
 	}
-	if (e->color == 0)
-		mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
-	else
-		mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
+	mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
 }
 
 void	other_fract(t_env *e, int x, int y)
@@ -107,8 +97,5 @@ void	other_fract(t_env *e, int x, int y)
 		n.cplx = ((3 * z.real * z.real) - z.cplx * z.cplx) * z.cplx + c.cplx;
 		z = n;
 	}
-	if (e->color == 0)
-		mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
-	else
-		mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
+	mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
 }

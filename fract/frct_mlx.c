@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 14:04:54 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/07/30 19:12:26 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/31 17:36:34 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,6 @@ int		mouse_hook(int button, int x, int y, t_env *e)
 	}
 	if (button == 1)
 		e->focus = e->focus ? 0 : 1;
-	printf("button: %d\n", button);
-	printf("x: %d\ty%d\n", x, y);
-	printf("center.real: %f\tcenter.cmplx: %f\n", e->centre.real, e->centre.cplx);
-	printf("min.real: %f\tmax.real: %f\n", e->min.real, e->max.real);
-	printf("min.cplx: %f\tmax.cplx: %f\n", e->min.real, e->max.real);
-	printf("cst.real: %f\tcst.cplx: %f\n", e->cst.real, e->cst.cplx);
-	printf("zoom: %f\n", e->zoom);
 	frct_draw(e);
 	return (0);
 }
@@ -49,11 +42,9 @@ int		motion_hook(int x, int y, t_env *e)
 	return (0);
 }
 
-int		key_hook(int keycode, t_env *e)
+void	key_hook_f(int keycode, t_env *e)
 {
-	if (keycode == KEY_ESCAPE)
-		ft_fatal_error(e);
-	else if (keycode == ARROW_LEFT)
+	if (keycode == ARROW_LEFT)
 		e->centre.real -= 45 * e->zoom;
 	else if (keycode == ARROW_UP)
 		e->centre.cplx -= 45 * e->zoom;
@@ -65,27 +56,39 @@ int		key_hook(int keycode, t_env *e)
 		e->iter_max += 50;
 	else if (keycode == 78)
 		e->iter_max -= 50;
-	if (keycode == 27)
-		e->zoom = e->zoom * 1.5;
-	if (keycode == 24)
-		e->zoom = e->zoom * 0.75;
-	if (keycode == KEY_R)
+	else if (keycode == KEY_R)
 		frct_init(e, -1);
-	if (keycode == KEY_J)
+	else if (keycode == KEY_J)
 		frct_init(e, JULIA);
-	if (keycode == KEY_M)
+	else if (keycode == KEY_M)
 		frct_init(e, MANDELBROT);
-	if (keycode == KEY_K)
+	else if (keycode == KEY_K)
 		frct_init(e, JUL_3);
-	printf("key: %d\n", keycode);
-	printf("iter_max: %d\n", e->iter_max);
-	frct_draw(e);
-	return (0);
+	else if (keycode == KEY_I)
+		frct_init(e, MANDEL_3);
+	else if (keycode == KEY_R)
+		frct_init(e, -1);
 }
 
-int		expose_hook(t_env *e)
+int		key_hook(int keycode, t_env *e)
 {
-	mlx_put_image_to_window(e->mlx, e->win->ptr, e->img->ptr, 0, 0);
+	if (keycode == KEY_ESCAPE)
+		ft_fatal_error(e);
+	else if (keycode == 27)
+		e->zoom = e->zoom * 1.5;
+	else if (keycode == 24)
+		e->zoom = e->zoom * 0.75;
+	else if (keycode == KEY_J)
+		frct_init(e, JULIA);
+	else if (keycode == KEY_M)
+		frct_init(e, MANDELBROT);
+	else if (keycode == KEY_K)
+		frct_init(e, JUL_3);
+	else if (keycode == KEY_I)
+		frct_init(e, MANDEL_3);
+	else
+		key_hook_f(keycode, e);
+	frct_draw(e);
 	return (0);
 }
 

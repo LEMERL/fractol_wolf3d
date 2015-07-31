@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/16 16:06:13 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/07/31 16:32:11 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/31 16:56:21 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void			frct_mlx(t_env *env);
 void			frct_argument(t_env *env, int argc, char **argv);
 void			frct_init(t_env *e, int n);
 
+int				expose_hook(t_env *e);
 void			frct_draw(t_env *e);
 void			mandel(t_env *e, int x, int y);
 void			other_fract(t_env *e, int x, int y);

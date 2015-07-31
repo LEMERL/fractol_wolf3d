@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/15 16:45:51 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/07/31 16:28:14 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/31 17:27:14 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	frct_draw(t_env *e)
 
 	if (e->iter_max <= 0)
 		e->iter_max = 10;
+	if (e->zoom >= 0.5)
+		e->zoom = 0.5;
 	e->min.real = e->centre.real - ((e->win->width / 2) * e->zoom);
 	e->min.cplx = e->centre.cplx - ((e->win->height / 2) * e->zoom);
 	e->max.real = e->centre.real + ((e->win->width / 2) * e->zoom);
@@ -37,4 +39,10 @@ void	frct_draw(t_env *e)
 		}
 	}
 	mlx_put_image_to_window(e->mlx, e->win->ptr, e->img->ptr, 0, 0);
+}
+
+int		expose_hook(t_env *e)
+{
+	mlx_put_image_to_window(e->mlx, e->win->ptr, e->img->ptr, 0, 0);
+	return (0);
 }
