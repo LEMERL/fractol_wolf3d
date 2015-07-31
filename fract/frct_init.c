@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 13:31:03 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/07/31 16:34:15 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/31 19:39:08 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,27 @@
 
 void	frct_argument(t_env *env, int argc, char **argv)
 {
-	if (argc == 2 && ft_strcmp(argv[1], "mandelbrot") == 0)
+	if (argc >= 2 && (!ft_strcmp(argv[argc - 1], "mandelbrot")
+			|| !ft_strcmp(argv[argc - 1], "perpandicular")))
 		env->slc = MANDELBROT;
-	else if (argc == 2 && ft_strcmp(argv[1], "julia") == 0)
+	else if (argc >= 2 && (!ft_strcmp(argv[argc - 1], "julia")
+			|| !ft_strcmp(argv[argc - 1], "style")))
 		env->slc = JULIA;
-	else if (argc == 2 && ft_strcmp(argv[1], "ternaire") == 0)
+	else if (argc >= 2 && (!ft_strcmp(argv[argc - 1], "ternaire")
+			|| !ft_strcmp(argv[argc - 1], "bird")))
 		env->slc = MANDEL_3;
-	else if (argc == 2 && ft_strcmp(argv[1], "another") == 0)
+	else if (argc >= 2 && (!ft_strcmp(argv[argc - 1], "another")
+			|| !ft_strcmp(argv[argc - 1], "last")))
 		env->slc = JUL_3;
 	else
 	{
 		ft_putendl_fd("parameter(s) invalid.\nList of valid parameters :", 2);
-		ft_putendl_fd("\t\tmandelbrot", 2);
-		ft_putendl_fd("\t\tjulia", 2);
-		ft_putendl_fd("\t\tternaire", 2);
-		ft_putendl_fd("\t\tanother", 2);
-		exit(0);
+		ft_putendl_fd("(depending on compilation mode)", 2);
+		ft_putendl_fd("\t\tmandelbrot\tor\tperpandicular", 2);
+		ft_putendl_fd("\t\tjulia\t\tor\tstyle", 2);
+		ft_putendl_fd("\t\tbird\t\tor\tternaire", 2);
+		ft_putendl_fd("\t\tanother\t\tor\tlast", 2);
+		ft_fatal_error(env);
 	}
 }
 
