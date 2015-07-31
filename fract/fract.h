@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/16 16:06:13 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/07/30 17:42:02 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/31 16:32:11 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
-# include <math.h>
 # include <mlx.h>
 # include "libft/includes/libft.h"
 
@@ -79,7 +78,7 @@ void			frct_init(t_env *e, int n);
 
 void			frct_draw(t_env *e);
 void			mandel(t_env *e, int x, int y);
-void			mandel_ter(t_env *e, int x, int y);
+void			other_fract(t_env *e, int x, int y);
 
 void			ft_fatal_error(t_env *env);
 

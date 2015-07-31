@@ -6,11 +6,18 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:44:45 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/07/30 17:44:33 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/31 16:35:48 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
+
+int		a(int x)
+{
+	if (x < 0)
+		return (-x);
+	return (x);
+}
 
 int		rgb(int r, int g, int b)
 {
@@ -85,20 +92,20 @@ void	mandel(t_env *e, int x, int y)
 		mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
 }
 
-void	mandel_ter(t_env *e, int x, int y)
+void	other_fract(t_env *e, int x, int y)
 {
 	int		i;
 	t_comp	z;
-	t_comp	next;
+	t_comp	n;
 	t_comp	c;
 
 	i = -1;
 	z = init_comp(e, &c, x, y);
 	while (++i < e->iter_max && z.real * z.real + z.cplx * z.cplx <= 4)
 	{
-		next.real = z.real * z.real * z.real - 3 * z.real;
-		next.cplx = 3 * z.real * z.real * z.cplx - z.cplx;
-		z = next;
+		n.real = ((z.real * z.real) - (z.cplx * z.cplx) * 3) * z.real + c.real;
+		n.cplx = ((3 * z.real * z.real) - z.cplx * z.cplx) * z.cplx + c.cplx;
+		z = n;
 	}
 	if (e->color == 0)
 		mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
