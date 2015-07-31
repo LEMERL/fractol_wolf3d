@@ -6,18 +6,18 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:44:45 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/07/31 17:01:44 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/07/31 17:51:59 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract.h"
 
-int		rgb(int r, int g, int b)
+int				rgb(int r, int g, int b)
 {
 	return (((r * 255) + g) * 255 + b);
 }
 
-int		color_1(double pos)
+int				color_1(double pos)
 {
 	int		hex;
 	double	p;
@@ -64,7 +64,7 @@ static t_comp	init_comp(t_env *e, t_comp *c, int x, int y)
 	return (z);
 }
 
-void	mandel(t_env *e, int x, int y)
+void			mandel(t_env *e, int x, int y)
 {
 	int		i;
 	t_comp	z;
@@ -82,7 +82,7 @@ void	mandel(t_env *e, int x, int y)
 	mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
 }
 
-void	other_fract(t_env *e, int x, int y)
+void			other_fract(t_env *e, int x, int y)
 {
 	int		i;
 	t_comp	z;
