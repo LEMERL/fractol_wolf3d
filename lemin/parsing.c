@@ -1,92 +1,84 @@
 #include "lemin.h"
 
-int main()
+static void ft_error(void)
 {
+    ft_putstr("ERROR\n");
+    exit(1);
+}
+
+int     lin_parse_comm(char *str, t_status *status)
+{
+    if (str == NULL || str[0] == '\0' || str[0] == '#')
+    {
+        if (str != NULL && str[0] && str[1] == '#' && ft_strequ(str + 2, "start"))
+        {
+            if (*status != BASIC)
+                ft_error();
+            else
+                *status = START;
+        }
+        else if (str != NULL && str[0] && str[1] == '#' && ft_strequ(str + 2, "end"))
+        {
+            if (*status != BASIC)
+                ft_error();
+            else
+                *status = END;
+        }
+        return (1);
+    }
+    return (0);
+}
+
+static lin_parse_fill(t_status *status, char **split, t_list *list)
+{
+    static int  n = 0;
     t_salle     salle;
+
+    ft_bzero((void*)&salle, sizeof(t_salle));
+    salle.name = ft_strdup(split[0]);
+    salle.status = *status;
+    salle.x = ft_atoi(split[1]);
+    salle.y = ft_atoi(split[2]);
+    salle.indice = n;
+    n++;
+    printf("%s\t(%d/%d)\t%d\t%d\n", salle.name, salle.x, salle.y, salle.indice, *status);
+    ft_lstaddnew(&list, (void*)&salle, sizeof(t_salle));
+    *status = BASIC;
+}
+
+char    *lin_parse_first(t_list *list)
+{
     char        *str;
-    t_list      *list;
     t_status    status;
     char        **split;
-    int         n;
 
-    n = 0;
-    list = NULL;
     status = BASIC;
-    while (get_next_line(0, &str) > 0)
+    while ((split = NULL) || get_next_line(0, &str) > 0)
     {
-        if (str == NULL || str[0] == '\0' || str[0] == '#')
+        if (!lin_parse_comm(str, &status) && (split = ft_strsplit(str, ' ')) &&
+            split[0])
         {
-            if (str != NULL && str[0] && str[1] == '#' && ft_strequ(str + 2, "start"))
-            {
-                if (status != BASIC)
-                {
-                    ft_putstr("ERROR\n");
-                    exit(1);
-                }
-                else
-                    status = START;
-            }
-            else if (str != NULL && str[0] && str[1] == '#' && ft_strequ(str + 2, "end"))
-            {
-                if (status != BASIC)
-                {
-                    ft_putstr("ERROR\n");
-                    exit(1);
-                }
-                else
-                    status = END;
-            }
-            ft_strdel(&str);
-            continue;
-        }
-        split = ft_strsplit(str, ' ');
-        if (split != NULL)
-        {
-            if (split[0] == NULL)
-            {
-                free_tab(split);
-                continue;
-            }
-            if ((split[1] != NULL && (split[2] == NULL || split[3] != NULL))
+            if ((split[1] && (split[2] == NULL || split[3] != NULL))
                 || !ft_isnumber(split[1]) || !ft_isnumber(split[2]))
-            {
-                ft_putstr("ERROR\n");
-                exit(1);
-            }
+                ft_error();
             if (split[1] == NULL)
             {
                 if (status != BASIC)
-                {
-                    ft_putstr("ERROR\n");
-                    exit(1);
-                }
-                break;
+                    ft_error();
+                return (str);
             }
-            ft_bzero((void*)&salle, sizeof(t_salle));
-            salle.name = ft_strdup(split[0]);
-            salle.status = status;
-            salle.x = ft_atoi(split[1]);
-            salle.y = ft_atoi(split[2]);
-            salle.indice = n;
-            n++;
-            printf("%s\t(%d/%d)\t%d\n", salle.name, salle.x, salle.y, salle.indice);
-            ft_lstaddnew(&list, (void*)&salle, sizeof(t_salle));
-            free_tab(split);
-            ft_strdel(&str);
-            status = BASIC;
+            lin_parse_fill(&status, split, list);
         }
+        free_tab(split);
+        ft_strdel(&str);
     }
 }
 
-/*
-    ##start
-    1 23 3
-    2 16 7
-    #commentaire
-    3 16 3
-    4 16 5
-    5 3 9
-    6 1 0
-    7 4 8
-    ##end
-*/
+int main(void)
+{
+    t_list  *list;
+    
+    list = NULL;
+    lin_parse_first(list);
+    return (0);   
+}
