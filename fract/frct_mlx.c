@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/07/30 14:04:54 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/07/31 17:36:34 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/08/05 14:51:28 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,12 @@ int		key_hook(int keycode, t_env *e)
 		frct_init(e, JUL_3);
 	else if (keycode == KEY_I)
 		frct_init(e, MANDEL_3);
+	else if (keycode == KEY_C)
+		e->color = e->color ? 0 : 1;
+	else if (keycode == KEY_Z)
+		e->mult = e->mult * 10;
+	else if (keycode == KEY_X)
+		e->mult = e->mult / 10;
 	else
 		key_hook_f(keycode, e);
 	frct_draw(e);

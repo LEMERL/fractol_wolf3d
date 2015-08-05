@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/18 15:44:45 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/07/31 19:33:51 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/08/05 14:57:27 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ static t_comp	init_comp(t_env *e, t_comp *c, int x, int y)
 	c->cplx = e->min.cplx + (y * e->zoom);
 	z.real = e->cst.real;
 	z.cplx = e->cst.cplx;
+	if (e->mult < 1)
+		e->mult = 1;
+	if (e->mult > 10000)
+		e->mult = 10000;
 	if (e->slc == JULIA || e->slc == JUL_3)
 	{
 		n = z;
@@ -73,7 +77,7 @@ void			mandel(t_env *e, int x, int y)
 
 	i = -1;
 	z = init_comp(e, &c, x, y);
-	while (++i < e->iter_max && z.real * z.real + z.cplx * z.cplx <= 4)
+	while (++i < e->iter_max && z.real * z.real + z.cplx * z.cplx < 4 * e->mult)
 	{
 		n.real = (z.real * z.real) - (z.cplx * z.cplx) + c.real;
 		if (z.real < 0)
@@ -82,7 +86,15 @@ void			mandel(t_env *e, int x, int y)
 			n.cplx = -(z.real * z.cplx) * 2 + c.cplx;
 		z = n;
 	}
-	mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
+	if (e->color == 1)
+	{
+		if (z.cplx > 0 || e->iter_max == i)
+			mlxr_pixel_put_img(e, x, y, 0);
+		else
+			mlxr_pixel_put_img(e, x, y, 0XFFFFFF);
+	}
+	else
+		mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
 }
 
 void			other_fract(t_env *e, int x, int y)
@@ -94,11 +106,19 @@ void			other_fract(t_env *e, int x, int y)
 
 	i = -1;
 	z = init_comp(e, &c, x, y);
-	while (++i < e->iter_max && z.real * z.real + z.cplx * z.cplx <= 4)
+	while (++i < e->iter_max && z.real * z.real + z.cplx * z.cplx < 4 * e->mult)
 	{
 		n.real = ((z.real * z.real) - (z.cplx * z.cplx) * 3) * z.real + c.real;
 		n.cplx = ((3 * z.real * z.real) - z.cplx * z.cplx) * z.cplx + c.cplx;
 		z = n;
 	}
-	mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
+	if (e->color == 1)
+	{
+		if (z.cplx > 0 || e->iter_max == i)
+			mlxr_pixel_put_img(e, x, y, 0);
+		else
+			mlxr_pixel_put_img(e, x, y, 0XFFFFFF);
+	}
+	else
+		mlxr_pixel_put_img(e, x, y, color_1((double)i / (double)e->iter_max));
 }

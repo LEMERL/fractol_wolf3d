@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/16 16:06:13 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/07/31 16:56:21 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/08/05 14:50:15 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct	s_env
 	double		zoom;
 	int			focus;
 	int			color;
+	int			mult;
 	t_comp		cst;
 }				t_env;
 
