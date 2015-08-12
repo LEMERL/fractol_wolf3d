@@ -29,7 +29,7 @@ int			lin_parse_comm(char *str, t_status *status)
 	return (0);
 }
 
-static void	lin_parse_fill(t_status *status, char **split, t_list *list)
+static void	lin_parse_fill(t_status *status, char **split, t_list **list)
 {
 	static int	n = 0;
 	t_salle		salle;
@@ -42,11 +42,11 @@ static void	lin_parse_fill(t_status *status, char **split, t_list *list)
 	salle.indice = n;
 	n++;
 	printf("%s\t(%d/%d)\t%d\t%d\n", salle.name, salle.x, salle.y, salle.indice, *status);
-	ft_lstaddnew(&list, (void*)&salle, sizeof(t_salle));
+	ft_lstaddnew(list, (void*)&salle, sizeof(t_salle));
 	*status = BASIC;
 }
 
-char		*lin_parse_first(t_list *list)
+char		*lin_parse_first(t_list **list)
 {
 	char		*str;
 	t_status	status;
@@ -100,9 +100,8 @@ int			lim_linker(t_list *tmp, char *str, t_salle *salle)
 		tmp = tmp->next;
 	if (tmp == NULL)
 		return (-1);
-	if (salle->link == NULL)
-		salle->link = tmp;
-//	ft_lstadd(&(salle->link), )
+	ft_lstaddcreate(&(salle->link), tmp->content);
+	ft_lstaddcreate(&(((t_salle*)tmp->content)->link), salle);
 	return (1);
 }
 
@@ -117,28 +116,57 @@ void		add_link_list(t_list **alst, char *str)
 	{
 		split = ft_strsplit(str, '-');
 		ft_strdel(&str);
-		if (split == NULL || split[0] == NULL || split[1] == NULL || split[2])
+		if (split == NULL || split[0] == NULL || split[1] == NULL
+				|| split[2] != NULL || ft_strequ(split[0], split[1]))
 			return ;
 		tmp = *alst;
 		while (tmp && ft_strequ(split[0], ((t_salle*)tmp->content)->name) == 0)
 			tmp = tmp->next;
-		if (tmp == NULL || lim_linker(*alst, split[1], (t_salle*)tmp->content) == -1)
+		if (!tmp || lim_linker(*alst, split[1], (t_salle*)tmp->content) == -1)
 			return ;
 		rd = get_next_line(0, &str);
 		free_tab(split);
 	}
 }
 
-int main(void)
+#include <stdio.h>
+
+void	print_list(t_list *list)
+{
+	t_salle		*salle;
+	t_list		*link;
+
+	while (list != NULL)
+	{
+		salle = (t_salle*)list->content;
+		link = salle->link;
+		printf("\n\n%s\t(%d/%d)\t%d\t", salle->name, salle->x, salle->y, salle->indice);
+		if (salle->status == BASIC)
+			printf("BASIC\n");
+		else if (salle->status == START)
+			printf("START\n");
+		else if (salle->status == END)
+			printf("END\n");
+		while (link != NULL)
+		{
+			printf("\t%s\n", ((t_salle*)link->content)->name);
+			link = link->next;
+		}
+		list = list->next;
+	}
+}
+
+int		main(void)
 {
 	t_list	*list;
 	char	*str;
 
 	list = NULL;
-	str = lin_parse_first(list);
+	str = lin_parse_first(&list);
 	if (str == NULL)
 		ft_error();
 	check_list(&list);
 	add_link_list(&list, str);
+	print_list(list);
 	return (0);
 }
