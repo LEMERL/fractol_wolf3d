@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 14:53:36 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/05/16 14:13:48 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/08/12 19:48:43 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,8 @@ t_lst_db			*ft_lstgo_n_prev(t_lst_db *lst, int n);
 char				*ft_lsttochar_db(t_lst_db **lst);
 void				del(void *ptr, size_t size);
 void				ft_lstdelall_db(t_lst_db **alst);
+t_list				*ft_lstcreate(void *content);
+t_list				*ft_lstaddcreate(t_list **alst, void *content);
 
 # define BUFF_SIZE 1024
 

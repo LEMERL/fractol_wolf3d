@@ -6,11 +6,11 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 21:45:02 by mgrimald          #+#    #+#             */
-/*   Updated: 2014/11/10 10:53:42 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/08/12 19:54:46 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
