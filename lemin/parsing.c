@@ -78,20 +78,34 @@ void		check_list(t_list **alst)
 	t_list		*tmp;
 	int			end_chk;
 	int			start_chk;
+	t_list		*prev;
 
 	end_chk = 0;
 	start_chk = 0;
 	tmp = *alst;
 	while (tmp != NULL)
 	{
-		if (((t_salle*)tmp->content)->status == END)
-			end_chk++;
-		else if (((t_salle*)tmp->content)->status == START)
-			start_chk++;
+		if ((((t_salle*)tmp->content)->status == END && end_chk++ == 1) ||
+				(((t_salle*)tmp->content)->status == START && start_chk++ == 1))
+			ft_error();
 		tmp = tmp->next;
 	}
 	if (end_chk != 1 || start_chk != 1)
 		ft_error();
+	tmp = *alst;
+	prev = NULL;
+	while (tmp != NULL)
+	{
+		if (prev != NULL && ((t_salle*)tmp->content)->status == START)
+		{
+			prev->next = tmp->next;
+			tmp->next = *alst;
+			*alst = tmp;
+			break ;
+		}
+		prev = tmp;
+		tmp = tmp->next;
+	}
 }
 
 int			lim_linker(t_list *tmp, char *str, t_salle *salle)
