@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/18 18:12:31 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/08/18 18:31:32 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/08/18 18:41:00 by mgrimald         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,8 @@ void		check_list(t_list **alst)
 		prev = tmp;
 		tmp = tmp->next;
 	}
-	prev = *alst;
+	//ERROR DANS LA BOUCLE (STREQU OU TMP est DEJA A NULL)
+/*	prev = *alst;
 	while (prev != NULL)
 	{
 		tmp = prev->next;
@@ -162,7 +163,7 @@ void		check_list(t_list **alst)
 		if (tmp != NULL)
 			ft_error();
 		prev = prev->next;
-	}
+	}*/
 }
 
 int			lim_linker(t_list *tmp, char *str, t_salle *salle)
