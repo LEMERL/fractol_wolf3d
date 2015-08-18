@@ -12,14 +12,14 @@ int			lin_parse_comm(char *str, t_status *status)
 	{
 		if (str && str[0] && str[1] == '#' && ft_strequ(str + 2, "start"))
 		{
-			if (*status != BASIC)
+			if (status == NULL || *status != BASIC)
 				ft_error();
 			else
 				*status = START;
 		}
 		else if (str && str[0] && str[1] == '#' && ft_strequ(str + 2, "end"))
 		{
-			if (*status != BASIC)
+			if (status == NULL || *status != BASIC)
 				ft_error();
 			else
 				*status = END;
@@ -27,6 +27,40 @@ int			lin_parse_comm(char *str, t_status *status)
 		return (1);
 	}
 	return (0);
+}
+
+int			set_ant(int modif)
+{
+	static int	number = -42;
+	char		*str;
+	char		**tab;
+	int			rd;
+
+	if (number == -42)
+	{
+		while ((rd = get_next_line(0, &str)) != 0 || rd == 0)
+		{
+			if (rd <= 0 || (tab = ft_strsplit(str, ' ')) == NULL
+					|| tab[0] == NULL || (ft_isnumber(tab[0]) == 0
+						&& lin_parse_comm(tab[0], NULL) == 0) || tab[1] != NULL)
+				ft_error();
+			ft_strdel(&str);
+			if (ft_isnumber(tab[0]) == 1)
+				break ;
+			free_tab(tab);
+		}
+//penser a gerer l'overflow
+		number = ft_atoi(tab[0]);
+		free_tab(tab);
+	}
+	else
+		number -= modif;
+	return (number);
+}
+
+int			get_ant(void)
+{
+	return (set_ant(0));
 }
 
 static void	lin_parse_fill(t_status *status, char **split, t_list **list)
@@ -105,6 +139,12 @@ void		check_list(t_list **alst)
 		}
 		prev = tmp;
 		tmp = tmp->next;
+	}
+	tmp = *alst;
+	while (tmp != NULL)
+	{
+		tmp = tmp->next;
+		//verif double nom
 	}
 }
 
