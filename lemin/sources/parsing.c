@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/08/18 18:12:31 by mgrimald          #+#    #+#             */
+/*   Updated: 2015/08/18 18:31:32 by mgrimald         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lemin.h"
 
 static void	ft_error(void)
@@ -75,7 +87,7 @@ static void	lin_parse_fill(t_status *status, char **split, t_list **list)
 	salle.y = ft_atoi(split[2]);
 	salle.indice = n;
 	n++;
-	printf("%s\t(%d/%d)\t%d\t%d\n", salle.name, salle.x, salle.y, salle.indice, *status);
+//	printf("%s\t(%d/%d)\t%d\t%d\n", salle.name, salle.x, salle.y, salle.indice, *status);
 	ft_lstaddnew(list, (void*)&salle, sizeof(t_salle));
 	*status = BASIC;
 }
@@ -140,11 +152,16 @@ void		check_list(t_list **alst)
 		prev = tmp;
 		tmp = tmp->next;
 	}
-	tmp = *alst;
-	while (tmp != NULL)
+	prev = *alst;
+	while (prev != NULL)
 	{
-		tmp = tmp->next;
-		//verif double nom
+		tmp = prev->next;
+		while (tmp != NULL && ft_strequ(((t_salle*)tmp->content)->name,
+					((t_salle*)tmp->content)->name))
+			tmp = tmp->next;
+		if (tmp != NULL)
+			ft_error();
+		prev = prev->next;
 	}
 }
 
@@ -214,7 +231,9 @@ int		main(void)
 {
 	t_list	*list;
 	char	*str;
+	int		ant;
 
+	ant = get_ant();
 	list = NULL;
 	str = lin_parse_first(&list);
 	if (str == NULL)
@@ -222,5 +241,6 @@ int		main(void)
 	check_list(&list);
 	add_link_list(&list, str);
 	print_list(list);
+//	resolve(list);
 	return (0);
 }
