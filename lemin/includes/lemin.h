@@ -39,5 +39,6 @@ void				resolve(t_list *list, int ant);
 int					get_ant(void);
 int					set_ant(int modif);
 void				print_list(t_list *list);
+void				find_all_path(t_list *list, const int value);
 
 #endif

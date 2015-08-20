@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/20 18:47:37 by aiwanesk          #+#    #+#             */
-/*   Updated: 2015/08/20 18:47:40 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2015/08/20 19:39:25 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -295,16 +295,16 @@ void			resolve(t_list *list, int ant)
 	((t_salle*)list->content)->dist = 0;
 	give_value((t_salle*)list->content);
 	//get end and check it's value ==> it give back petit && if there is a path
-	print_list(list);
-	exit (0);
-	save_the_perl(list);//big dedi a la belgique libre
-	while (possible_path(list) == 0)
-	{
-		//shortest_path(list, value);
-		value++;
-	}
 //	print_list(list);
-	test_show(list, ant);//retourne un char **
+	save_the_perl(list);//big dedi a la belgique libre
+	//while (possible_path(list) == 0)
+//	{
+		find_all_path(list, value);
+		ft_putstr("test");
+	//	value++;
+//	}
+//	print_list(list);
+//	test_show(list, ant);//retourne un char **
 	//display_sol(char**, brain, ant);
 //	every_path(list);
 }
