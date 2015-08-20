@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/18 18:12:31 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/08/18 18:41:00 by mgrimald         ###   ########.fr       */
+/*   Updated: 2015/08/20 12:12:37 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,7 +241,7 @@ int		main(void)
 		ft_error();
 	check_list(&list);
 	add_link_list(&list, str);
-	print_list(list);
-//	resolve(list);
+//	print_list(list);
+	resolve(list, ant);
 	return (0);
 }

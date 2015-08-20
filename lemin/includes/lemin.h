@@ -4,7 +4,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "libft/includes/libft.h"
+# include "../libft/includes/libft.h"
 
 typedef enum		e_status
 {
@@ -23,9 +23,18 @@ typedef struct		s_salle
 	int				used;
 	t_list			*link;
 	int				way_value;
+	int				simple;
 }					t_salle;
 
-void				resolve(t_list *list);
+typedef struct		s_ant
+{
+	int				which_one;
+	int				which_room;
+	int				bol_end;
+	struct s_ant	*next;
+}					t_ant;
+
+void				resolve(t_list *list, int ant);
 int					get_ant(void);
 int					set_ant(int modif);
 
