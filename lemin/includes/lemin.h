@@ -21,6 +21,7 @@ typedef struct		s_salle
 	int				indice;
 	t_status		status;
 	int				used;
+	int				dist;
 	t_list			*link;
 	int				way_value;
 	int				simple;
@@ -37,5 +38,6 @@ typedef struct		s_ant
 void				resolve(t_list *list, int ant);
 int					get_ant(void);
 int					set_ant(int modif);
+void				print_list(t_list *list);
 
 #endif

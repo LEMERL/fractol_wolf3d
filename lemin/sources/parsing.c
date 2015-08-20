@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/18 18:12:31 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/08/20 12:12:37 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2015/08/20 18:46:10 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	ft_error(void)
 
 int			lin_parse_comm(char *str, t_status *status)
 {
-	if (str == NULL || str[0] == '\0' || str[0] == '#')
+	if (str == NULL || str[0] == '\0' || str[0] == '#')//a revoir
 	{
 		if (str && str[0] && str[1] == '#' && ft_strequ(str + 2, "start"))
 		{
@@ -184,18 +184,23 @@ void		add_link_list(t_list **alst, char *str)
 	int			rd;
 
 	rd = 1;
+	if (str == NULL)
+		return ;
 	while (rd > 0)
 	{
 		split = ft_strsplit(str, '-');
+		if (lin_parse_comm(str, NULL) == 0)
+		{
+			if (split == NULL || split[0] == NULL || split[1] == NULL
+					|| split[2] != NULL || ft_strequ(split[0], split[1]))
+				return ;
+			tmp = *alst;
+			while (tmp && ft_strequ(split[0], ((t_salle*)tmp->content)->name) == 0)
+				tmp = tmp->next;
+			if (!tmp || lim_linker(*alst, split[1], (t_salle*)tmp->content) == -1)
+				return ;
+		}
 		ft_strdel(&str);
-		if (split == NULL || split[0] == NULL || split[1] == NULL
-				|| split[2] != NULL || ft_strequ(split[0], split[1]))
-			return ;
-		tmp = *alst;
-		while (tmp && ft_strequ(split[0], ((t_salle*)tmp->content)->name) == 0)
-			tmp = tmp->next;
-		if (!tmp || lim_linker(*alst, split[1], (t_salle*)tmp->content) == -1)
-			return ;
 		rd = get_next_line(0, &str);
 		free_tab(split);
 	}
@@ -212,8 +217,8 @@ void	print_list(t_list *list)
 	{
 		salle = (t_salle*)list->content;
 		link = salle->link;
-		printf("\n\n%s\t(%d/%d)\t%d\t", salle->name, salle->x, salle->y, salle->indice);
-		if (salle->status == BASIC)
+		printf("\n\nnom = %s\t\tdist = [%d]\t", salle->name, salle->dist);
+		/*if (salle->status == BASIC)
 			printf("BASIC\n");
 		else if (salle->status == START)
 			printf("START\n");
@@ -223,7 +228,7 @@ void	print_list(t_list *list)
 		{
 			printf("\t%s\n", ((t_salle*)link->content)->name);
 			link = link->next;
-		}
+		}*/
 		list = list->next;
 	}
 }

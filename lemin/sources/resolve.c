@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   resolve.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/08/20 18:47:37 by aiwanesk          #+#    #+#             */
+/*   Updated: 2015/08/20 18:47:40 by aiwanesk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lemin.h"
 
-static void		init_used(t_list *list)
+static void		init_dist(t_list *list)
 {
 	t_list			*yolo;
 	t_salle			*salle;
@@ -10,7 +22,7 @@ static void		init_used(t_list *list)
 	while (yolo != NULL)
 	{
 		salle = (t_salle *)yolo->content;
-		salle->used = 1000000;
+		salle->dist = -1;
 		salle->way_value = 0;
 		salle->simple = 0;
 		yolo = yolo->next;
@@ -19,68 +31,27 @@ static void		init_used(t_list *list)
 
 //algo : je passe dans chaque salle pour leur attribuer une valeur depuis l entree
 
-int				give_value(t_list *list)
+void			give_value(t_salle *salle)
 {
-	int			i = 0;
-	t_salle		*salle = (t_salle*)list->content;
 	t_list		*link = salle->link;
-	char		*str = (char *)malloc(sizeof(char) * 100000);
 	t_salle		*test;
-	int			petit = 1000;
-	int			bol = 0;
-	int			link_base = 0;
-	t_list		*proc = link;
+	t_list		*temp_link;
 
-/*	printf ("salle de base %s\n", salle->name);
-	while (proc != NULL)
+	link = salle->link;
+	temp_link = link;
+//	printf ("\tsalle = %s, salle->value[%d]\n", salle->name, salle->dist);
+	while (link != NULL)
 	{
-		printf("name = [%s]\n", ((t_salle*)proc->content)->name);
-		link_base++;
-		proc = proc->next;
-	}
-	printf ("link_base = [%d]\n", link_base);*/
-	salle->used = i;
-	while (list != NULL)
-	{
-		salle = (t_salle*)list->content;
-		link = salle->link;
-		//str = ft_strcat(salle->name, str);
-		if (salle->used <= 100)
-			i = salle->used + 1;
-		else
-			i++;
-		//printf ("salle->actuel [%s] valeur[%d]\n", salle->name, salle->used);
-		while (link != NULL)
+		test = (t_salle *)link->content;
+//		printf ("\ttest: de dist,test = %s, test->value[%d]\n", test->name, test->dist);
+		if (test->dist > salle->dist + 1 || test->dist == -1)
 		{
-		//	printf ("i = [%d]\n", i);
-			test = (t_salle *)link->content;
-		//	printf ("test[%s]\n",((t_salle *)list->content)->name);
-		//
-		//	printf ("\ttest = %s, test->value[%d]\n", test->name, test->used);
-			if (test->used > i)
-			{
-				test->used = i;
-		//		printf ("\t\treassignation de used,test = %s, test->value[%d]\n", test->name, test->used);
-			}
-			if (test->status == END)
-			{
-				if (petit > test->used)
-					petit = test->used;
-				bol = 1;
-	//			printf ("\nEND\n\t\ttest = %s, test->value[%d]\n", test->name, test->used);
-			}
-			link = link->next;
+			test->dist = salle->dist + 1;
+//			printf ("\t\treassignation de dist,test = %s, test->value[%d]\n", test->name, test->dist);
+			give_value(test);
 		}
-	//	printf ("Quit\n");
-	//	exit (0);
-		list = list->next;
+		link = link->next;
 	}
-	if (bol == 0)
-	{
-		printf ("no link between start and end\n");
-		exit (0);
-	}
-	return (petit);
 }
 
 void			test(t_list *list)
@@ -93,7 +64,7 @@ void			test(t_list *list)
 	while (test != NULL)
 	{
 		salle = (t_salle *)test->content;
-		//printf ("name [%s], used[%d]\n", salle->name, salle->used);
+		//printf ("name [%s], dist[%d]\n", salle->name, salle->dist);
 		test = test->next;
 	}
 }
@@ -102,13 +73,14 @@ void			every_path(t_list *list)
 {
 	t_list			*link;
 
+	ft_putstr ("every_path\n");
 	link = list;
 	while (((t_salle *)link->content)->status != END)
 	{
 		link = link->next;
-		//printf ("salle de base[%s], valeur de uesd[%d]\n", ((t_salle *)link->content)->name, ((t_salle *)link->content)->used);
+		//printf ("salle de base[%s], valeur de uesd[%d]\n", ((t_salle *)link->content)->name, ((t_salle *)link->content)->dist);
 	}
-//	printf ("salle de base[%s], valeur de uesd[%d]\n", ((t_salle *)link->content)->name, ((t_salle *)link->content)->used);
+//	printf ("salle de base[%s], valeur de uesd[%d]\n", ((t_salle *)link->content)->name, ((t_salle *)link->content)->dist);
 }
 void			valid_start(t_list *list)
 {
@@ -119,17 +91,62 @@ void			valid_start(t_list *list)
 	link = path->link;
 	if (path->link == NULL)
 	{
-		printf ("no link between start and end\n");
-		exit (0);
+		printf("no link around start\n");
+		exit(0);
 	}
 }
 
-void			shortest_path(t_list *list)
+//possibilite de modifier pour effectuer cette operation sur chaque salle en focntion du nom
+int			count_possible_path(t_list *list)
+{
+	t_list		*link;
+	t_salle		*path;
+	int			ret;
+
+	ret = 0;
+	link = list;
+	while (((t_salle *)link->content)->status != END)
+		link = link->next;
+	path = (t_salle *)list->content;
+	link = path->link;
+	while (link != NULL)
+	{
+		link = link->next;
+		if (link != NULL)
+			ret++;
+	}
+	return (ret);
+}
+
+int			possible_path(t_list *list)
+{
+	t_list		*link;
+	static int			debug = 0;
+
+	link = list;
+	//printf ("link->name = [%s]\n", ((t_salle *)link->content)->name);
+	while (link != NULL && ((t_salle *)link->content)->status != END && debug < 9)
+	{
+		ft_putendl("boucle\n");
+		if (((t_salle *)link->content)->way_value == 0)
+		{
+			debug++;
+			return (0);
+		}
+	debug++;
+		link = link->next;
+	}
+	return (1);
+}
+
+/*int			shortest_path(t_list *list, int value)
 {
 	t_list			*link;
 	t_salle			*path;
 	int				choose;
+	t_list			*save;
 
+	save = list;
 	choose = 1000;
 	while (((t_salle *)list->content)->status != END)
 		list = list->next;
@@ -140,37 +157,76 @@ void			shortest_path(t_list *list)
 	{
 		while (link != NULL)
 		{
-		//	ft_putstr("boucle 1\n");
-		//	ft_putnbr(((t_salle *)link->content)->used);
-			if (((t_salle *)link)->used < choose)
+			(if (((t_salle *)link)->dist < choose)
 			{
-				//ft_putendl(((t_salle *)link->content)->name);
-//				printf ("name = [%s], stauts = [%d], used[%d]\n", ((t_salle *)link->content)->name, ((t_salle *)link->content)->status, ((t_salle *)link->content)->used);
-				choose = ((t_salle *)link->content)->used;
+				printf ("name = [%s], stauts = [%d], dist[%d], choose [%d]\n", ((t_salle *)link->content)->name, ((t_salle *)link->content)->status, ((t_salle *)link->content)->dist, choose);
+				choose = ((t_salle *)link->content)->dist;
+			}
+			if (((t_salle *)link)->dist < choose)
+			{
+				choose = ((t_salle *)link->content)->dist;
 			}
 			link = link->next;
 		}
-	//	ft_putnbr(choose);
-//		exit (0);
-/*		ft_putstr("\t\tboucle 2\n\t\t\t");
-		ft_putnbr(choose);
-		ft_putstr("\n");*/
 		link = path->link;
-		while (((t_salle *)link->content)->used != choose)
+		printf ("[%d]\n", choose);
+		while (((t_salle *)link->content) != NULL &&((t_salle *)link->content)->dist != choose)
 		{
-		//	ft_putstr(((t_salle *)link->content)->name);
+			ft_putstr("\n");
+			ft_putstr(((t_salle *)link->content)->name);
+			ft_putstr("\n");
 			link = link->next;
 		}
-		//ft_putstr("erreur");
-	//	ft_putstr(((t_salle *)link->content)->name);
 		path = ((t_salle *)link->content);
-	//	ft_putstr(((t_salle *)list->content)->name);
-		path->way_value = 1;
+		path->way_value = value;
+		print_list(save);
+		printf("\n%d : %s\n", path->way_value, path->name);
 		link = path->link;
-//		printf ("name = [%s], status = [%d]\n", path->name, path->status);
-//		exit (0);
 	}
-}
+	return (1);
+}*/
+/*
+void			shortest_path(t_list *list, int value)
+{
+	t_list			*link;
+	t_salle			*path;
+	int				choose;
+	int				debug = 0;
+	t_list			*full;
+
+	link = list;
+	choose = 1000000;
+	while (((t_salle *)link->content)->status != END)
+		link = link->next;
+	path = (t_salle *)link->content;
+	link = path->link;
+	while (path->status != START)
+	{
+		path = (t_salle *)link->content;
+		full = path->link;
+		choose = 1000000;
+		while (full != NULL)
+		{
+			if (((t_salle *)full->content)->dist < choose && ((t_salle *)full->content)->way_value == 0)
+				choose = ((t_salle *)full->content)->dist;
+			full = full->next;
+		}
+		link = path->link;
+		while (((t_salle *)link->content) != NULL && ((t_salle *)link->content)->dist != choose)
+			link = link->next;
+		path = ((t_salle *)link->content);
+		path->way_value = value;
+		link = list;
+		while (((t_salle *)link->content)->way_value != value)
+			link = link->next; // ca c de la merde
+		path = ((t_salle *)link->content);
+		printf ("3: choose = [%d], name = [%s]\n", choose, path->name);
+		link = path->link;
+	//	if (debug == 2)
+	//		exit (0);
+		debug++;
+	}
+}*/
 
 
 void			test_show(t_list *list, int ant)
@@ -182,7 +238,7 @@ void			test_show(t_list *list, int ant)
 	path = (t_salle *)list->content;
 	link = path->link;
 	printf ("[%s]\n", path->name);
-	sol = (char **)malloc(sizeof(char) * path->used);// faut que je mette le max
+	sol = (char **)malloc(sizeof(char) * path->dist);// faut que je mette le max
 	//je met tout les noms dedans
 	while (path->status != END)
 	{
@@ -207,7 +263,7 @@ void			save_the_perl(t_list *list)
 		list = list->next;
 		path = (t_salle *)list->content;
 	}
-	if (path->used == 1)
+	if (path->dist == 1)
 	{
 		//finish_the_game(list);
 		printf ("i finished the game\n");
@@ -223,7 +279,7 @@ void			save_the_perl(t_list *list)
 	while (loop > 0)
 	{
 		printf ("L[%d]-[%s] ", ant->which_one, path[path->which_room]);
-		loop--;
+		loop--;7
 	}
 }*/
 // OMG JE BUG SUR L ALGO D AFFICHAGE
@@ -231,15 +287,23 @@ void			save_the_perl(t_list *list)
 void			resolve(t_list *list, int ant)
 {
 	int			petit;
+	int			value = 1;
 	//t_ant		brain = init_ant;
 
-	init_used(list);
+	init_dist(list);
 	valid_start(list);
-	petit = give_value(list);
-//	petit = give_value(list);
-//	petit = give_value(list);
+	((t_salle*)list->content)->dist = 0;
+	give_value((t_salle*)list->content);
+	//get end and check it's value ==> it give back petit && if there is a path
+	print_list(list);
+	exit (0);
 	save_the_perl(list);//big dedi a la belgique libre
-	shortest_path(list);
+	while (possible_path(list) == 0)
+	{
+		//shortest_path(list, value);
+		value++;
+	}
+//	print_list(list);
 	test_show(list, ant);//retourne un char **
 	//display_sol(char**, brain, ant);
 //	every_path(list);
