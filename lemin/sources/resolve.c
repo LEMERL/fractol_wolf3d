@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/20 18:47:37 by aiwanesk          #+#    #+#             */
-/*   Updated: 2015/08/20 19:39:25 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2015/08/21 12:12:34 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void			give_value(t_salle *salle)
 		{
 			test->dist = salle->dist + 1;
 //			printf ("\t\treassignation de dist,test = %s, test->value[%d]\n", test->name, test->dist);
-			give_value(test);
+			if (test->status != END)
+				give_value(test);
 		}
 		link = link->next;
 	}
@@ -299,8 +300,9 @@ void			resolve(t_list *list, int ant)
 	save_the_perl(list);//big dedi a la belgique libre
 	//while (possible_path(list) == 0)
 //	{
-		find_all_path(list, value);
-		ft_putstr("test");
+	//	find_all_path(list, value);
+	omg(list, value);
+	ft_putstr("test");
 	//	value++;
 //	}
 //	print_list(list);

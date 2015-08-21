@@ -6,7 +6,7 @@
 /*   By: mgrimald <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/18 18:12:31 by mgrimald          #+#    #+#             */
-/*   Updated: 2015/08/20 18:46:10 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2015/08/21 12:11:43 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,7 +217,7 @@ void	print_list(t_list *list)
 	{
 		salle = (t_salle*)list->content;
 		link = salle->link;
-		printf("\n\nnom = %s\t\tdist = [%d]\t", salle->name, salle->dist);
+		printf("\n\nnom = %s\t\tdist = [%d]\t way_value(%d)", salle->name, salle->dist, salle->way_value);
 		/*if (salle->status == BASIC)
 			printf("BASIC\n");
 		else if (salle->status == START)

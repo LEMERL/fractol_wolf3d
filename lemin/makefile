@@ -6,6 +6,8 @@ ODIR = ./objects/
 
 SRC = parsing.c\
 	  resolve.c\
+	  find_all_path.c\
+	 omg_path.c
 
 OBJ = $(SRC:.c=.o)
 
