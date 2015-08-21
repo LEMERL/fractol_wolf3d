@@ -41,7 +41,7 @@ static int	path_avaiable(t_list *list)
 	return (i);
 }
 
-static void	how_many_valid(t_list *list)
+static int	how_many_valid(t_list *list)
 {
 	int		i;
 	t_list	*link;
@@ -57,10 +57,10 @@ static void	how_many_valid(t_list *list)
 			i++;
 		link = link->next;
 	}
-	printf ("%d\n", i);
+	return (i);
 }
 
-void		omg(t_list *list, int value)
+void		omg(t_list *list, int value, int ant)
 {
 	t_list		*link;
 	t_salle		*path;
@@ -77,6 +77,7 @@ void		omg(t_list *list, int value)
 		value++;
 		path = ((t_salle *)link->content);
 	}
-	how_many_valid(list);
+	print(list, how_many_valid(list), ant);
+	exit(0);
 	//print_list(list);
 }

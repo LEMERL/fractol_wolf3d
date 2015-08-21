@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/20 18:52:45 by aiwanesk          #+#    #+#             */
-/*   Updated: 2015/08/21 12:05:36 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2015/08/21 14:46:25 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int		find_short_link(t_list *list, int nb)
 	t_list		*link;
 	t_salle		*path;
 
-	nb = 0;// il faut que je lui passe en param le nb de chemin que je eux
+	nb = 0;
 	ret = -1;
 	link = list;
 	while (((t_salle*)link->content)->status != END)
@@ -43,7 +43,6 @@ static int		find_short_link(t_list *list, int nb)
 	}
 	while (link != NULL)
 	{
-//		printf ("name = [%s], way_value = (%d)\n", path->name, path->way_value);
 		if ((ret == -1 || ret < ((t_salle *)link->content)->dist) && ((t_salle *)link->content)->way_value == 0)
 		{
 			ret = ((t_salle *)link->content)->dist;
@@ -126,7 +125,7 @@ void			find_all_path(t_list *list, const int value)
 	t_salle			*path;
 	t_list			*link;
 	int				compare;
-	int nb = 0;//lui passer le nombre de chemin desire
+	int nb = 0;
 
 	link = list;
 	while (((t_salle *)link->content)->status != END)
@@ -137,10 +136,6 @@ void			find_all_path(t_list *list, const int value)
 	while (path->status != START)
 	{
 		path = find_room(path, value, compare , list);
-//		print_list(list);
 		link = follow_the_good_way(list, way);
-		if (i == 2)
-			exit(0);
-		i++;
 	}
 }

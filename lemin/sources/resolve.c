@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/20 18:47:37 by aiwanesk          #+#    #+#             */
-/*   Updated: 2015/08/21 12:12:34 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2015/08/21 14:54:36 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,7 +229,7 @@ void			shortest_path(t_list *list, int value)
 	}
 }*/
 
-
+/*
 void			test_show(t_list *list, int ant)
 {
 	t_list		*link;
@@ -253,7 +253,7 @@ void			test_show(t_list *list, int ant)
 		printf ("path->name = [%s]\n", path->name);
 	}
 }
-
+*/
 void			save_the_perl(t_list *list)
 {
 	t_salle				*path;
@@ -272,48 +272,15 @@ void			save_the_perl(t_list *list)
 	}
 }
 
-/*void			display_sol(char **path, t_ant *ant, int nb)
-{
-	int			loop;
-
-	loop = nb;
-	while (loop > 0)
-	{
-		printf ("L[%d]-[%s] ", ant->which_one, path[path->which_room]);
-		loop--;7
-	}
-}*/
-// OMG JE BUG SUR L ALGO D AFFICHAGE
-
 void			resolve(t_list *list, int ant)
 {
 	int			petit;
 	int			value = 1;
-	//t_ant		brain = init_ant;
 
 	init_dist(list);
 	valid_start(list);
 	((t_salle*)list->content)->dist = 0;
 	give_value((t_salle*)list->content);
-	//get end and check it's value ==> it give back petit && if there is a path
-//	print_list(list);
 	save_the_perl(list);//big dedi a la belgique libre
-	//while (possible_path(list) == 0)
-//	{
-	//	find_all_path(list, value);
-	omg(list, value);
-	ft_putstr("test");
-	//	value++;
-//	}
-//	print_list(list);
-//	test_show(list, ant);//retourne un char **
-	//display_sol(char**, brain, ant);
-//	every_path(list);
+	omg(list, value, ant);
 }
-
-//need un fix sur give_value je dois pas avoir besoin de le faire 2/3 fois pour que ce soit ok pour toutes les maps
-//certaines assignation de valeur fail
-//if (end == 1) except case 100% win rate!
-// prend les chemins les plus cours trie, (nb fourmi + nb_case -1) = nb coups
-// on compare de la facon : nb coups > second_path le plus court
-//							(nb coups - taille path) / 2 on recompare si il y a un autre chemin dispo
