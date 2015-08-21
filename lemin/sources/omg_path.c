@@ -11,10 +11,12 @@ static t_salle	*is_path(t_salle *salle, int value)
 	link = salle->link;
 	ret = -1;
 	salle->way_value = value;
+	temp = salle;
 	while (link != NULL)
 	{
 		if ((ret == -1 && CNT->way_value == 0)|| (ret > (CNT)->dist && CNT->way_value == 0))
 		{
+			printf ("name = %s, way_value = [%d],\n", CNT->name, CNT->way_value);
 			temp = CNT;
 			ret = (CNT)->dist;
 		}
@@ -34,6 +36,7 @@ static int	path_avaiable(t_list *list)
 	l = path->link;
 	while (l != NULL)
 	{
+		printf ("name = %s, way_value = [%d],\n", ((t_salle*)(l->content))->name, ((t_salle*)(l->content))->way_value);
 		if (((t_salle *)l->content)->way_value == 0)
 			i++;
 		l = l->next;
@@ -72,10 +75,13 @@ void		omg(t_list *list, int value, int ant)
 	path = CNT;
 	while (path_avaiable(link) >= 1)
 	{
+		printf ("avai = %d\n", path_avaiable(link));
 		while (path->status != START)
 			path = is_path(path, value);
 		value++;
 		path = ((t_salle *)link->content);
+		//		print_list (list);
+//		exit(0);
 	}
 	print(list, how_many_valid(list), ant);
 	exit(0);

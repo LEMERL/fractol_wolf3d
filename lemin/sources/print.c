@@ -44,7 +44,6 @@ void		print(t_list *list, int path, int ant)
 		i++;
 	}
 	printf ("ok");
-	exit (0);
 }
 
 //nb + fourmis + nb de case - 1 = nb de coups
