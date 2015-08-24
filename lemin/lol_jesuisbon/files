@@ -1,0 +1,5697 @@
+
+nom = start		dist = [0]	 way_value(0)
+	960
+	843
+	49
+	806
+	99
+
+nom = 999		dist = [4]	 way_value(0)
+	462
+	811
+	756
+	555
+
+nom = 998		dist = [6]	 way_value(0)
+	429
+	844
+	551
+
+nom = 997		dist = [3]	 way_value(0)
+	674
+	395
+	571
+	512
+	511
+
+nom = 996		dist = [4]	 way_value(0)
+	629
+	375
+	201
+	98
+	74
+
+nom = 995		dist = [4]	 way_value(0)
+	623
+	600
+	147
+	405
+	273
+
+nom = 994		dist = [5]	 way_value(0)
+	900
+	167
+	470
+	933
+	558
+	479
+	421
+
+nom = 993		dist = [4]	 way_value(0)
+	881
+	203
+	982
+	497
+	671
+	918
+	619
+	566
+
+nom = 992		dist = [3]	 way_value(0)
+	568
+	713
+	447
+
+nom = 991		dist = [5]	 way_value(0)
+	642
+	234
+
+nom = 990		dist = [6]	 way_value(0)
+	882
+
+nom = 989		dist = [5]	 way_value(0)
+	213
+	830
+	732
+	691
+	269
+	247
+
+nom = 988		dist = [5]	 way_value(0)
+	786
+	340
+
+nom = 987		dist = [2]	 way_value(0)
+	843
+	980
+	804
+
+nom = 986		dist = [4]	 way_value(0)
+	230
+	608
+	582
+	333
+	83
+
+nom = 985		dist = [5]	 way_value(0)
+	786
+	208
+	511
+	224
+	216
+
+nom = 984		dist = [5]	 way_value(0)
+	406
+	939
+	59
+	86
+	789
+	265
+	140
+	164
+	705
+
+nom = 983		dist = [5]	 way_value(0)
+	340
+	243
+	950
+	447
+
+nom = 982		dist = [5]	 way_value(0)
+	993
+	282
+
+nom = 981		dist = [5]	 way_value(0)
+	658
+	610
+	41
+
+nom = 980		dist = [3]	 way_value(0)
+	195
+	987
+	794
+	489
+	173
+	110
+
+nom = 979		dist = [6]	 way_value(0)
+	667
+	690
+
+nom = 978		dist = [4]	 way_value(0)
+	942
+	362
+	102
+	849
+	679
+	644
+	284
+
+nom = 977		dist = [2]	 way_value(0)
+	185
+	30
+	113
+	843
+	673
+	66
+
+nom = 976		dist = [6]	 way_value(0)
+	855
+
+nom = 975		dist = [4]	 way_value(0)
+	633
+	889
+	587
+	573
+	426
+	290
+
+nom = 974		dist = [3]	 way_value(0)
+	609
+	531
+	232
+	154
+
+nom = 973		dist = [6]	 way_value(0)
+	563
+	883
+	721
+
+nom = 972		dist = [5]	 way_value(0)
+	818
+	765
+	964
+	794
+	195
+
+nom = 971		dist = [5]	 way_value(0)
+	198
+	688
+	696
+	292
+	1
+
+nom = 970		dist = [5]	 way_value(0)
+	371
+	447
+	125
+	9
+
+nom = 969		dist = [4]	 way_value(0)
+	841
+	801
+	759
+	201
+	126
+
+nom = 968		dist = [6]	 way_value(0)
+	457
+	820
+	416
+
+nom = 967		dist = [5]	 way_value(0)
+	501
+	374
+
+nom = 966		dist = [5]	 way_value(0)
+	939
+	683
+
+nom = 965		dist = [5]	 way_value(0)
+	95
+	298
+
+nom = 964		dist = [4]	 way_value(0)
+	972
+	720
+	675
+
+nom = 963		dist = [5]	 way_value(0)
+	545
+
+nom = 962		dist = [4]	 way_value(0)
+	212
+	809
+	675
+	27
+
+nom = 961		dist = [4]	 way_value(0)
+	902
+	453
+	454
+	905
+	679
+
+nom = 960		dist = [1]	 way_value(2)
+	start
+	26
+	313
+	571
+	504
+	232
+	386
+	538
+	486
+	279
+
+nom = 959		dist = [4]	 way_value(0)
+	230
+	65
+	754
+	460
+	190
+
+nom = 958		dist = [4]	 way_value(0)
+	431
+	906
+	803
+	767
+	66
+
+nom = 957		dist = [6]	 way_value(0)
+	38
+	854
+	494
+	377
+
+nom = 956		dist = [6]	 way_value(0)
+	469
+	928
+
+nom = 955		dist = [5]	 way_value(0)
+	236
+	786
+	672
+
+nom = 954		dist = [5]	 way_value(0)
+	665
+	847
+	614
+	383
+	358
+	83
+
+nom = 953		dist = [5]	 way_value(0)
+	202
+	767
+	657
+	652
+
+nom = 952		dist = [5]	 way_value(0)
+	210
+	374
+	353
+
+nom = 951		dist = [4]	 way_value(0)
+	47
+	562
+	304
+
+nom = 950		dist = [5]	 way_value(0)
+	751
+	898
+	729
+	983
+	674
+	720
+
+nom = 949		dist = [5]	 way_value(0)
+	353
+	728
+	132
+	93
+
+nom = 948		dist = [4]	 way_value(0)
+	86
+	311
+	589
+	542
+	210
+	88
+
+nom = 947		dist = [5]	 way_value(0)
+	489
+	501
+
+nom = 946		dist = [5]	 way_value(0)
+	880
+	853
+	598
+	533
+	491
+	215
+
+nom = 945		dist = [4]	 way_value(0)
+	933
+	787
+	368
+	366
+
+nom = 944		dist = [4]	 way_value(0)
+	462
+	856
+	783
+	766
+	112
+
+nom = 943		dist = [4]	 way_value(0)
+	788
+	291
+	779
+
+nom = 942		dist = [5]	 way_value(0)
+	978
+	938
+	443
+	784
+
+nom = 941		dist = [4]	 way_value(0)
+	585
+	185
+
+nom = 940		dist = [4]	 way_value(0)
+	179
+	633
+	622
+	605
+	126
+
+nom = 939		dist = [4]	 way_value(0)
+	984
+	966
+	398
+	179
+	56
+
+nom = 938		dist = [5]	 way_value(0)
+	942
+	390
+	288
+	8
+	876
+	367
+	650
+
+nom = 937		dist = [5]	 way_value(0)
+	618
+	734
+	135
+
+nom = 936		dist = [4]	 way_value(0)
+	921
+	46
+	812
+	160
+
+nom = 935		dist = [5]	 way_value(0)
+	674
+	240
+
+nom = 934		dist = [4]	 way_value(0)
+	144
+	117
+	734
+	904
+	698
+	584
+	489
+	146
+	126
+
+nom = 933		dist = [5]	 way_value(0)
+	945
+	994
+	56
+	687
+
+nom = 932		dist = [6]	 way_value(0)
+	582
+	789
+	438
+
+nom = 931		dist = [5]	 way_value(0)
+	929
+	807
+	138
+
+nom = 930		dist = [5]	 way_value(0)
+	678
+
+nom = 929		dist = [4]	 way_value(0)
+	931
+	718
+	147
+
+nom = 928		dist = [5]	 way_value(0)
+	956
+	311
+	124
+
+nom = 927		dist = [5]	 way_value(0)
+	73
+	647
+
+nom = 926		dist = [6]	 way_value(0)
+	728
+	129
+	482
+	146
+
+nom = 925		dist = [5]	 way_value(0)
+	336
+	760
+
+nom = 924		dist = [6]	 way_value(0)
+	691
+	616
+
+nom = 923		dist = [4]	 way_value(0)
+	187
+	464
+	898
+	697
+	443
+	112
+
+nom = 922		dist = [4]	 way_value(0)
+	113
+	366
+	689
+	442
+
+nom = 921		dist = [5]	 way_value(0)
+	936
+	389
+	610
+	351
+
+nom = 920		dist = [4]	 way_value(0)
+	743
+	47
+	580
+	508
+	559
+	323
+	104
+
+nom = 919		dist = [4]	 way_value(0)
+	635
+	614
+	25
+	381
+	98
+
+nom = 918		dist = [3]	 way_value(1)
+	183
+	713
+	705
+	993
+	718
+	437
+	239
+
+nom = 917		dist = [5]	 way_value(0)
+	281
+	840
+	433
+	278
+	277
+	159
+	51
+
+nom = 916		dist = [5]	 way_value(0)
+	720
+	642
+	410
+
+nom = 915		dist = [7]	 way_value(0)
+	883
+	481
+
+nom = 914		dist = [4]	 way_value(0)
+	619
+	869
+
+nom = 913		dist = [5]	 way_value(0)
+	181
+	641
+
+nom = 912		dist = [6]	 way_value(0)
+	496
+
+nom = 911		dist = [4]	 way_value(0)
+	491
+	356
+	244
+
+nom = 910		dist = [4]	 way_value(0)
+	637
+	179
+	547
+
+nom = 909		dist = [4]	 way_value(3)
+	326
+	736
+	632
+	74
+
+nom = 908		dist = [4]	 way_value(0)
+	284
+
+nom = 907		dist = [5]	 way_value(0)
+	130
+	422
+	807
+	123
+
+nom = 906		dist = [4]	 way_value(0)
+	186
+	392
+	410
+	958
+	611
+	95
+	638
+	242
+	71
+
+nom = 905		dist = [3]	 way_value(0)
+	961
+	65
+	491
+	34
+
+nom = 904		dist = [4]	 way_value(0)
+	934
+	808
+	820
+	468
+	849
+	302
+
+nom = 903		dist = [6]	 way_value(0)
+	603
+
+nom = 902		dist = [4]	 way_value(0)
+	961
+	675
+	241
+	793
+	446
+
+nom = 901		dist = [6]	 way_value(0)
+	526
+	620
+	613
+	416
+	105
+
+nom = 900		dist = [5]	 way_value(0)
+	994
+	378
+	742
+	205
+
+nom = 899		dist = [4]	 way_value(0)
+	260
+	752
+
+nom = 898		dist = [5]	 way_value(0)
+	950
+	923
+	824
+	796
+	748
+	635
+
+nom = 897		dist = [2]	 way_value(0)
+	570
+	227
+	217
+	99
+
+nom = 896		dist = [6]	 way_value(0)
+	670
+	858
+	656
+
+nom = 895		dist = [4]	 way_value(0)
+	217
+	615
+	623
+	542
+	78
+
+nom = 894		dist = [6]	 way_value(0)
+	733
+	344
+
+nom = 893		dist = [4]	 way_value(0)
+	346
+	885
+
+nom = 892		dist = [5]	 way_value(0)
+	132
+	776
+	676
+	316
+	261
+
+nom = 891		dist = [4]	 way_value(0)
+	874
+	716
+
+nom = 890		dist = [5]	 way_value(0)
+	877
+	441
+
+nom = 889		dist = [5]	 way_value(0)
+	975
+	114
+	544
+	165
+	796
+
+nom = 888		dist = [4]	 way_value(0)
+	619
+	514
+	678
+	478
+	756
+
+nom = 887		dist = [7]	 way_value(0)
+	461
+
+nom = 886		dist = [3]	 way_value(0)
+	234
+	191
+	822
+	788
+	678
+	652
+	513
+	504
+
+nom = 885		dist = [3]	 way_value(0)
+	893
+	737
+	211
+
+nom = 884		dist = [5]	 way_value(0)
+	778
+	730
+	138
+
+nom = 883		dist = [6]	 way_value(0)
+	915
+	973
+	484
+	312
+	221
+
+nom = 882		dist = [5]	 way_value(0)
+	990
+	62
+	623
+	171
+
+nom = 881		dist = [5]	 way_value(0)
+	993
+	319
+	879
+	710
+	445
+
+nom = 880		dist = [4]	 way_value(0)
+	946
+	109
+
+nom = 879		dist = [6]	 way_value(0)
+	881
+	585
+	522
+	509
+	127
+
+nom = 878		dist = [4]	 way_value(0)
+	473
+	11
+
+nom = 877		dist = [6]	 way_value(0)
+	890
+	76
+
+nom = 876		dist = [4]	 way_value(0)
+	938
+	222
+	430
+	775
+	436
+	554
+
+nom = 875		dist = [4]	 way_value(0)
+	343
+	424
+	340
+
+nom = 874		dist = [3]	 way_value(0)
+	891
+	732
+	455
+
+nom = 873		dist = [5]	 way_value(0)
+	86
+
+nom = 872		dist = [5]	 way_value(0)
+	550
+	441
+	499
+	255
+
+nom = 871		dist = [4]	 way_value(0)
+	604
+	641
+	272
+
+nom = 870		dist = [3]	 way_value(0)
+	380
+	860
+	128
+	835
+	7
+
+nom = 869		dist = [5]	 way_value(0)
+	327
+	914
+	247
+	791
+
+nom = 868		dist = [4]	 way_value(0)
+	319
+	219
+
+nom = 867		dist = [4]	 way_value(0)
+	850
+	246
+	73
+	654
+	178
+
+nom = 866		dist = [5]	 way_value(0)
+	275
+	711
+	859
+	69
+
+nom = 865		dist = [4]	 way_value(0)
+	772
+
+nom = 864		dist = [5]	 way_value(0)
+	172
+	385
+	788
+
+nom = 863		dist = [6]	 way_value(0)
+	597
+
+nom = 862		dist = [5]	 way_value(0)
+	178
+	557
+	478
+	310
+	263
+
+nom = 861		dist = [5]	 way_value(0)
+	331
+	606
+	381
+
+nom = 860		dist = [2]	 way_value(0)
+	870
+	398
+	806
+
+nom = 859		dist = [5]	 way_value(0)
+	97
+	241
+	866
+
+nom = 858		dist = [6]	 way_value(0)
+	333
+	896
+	137
+
+nom = 857		dist = [5]	 way_value(0)
+	660
+	449
+	537
+	461
+
+nom = 856		dist = [3]	 way_value(0)
+	944
+	26
+	566
+
+nom = 855		dist = [5]	 way_value(0)
+	976
+	498
+	159
+	797
+	503
+
+nom = 854		dist = [5]	 way_value(0)
+	957
+	18
+	732
+	285
+	129
+
+nom = 853		dist = [6]	 way_value(0)
+	129
+	946
+	241
+
+nom = 852		dist = [5]	 way_value(0)
+	128
+	389
+	132
+	32
+
+nom = 851		dist = [6]	 way_value(0)
+	404
+
+nom = 850		dist = [3]	 way_value(0)
+	867
+	441
+	570
+	459
+	293
+	279
+
+nom = 849		dist = [5]	 way_value(0)
+	565
+	904
+	978
+	771
+
+nom = 848		dist = [4]	 way_value(0)
+	63
+	810
+	845
+	539
+
+nom = 847		dist = [5]	 way_value(0)
+	420
+	954
+	421
+
+nom = 846		dist = [5]	 way_value(0)
+	726
+	676
+	427
+	409
+	268
+	240
+
+nom = 845		dist = [5]	 way_value(0)
+	848
+	258
+	558
+	27
+
+nom = 844		dist = [5]	 way_value(0)
+	729
+	314
+	998
+	670
+	660
+	78
+
+nom = 843		dist = [1]	 way_value(3)
+	start
+	987
+	249
+	977
+	569
+	825
+	685
+
+nom = 842		dist = [5]	 way_value(0)
+	371
+	102
+	78
+
+nom = 841		dist = [5]	 way_value(0)
+	969
+	756
+	832
+	786
+	749
+	604
+
+nom = 840		dist = [6]	 way_value(0)
+	917
+	567
+
+nom = 839		dist = [5]	 way_value(0)
+	835
+	309
+	640
+	615
+	572
+
+nom = 838		dist = [6]	 way_value(0)
+	255
+	242
+	156
+
+nom = 837		dist = [4]	 way_value(0)
+	186
+	577
+	512
+	165
+	127
+
+nom = 836		dist = [5]	 way_value(0)
+	157
+	270
+
+nom = 835		dist = [4]	 way_value(0)
+	839
+	870
+	787
+	603
+	544
+	543
+	238
+	21
+
+nom = 834		dist = [3]	 way_value(0)
+	92
+	331
+	557
+	486
+	576
+	657
+
+nom = 833		dist = [5]	 way_value(0)
+	111
+	742
+	750
+	671
+	429
+
+nom = 832		dist = [5]	 way_value(0)
+	841
+	12
+	163
+
+nom = 831		dist = [6]	 way_value(0)
+	721
+	574
+	477
+
+nom = 830		dist = [5]	 way_value(0)
+	562
+	989
+	688
+
+nom = 829		dist = [5]	 way_value(0)
+	190
+	682
+	623
+	575
+	553
+	528
+	41
+
+nom = 828		dist = [6]	 way_value(0)
+	107
+	194
+
+nom = 827		dist = [5]	 way_value(0)
+	127
+	410
+
+nom = 826		dist = [5]	 way_value(0)
+	496
+	759
+
+nom = 825		dist = [2]	 way_value(0)
+	552
+	843
+
+nom = 824		dist = [5]	 way_value(0)
+	898
+	576
+	167
+
+nom = 823		dist = [3]	 way_value(0)
+	61
+	425
+
+nom = 822		dist = [3]	 way_value(0)
+	886
+	52
+	538
+	17
+	688
+	763
+	231
+
+nom = 821		dist = [3]	 way_value(0)
+	619
+	713
+
+nom = 820		dist = [5]	 way_value(0)
+	968
+	904
+	13
+	416
+	812
+
+nom = 819		dist = [4]	 way_value(0)
+	345
+	101
+	568
+	126
+
+nom = 818		dist = [4]	 way_value(0)
+	972
+	420
+	408
+	727
+	2
+
+nom = 817		dist = [5]	 way_value(0)
+	754
+	636
+
+nom = 816		dist = [5]	 way_value(0)
+	444
+	60
+	815
+	720
+
+nom = 815		dist = [5]	 way_value(0)
+	816
+	708
+	580
+	550
+
+nom = 814		dist = [5]	 way_value(0)
+	536
+	21
+	83
+
+nom = 813		dist = [3]	 way_value(0)
+	139
+	249
+	388
+
+nom = 812		dist = [5]	 way_value(0)
+	14
+	195
+	820
+	445
+	936
+	667
+	432
+
+nom = 811		dist = [3]	 way_value(0)
+	999
+	742
+	279
+
+nom = 810		dist = [5]	 way_value(0)
+	848
+	358
+	97
+
+nom = 809		dist = [5]	 way_value(0)
+	962
+	782
+	709
+	789
+	597
+	329
+
+nom = 808		dist = [3]	 way_value(0)
+	904
+	108
+	160
+	788
+	140
+
+nom = 807		dist = [6]	 way_value(0)
+	907
+	931
+
+nom = 806		dist = [1]	 way_value(0)
+	start
+	860
+	108
+	685
+	459
+	235
+	34
+
+nom = 805		dist = [4]	 way_value(0)
+	420
+	14
+	191
+	690
+	227
+	417
+
+nom = 804		dist = [3]	 way_value(0)
+	400
+	617
+	987
+	782
+	776
+	650
+	322
+	308
+
+nom = 803		dist = [5]	 way_value(0)
+	510
+	958
+	530
+	167
+
+nom = 802		dist = [5]	 way_value(0)
+	472
+	659
+	623
+	80
+
+nom = 801		dist = [5]	 way_value(0)
+	786
+	689
+	969
+	640
+	350
+
+nom = 800		dist = [4]	 way_value(0)
+	104
+	345
+	65
+	131
+	74
+	20
+
+nom = 799		dist = [5]	 way_value(0)
+	739
+	335
+	420
+	258
+	521
+
+nom = 798		dist = [4]	 way_value(0)
+	609
+	770
+	747
+	668
+	265
+
+nom = 797		dist = [6]	 way_value(0)
+	855
+
+nom = 796		dist = [5]	 way_value(0)
+	889
+	898
+	709
+	426
+	344
+
+nom = 795		dist = [5]	 way_value(0)
+	603
+	118
+
+nom = 794		dist = [4]	 way_value(0)
+	980
+	585
+	972
+	754
+	656
+	627
+	133
+
+nom = 793		dist = [5]	 way_value(0)
+	902
+	628
+	658
+	270
+
+nom = 792		dist = [6]	 way_value(0)
+	593
+	134
+
+nom = 791		dist = [5]	 way_value(0)
+	568
+	869
+	469
+	191
+	153
+
+nom = 790		dist = [5]	 way_value(0)
+	536
+	711
+	706
+	226
+
+nom = 789		dist = [6]	 way_value(0)
+	984
+	932
+	809
+	780
+	547
+	226
+
+nom = 788		dist = [4]	 way_value(0)
+	943
+	808
+	864
+	725
+	762
+	315
+	886
+	326
+	56
+
+nom = 787		dist = [5]	 way_value(0)
+	945
+	835
+	93
+	32
+
+nom = 786		dist = [4]	 way_value(0)
+	988
+	985
+	955
+	801
+	841
+	722
+	246
+	74
+
+nom = 785		dist = [4]	 way_value(0)
+	564
+	567
+	66
+
+nom = 784		dist = [4]	 way_value(0)
+	942
+	702
+	586
+	577
+	488
+	15
+
+nom = 783		dist = [5]	 way_value(0)
+	944
+
+nom = 782		dist = [4]	 way_value(0)
+	809
+	251
+	610
+	427
+	804
+	349
+	424
+
+nom = 781		dist = [3]	 way_value(0)
+	322
+	538
+	93
+	655
+	452
+	74
+
+nom = 780		dist = [5]	 way_value(0)
+	789
+	323
+	364
+
+nom = 779		dist = [3]	 way_value(0)
+	943
+	386
+
+nom = 778		dist = [5]	 way_value(0)
+	884
+	479
+	103
+	596
+	38
+
+nom = 777		dist = [4]	 way_value(0)
+	394
+	346
+	153
+	678
+	411
+	282
+
+nom = 776		dist = [4]	 way_value(0)
+	680
+	357
+	892
+	804
+	741
+	495
+	442
+
+nom = 775		dist = [5]	 way_value(0)
+	876
+	617
+	76
+	490
+	361
+
+nom = 774		dist = [5]	 way_value(0)
+	598
+	199
+	591
+	359
+	97
+
+nom = 773		dist = [5]	 way_value(0)
+	557
+	333
+
+nom = 772		dist = [3]	 way_value(0)
+	865
+	658
+	713
+	74
+
+nom = 771		dist = [4]	 way_value(0)
+	849
+	299
+	617
+	204
+
+nom = 770		dist = [4]	 way_value(0)
+	413
+	798
+	688
+	419
+	698
+	553
+	67
+	58
+
+nom = 769		dist = [3]	 way_value(0)
+	486
+	715
+	511
+	136
+	115
+
+nom = 768		dist = [5]	 way_value(0)
+	458
+
+nom = 767		dist = [5]	 way_value(0)
+	953
+	958
+	697
+	633
+
+nom = 766		dist = [4]	 way_value(0)
+	944
+	748
+	212
+
+nom = 765		dist = [6]	 way_value(0)
+	972
+	444
+	567
+	297
+
+nom = 764		dist = [5]	 way_value(0)
+	97
+	531
+	177
+
+nom = 763		dist = [4]	 way_value(0)
+	822
+	161
+	181
+
+nom = 762		dist = [5]	 way_value(0)
+	788
+	317
+	627
+	267
+
+nom = 761		dist = [4]	 way_value(0)
+	188
+	554
+	383
+	126
+
+nom = 760		dist = [4]	 way_value(0)
+	925
+	68
+	688
+	230
+
+nom = 759		dist = [4]	 way_value(0)
+	28
+	969
+	156
+	408
+	496
+	366
+	826
+	624
+
+nom = 758		dist = [3]	 way_value(0)
+	411
+	685
+
+nom = 757		dist = [4]	 way_value(0)
+	370
+	332
+	280
+	154
+
+nom = 756		dist = [5]	 way_value(0)
+	841
+	525
+	888
+	211
+	999
+	101
+	671
+
+nom = 755		dist = [4]	 way_value(0)
+	726
+	681
+	217
+
+nom = 754		dist = [4]	 way_value(0)
+	959
+	817
+	794
+	257
+	47
+
+nom = 753		dist = [4]	 way_value(0)
+	552
+
+nom = 752		dist = [3]	 way_value(0)
+	441
+	501
+	899
+	506
+	249
+
+nom = 751		dist = [5]	 way_value(0)
+	950
+	27
+	523
+	477
+	447
+
+nom = 750		dist = [5]	 way_value(0)
+	361
+	833
+	383
+	83
+	53
+
+nom = 749		dist = [5]	 way_value(0)
+	461
+	841
+	745
+	376
+	167
+
+nom = 748		dist = [4]	 way_value(0)
+	380
+	766
+	898
+	448
+	742
+	272
+	447
+	6
+
+nom = 747		dist = [5]	 way_value(0)
+	798
+	723
+	530
+
+nom = 746		dist = [4]	 way_value(0)
+	122
+	219
+	104
+
+nom = 745		dist = [4]	 way_value(0)
+	749
+	331
+	456
+	723
+	654
+	408
+	368
+
+nom = 744		dist = [5]	 way_value(0)
+	9
+
+nom = 743		dist = [4]	 way_value(0)
+	920
+	337
+	677
+	726
+	666
+	112
+	100
+
+nom = 742		dist = [4]	 way_value(0)
+	833
+	748
+	811
+	559
+	900
+	103
+	697
+	335
+	239
+
+nom = 741		dist = [4]	 way_value(0)
+	776
+	109
+
+nom = 740		dist = [5]	 way_value(0)
+	500
+	293
+	103
+	46
+
+nom = 739		dist = [6]	 way_value(0)
+	799
+	605
+	720
+	344
+	29
+
+nom = 738		dist = [4]	 way_value(0)
+	473
+	322
+	2
+
+nom = 737		dist = [2]	 way_value(2)
+	287
+	885
+	332
+	718
+	681
+	675
+	386
+	326
+	99
+	85
+
+nom = 736		dist = [5]	 way_value(0)
+	909
+
+nom = 735		dist = [3]	 way_value(0)
+	200
+	624
+	313
+
+nom = 734		dist = [5]	 way_value(0)
+	934
+	164
+	937
+	221
+
+nom = 733		dist = [5]	 way_value(0)
+	894
+	48
+	679
+	566
+
+nom = 732		dist = [4]	 way_value(0)
+	874
+	854
+	989
+
+nom = 731		dist = [7]	 way_value(0)
+	505
+
+nom = 730		dist = [4]	 way_value(0)
+	884
+	618
+	280
+	673
+
+nom = 729		dist = [5]	 way_value(0)
+	950
+	844
+	104
+
+nom = 728		dist = [5]	 way_value(0)
+	949
+	926
+	472
+	101
+	565
+	77
+
+nom = 727		dist = [3]	 way_value(0)
+	818
+	233
+	685
+	273
+	401
+	345
+	192
+
+nom = 726		dist = [4]	 way_value(0)
+	846
+	755
+	503
+	396
+	466
+	743
+	656
+	476
+	437
+	57
+
+nom = 725		dist = [5]	 way_value(0)
+	788
+	654
+
+nom = 724		dist = [5]	 way_value(0)
+	283
+	645
+	579
+	402
+
+nom = 723		dist = [5]	 way_value(0)
+	747
+	355
+	707
+	745
+	100
+	70
+
+nom = 722		dist = [5]	 way_value(0)
+	786
+	276
+	210
+	193
+	218
+
+nom = 721		dist = [5]	 way_value(0)
+	831
+	192
+	973
+	355
+	218
+	144
+	103
+
+nom = 720		dist = [5]	 way_value(0)
+	916
+	816
+	672
+	964
+	739
+	950
+
+nom = 719		dist = [4]	 way_value(0)
+	594
+	362
+	137
+
+nom = 718		dist = [3]	 way_value(0)
+	929
+	161
+	918
+	737
+	709
+	677
+	636
+	452
+
+nom = 717		dist = [5]	 way_value(0)
+	545
+	646
+	604
+
+nom = 716		dist = [5]	 way_value(0)
+	891
+	89
+	62
+
+nom = 715		dist = [4]	 way_value(0)
+	769
+	562
+
+nom = 714		dist = [6]	 way_value(0)
+	593
+
+nom = 713		dist = [2]	 way_value(1)
+	992
+	918
+	488
+	821
+	772
+	577
+	99
+	74
+
+nom = 712		dist = [5]	 way_value(0)
+	101
+	580
+	21
+
+nom = 711		dist = [6]	 way_value(0)
+	866
+	11
+	790
+
+nom = 710		dist = [6]	 way_value(0)
+	881
+	543
+	367
+
+nom = 709		dist = [4]	 way_value(0)
+	809
+	142
+	796
+	718
+
+nom = 708		dist = [6]	 way_value(0)
+	815
+	493
+	596
+	377
+
+nom = 707		dist = [4]	 way_value(0)
+	723
+	319
+	98
+	412
+	96
+	3
+
+nom = 706		dist = [5]	 way_value(0)
+	790
+	123
+
+nom = 705		dist = [4]	 way_value(0)
+	918
+	233
+	93
+	984
+	276
+	473
+	371
+	326
+
+nom = 704		dist = [5]	 way_value(0)
+	179
+	526
+
+nom = 703		dist = [3]	 way_value(0)
+	501
+	685
+
+nom = 702		dist = [5]	 way_value(0)
+	691
+	784
+	523
+	460
+	392
+	226
+
+nom = 701		dist = [5]	 way_value(0)
+	395
+	656
+	495
+	623
+	534
+	517
+	270
+	117
+
+nom = 700		dist = [4]	 way_value(0)
+	579
+	84
+	187
+	278
+	453
+	336
+
+nom = 699		dist = [5]	 way_value(0)
+	372
+	299
+	442
+	16
+
+nom = 698		dist = [4]	 way_value(0)
+	934
+	453
+	770
+	564
+	604
+	74
+	37
+
+nom = 697		dist = [5]	 way_value(0)
+	610
+	742
+	527
+	923
+	767
+	682
+
+nom = 696		dist = [5]	 way_value(0)
+	971
+	157
+	694
+	165
+
+nom = 695		dist = [4]	 way_value(0)
+	440
+	371
+	332
+	322
+	625
+
+nom = 694		dist = [5]	 way_value(0)
+	696
+	0
+	354
+
+nom = 693		dist = [5]	 way_value(0)
+	155
+	505
+	104
+
+nom = 692		dist = [6]	 way_value(0)
+	19
+	429
+	120
+
+nom = 691		dist = [6]	 way_value(0)
+	924
+	702
+	989
+	534
+	180
+	64
+
+nom = 690		dist = [5]	 way_value(0)
+	805
+	556
+	177
+	979
+	523
+	436
+	202
+	39
+
+nom = 689		dist = [5]	 way_value(0)
+	801
+	922
+
+nom = 688		dist = [4]	 way_value(0)
+	971
+	822
+	770
+	830
+	760
+	555
+
+nom = 687		dist = [5]	 way_value(0)
+	139
+	933
+
+nom = 686		dist = [4]	 way_value(0)
+	287
+	237
+	73
+
+nom = 685		dist = [2]	 way_value(0)
+	727
+	758
+	291
+	806
+	411
+	843
+	638
+	560
+	703
+	631
+	405
+	592
+	189
+
+nom = 684		dist = [4]	 way_value(0)
+	405
+	594
+	589
+	229
+
+nom = 683		dist = [4]	 way_value(0)
+	966
+	473
+	435
+	160
+
+nom = 682		dist = [6]	 way_value(0)
+	378
+	829
+	697
+
+nom = 681		dist = [3]	 way_value(0)
+	737
+	755
+	580
+	30
+
+nom = 680		dist = [5]	 way_value(0)
+	776
+	441
+
+nom = 679		dist = [4]	 way_value(0)
+	733
+	978
+	961
+	508
+	424
+
+nom = 678		dist = [4]	 way_value(0)
+	930
+	888
+	886
+	777
+	30
+	623
+	499
+	390
+	63
+
+nom = 677		dist = [3]	 way_value(0)
+	743
+	342
+	718
+	232
+	383
+
+nom = 676		dist = [5]	 way_value(0)
+	846
+	60
+	892
+
+nom = 675		dist = [3]	 way_value(0)
+	902
+	964
+	590
+	962
+	737
+
+nom = 674		dist = [4]	 way_value(0)
+	997
+	950
+	935
+	421
+
+nom = 673		dist = [3]	 way_value(0)
+	394
+	207
+	730
+	977
+	225
+
+nom = 672		dist = [5]	 way_value(0)
+	955
+	720
+	153
+	498
+
+nom = 671		dist = [4]	 way_value(0)
+	993
+	756
+	76
+	151
+	833
+	246
+	208
+
+nom = 670		dist = [5]	 way_value(0)
+	896
+	624
+	844
+
+nom = 669		dist = [5]	 way_value(0)
+	583
+	254
+
+nom = 668		dist = [5]	 way_value(0)
+	798
+	516
+
+nom = 667		dist = [5]	 way_value(0)
+	979
+	92
+	540
+	812
+	330
+	182
+
+nom = 666		dist = [5]	 way_value(0)
+	743
+
+nom = 665		dist = [5]	 way_value(0)
+	954
+	389
+	229
+	262
+	171
+
+nom = 664		dist = [5]	 way_value(0)
+	72
+	359
+	528
+
+nom = 663		dist = [5]	 way_value(0)
+	447
+	15
+
+nom = 662		dist = [6]	 way_value(0)
+	146
+
+nom = 661		dist = [4]	 way_value(0)
+	536
+	326
+	147
+	125
+	83
+
+nom = 660		dist = [5]	 way_value(0)
+	857
+	844
+	395
+	39
+
+nom = 659		dist = [4]	 way_value(0)
+	648
+	68
+	534
+	802
+
+nom = 658		dist = [4]	 way_value(0)
+	981
+	772
+	793
+
+nom = 657		dist = [4]	 way_value(0)
+	834
+	953
+	499
+	277
+
+nom = 656		dist = [5]	 way_value(0)
+	726
+	701
+	794
+	896
+
+nom = 655		dist = [4]	 way_value(0)
+	781
+	251
+	33
+
+nom = 654		dist = [4]	 way_value(0)
+	867
+	725
+	745
+	211
+	247
+	212
+
+nom = 653		dist = [6]	 way_value(0)
+	409
+
+nom = 652		dist = [4]	 way_value(0)
+	953
+	886
+
+nom = 651		dist = [5]	 way_value(0)
+	238
+
+nom = 650		dist = [4]	 way_value(0)
+	938
+	804
+	142
+
+nom = 649		dist = [4]	 way_value(0)
+	260
+	368
+	165
+
+nom = 648		dist = [3]	 way_value(0)
+	659
+	61
+	352
+
+nom = 647		dist = [4]	 way_value(0)
+	462
+	631
+	927
+	548
+
+nom = 646		dist = [6]	 way_value(0)
+	717
+
+nom = 645		dist = [6]	 way_value(0)
+	432
+	724
+
+nom = 644		dist = [5]	 way_value(0)
+	978
+
+nom = 643		dist = [4]	 way_value(0)
+	596
+	502
+	68
+
+nom = 642		dist = [4]	 way_value(0)
+	991
+	30
+	916
+	384
+
+nom = 641		dist = [4]	 way_value(0)
+	564
+	210
+	97
+	871
+	913
+	254
+
+nom = 640		dist = [4]	 way_value(0)
+	801
+	839
+	115
+	413
+
+nom = 639		dist = [4]	 way_value(0)
+	74
+	290
+	19
+
+nom = 638		dist = [3]	 way_value(0)
+	906
+	685
+	313
+	14
+	564
+	93
+	609
+
+nom = 637		dist = [3]	 way_value(0)
+	910
+	403
+	306
+	235
+
+nom = 636		dist = [4]	 way_value(0)
+	718
+	817
+
+nom = 635		dist = [5]	 way_value(0)
+	919
+	898
+	372
+	198
+	76
+
+nom = 634		dist = [6]	 way_value(0)
+	597
+	206
+	50
+
+nom = 633		dist = [5]	 way_value(0)
+	975
+	393
+	358
+	767
+	940
+	556
+	492
+	258
+	180
+
+nom = 632		dist = [4]	 way_value(0)
+	909
+	119
+	596
+	528
+	203
+	292
+	253
+	36
+
+nom = 631		dist = [3]	 way_value(0)
+	685
+	647
+	104
+	598
+	520
+	472
+	159
+
+nom = 630		dist = [4]	 way_value(0)
+	419
+	335
+
+nom = 629		dist = [4]	 way_value(0)
+	996
+	141
+	523
+
+nom = 628		dist = [5]	 way_value(0)
+	793
+	542
+	576
+
+nom = 627		dist = [5]	 way_value(0)
+	794
+	762
+	264
+
+nom = 626		dist = [6]	 way_value(0)
+	559
+	525
+	325
+
+nom = 625		dist = [4]	 way_value(0)
+	695
+	151
+
+nom = 624		dist = [4]	 way_value(0)
+	670
+	759
+	735
+
+nom = 623		dist = [5]	 way_value(0)
+	995
+	895
+	829
+	701
+	802
+	144
+	882
+	678
+
+nom = 622		dist = [5]	 way_value(0)
+	543
+	940
+
+nom = 621		dist = [5]	 way_value(0)
+	161
+
+nom = 620		dist = [5]	 way_value(0)
+	901
+	362
+	354
+
+nom = 619		dist = [3]	 way_value(0)
+	914
+	888
+	821
+	510
+	993
+	459
+	410
+
+nom = 618		dist = [4]	 way_value(0)
+	937
+	730
+	204
+
+nom = 617		dist = [4]	 way_value(0)
+	804
+	775
+	227
+	771
+
+nom = 616		dist = [5]	 way_value(0)
+	924
+	437
+	178
+
+nom = 615		dist = [4]	 way_value(0)
+	895
+	839
+	600
+	408
+
+nom = 614		dist = [5]	 way_value(0)
+	919
+	954
+
+nom = 613		dist = [6]	 way_value(0)
+	901
+	492
+
+nom = 612		dist = [5]	 way_value(0)
+	328
+	421
+
+nom = 611		dist = [4]	 way_value(0)
+	906
+	10
+	170
+	93
+
+nom = 610		dist = [5]	 way_value(0)
+	782
+	697
+	981
+	921
+	460
+
+nom = 609		dist = [3]	 way_value(0)
+	974
+	798
+	193
+	278
+	542
+	638
+	538
+	398
+	60
+
+nom = 608		dist = [4]	 way_value(0)
+	986
+	175
+	67
+
+nom = 607		dist = [6]	 way_value(0)
+	384
+	321
+
+nom = 606		dist = [5]	 way_value(0)
+	861
+	316
+
+nom = 605		dist = [5]	 way_value(0)
+	739
+	257
+	102
+	940
+	236
+	40
+
+nom = 604		dist = [5]	 way_value(0)
+	871
+	717
+	698
+	841
+	529
+	485
+	181
+
+nom = 603		dist = [5]	 way_value(0)
+	903
+	795
+	835
+	55
+
+nom = 602		dist = [5]	 way_value(0)
+	390
+	304
+	87
+	331
+	266
+
+nom = 601		dist = [5]	 way_value(0)
+	401
+	550
+
+nom = 600		dist = [5]	 way_value(0)
+	995
+	615
+	450
+	16
+	567
+	481
+	97
+	483
+	352
+
+nom = 599		dist = [5]	 way_value(0)
+	60
+	239
+
+nom = 598		dist = [4]	 way_value(0)
+	774
+	631
+	946
+
+nom = 597		dist = [5]	 way_value(0)
+	863
+	634
+	19
+	809
+	95
+	472
+
+nom = 596		dist = [5]	 way_value(0)
+	643
+	632
+	60
+	708
+	778
+
+nom = 595		dist = [5]	 way_value(0)
+	207
+	581
+	117
+
+nom = 594		dist = [3]	 way_value(0)
+	719
+	684
+	36
+	125
+	542
+	232
+
+nom = 593		dist = [5]	 way_value(0)
+	792
+	714
+	423
+	440
+	429
+
+nom = 592		dist = [3]	 way_value(0)
+	685
+	440
+	225
+	456
+	324
+	17
+
+nom = 591		dist = [6]	 way_value(0)
+	774
+	391
+	385
+
+nom = 590		dist = [4]	 way_value(0)
+	675
+	80
+	418
+
+nom = 589		dist = [3]	 way_value(0)
+	515
+	948
+	578
+	87
+	684
+	529
+
+nom = 588		dist = [5]	 way_value(0)
+	392
+	11
+
+nom = 587		dist = [3]	 way_value(0)
+	975
+	254
+	371
+	532
+	98
+	570
+	328
+	235
+
+nom = 586		dist = [5]	 way_value(0)
+	784
+	341
+
+nom = 585		dist = [5]	 way_value(0)
+	941
+	794
+	879
+	561
+
+nom = 584		dist = [5]	 way_value(0)
+	934
+	407
+	283
+	137
+
+nom = 583		dist = [5]	 way_value(0)
+	669
+	36
+
+nom = 582		dist = [5]	 way_value(0)
+	932
+	986
+	132
+
+nom = 581		dist = [6]	 way_value(0)
+	595
+	385
+
+nom = 580		dist = [4]	 way_value(0)
+	920
+	570
+	371
+	681
+	815
+	712
+	474
+	171
+	155
+
+nom = 579		dist = [5]	 way_value(0)
+	700
+	296
+	196
+	724
+	173
+
+nom = 578		dist = [4]	 way_value(0)
+	589
+	56
+	463
+	371
+	230
+	418
+
+nom = 577		dist = [3]	 way_value(0)
+	837
+	713
+	784
+	94
+
+nom = 576		dist = [4]	 way_value(0)
+	834
+	824
+	628
+
+nom = 575		dist = [6]	 way_value(0)
+	337
+	829
+
+nom = 574		dist = [5]	 way_value(0)
+	831
+	107
+	433
+
+nom = 573		dist = [5]	 way_value(0)
+	975
+
+nom = 572		dist = [6]	 way_value(0)
+	839
+
+nom = 571		dist = [2]	 way_value(0)
+	960
+	360
+	408
+	997
+
+nom = 570		dist = [3]	 way_value(0)
+	897
+	587
+	580
+	123
+	850
+
+nom = 569		dist = [2]	 way_value(0)
+	843
+	151
+	47
+	365
+	235
+
+nom = 568		dist = [4]	 way_value(0)
+	992
+	791
+	819
+	93
+	131
+	531
+	511
+	502
+	545
+
+nom = 567		dist = [5]	 way_value(0)
+	785
+	600
+	840
+	765
+	377
+	83
+
+nom = 566		dist = [4]	 way_value(0)
+	135
+	993
+	733
+	856
+	185
+	496
+	333
+
+nom = 565		dist = [4]	 way_value(0)
+	849
+	151
+	728
+
+nom = 564		dist = [3]	 way_value(0)
+	785
+	698
+	641
+	638
+	276
+	386
+	341
+	122
+
+nom = 563		dist = [5]	 way_value(3)
+	end
+	973
+	122
+
+nom = 562		dist = [5]	 way_value(0)
+	830
+	471
+	33
+	715
+	951
+	239
+
+nom = 561		dist = [6]	 way_value(0)
+	19
+	439
+	585
+
+nom = 560		dist = [3]	 way_value(0)
+	685
+	386
+	336
+
+nom = 559		dist = [5]	 way_value(0)
+	920
+	742
+	626
+	516
+	506
+
+nom = 558		dist = [5]	 way_value(0)
+	845
+	14
+	994
+
+nom = 557		dist = [4]	 way_value(0)
+	834
+	773
+	862
+
+nom = 556		dist = [4]	 way_value(0)
+	690
+	633
+	314
+	168
+
+nom = 555		dist = [5]	 way_value(0)
+	688
+	999
+	277
+
+nom = 554		dist = [3]	 way_value(0)
+	34
+	876
+	142
+	479
+	761
+	499
+	57
+
+nom = 553		dist = [4]	 way_value(0)
+	520
+	770
+	829
+	376
+	57
+	214
+
+nom = 552		dist = [3]	 way_value(0)
+	825
+	753
+	108
+	450
+	80
+
+nom = 551		dist = [7]	 way_value(0)
+	998
+
+nom = 550		dist = [4]	 way_value(0)
+	872
+	815
+	446
+	601
+	113
+	51
+
+nom = 549		dist = [4]	 way_value(0)
+	365
+
+nom = 548		dist = [5]	 way_value(0)
+	209
+	647
+	352
+
+nom = 547		dist = [5]	 way_value(0)
+	789
+	910
+	458
+	348
+
+nom = 546		dist = [4]	 way_value(0)
+	190
+	272
+
+nom = 545		dist = [4]	 way_value(0)
+	963
+	717
+	568
+	291
+
+nom = 544		dist = [5]	 way_value(0)
+	889
+	835
+	468
+
+nom = 543		dist = [5]	 way_value(0)
+	622
+	710
+	174
+	835
+
+nom = 542		dist = [4]	 way_value(0)
+	628
+	609
+	594
+	948
+	895
+	95
+	0
+
+nom = 541		dist = [5]	 way_value(0)
+	136
+
+nom = 540		dist = [5]	 way_value(0)
+	667
+	94
+	517
+	229
+	24
+
+nom = 539		dist = [5]	 way_value(0)
+	848
+	256
+	110
+
+nom = 538		dist = [2]	 way_value(0)
+	822
+	781
+	960
+	609
+
+nom = 537		dist = [4]	 way_value(0)
+	857
+	419
+
+nom = 536		dist = [4]	 way_value(0)
+	814
+	790
+	661
+	514
+	162
+	332
+	209
+
+nom = 535		dist = [5]	 way_value(0)
+	91
+	86
+
+nom = 534		dist = [5]	 way_value(0)
+	691
+	659
+	701
+
+nom = 533		dist = [6]	 way_value(0)
+	946
+	323
+	55
+
+nom = 532		dist = [4]	 way_value(0)
+	587
+	492
+	376
+	4
+
+nom = 531		dist = [4]	 way_value(0)
+	764
+	568
+	337
+	974
+	280
+
+nom = 530		dist = [6]	 way_value(0)
+	803
+	747
+	349
+
+nom = 529		dist = [4]	 way_value(0)
+	589
+	304
+	604
+	497
+	427
+
+nom = 528		dist = [5]	 way_value(0)
+	632
+	664
+	829
+	370
+	225
+
+nom = 527		dist = [4]	 way_value(0)
+	697
+	383
+	81
+	180
+	470
+	423
+	57
+
+nom = 526		dist = [6]	 way_value(0)
+	901
+	704
+
+nom = 525		dist = [6]	 way_value(0)
+	756
+	626
+
+nom = 524		dist = [4]	 way_value(0)
+	332
+	375
+
+nom = 523		dist = [5]	 way_value(0)
+	702
+	751
+	629
+	690
+	347
+
+nom = 522		dist = [5]	 way_value(0)
+	879
+	483
+
+nom = 521		dist = [4]	 way_value(0)
+	799
+	297
+	65
+	168
+
+nom = 520		dist = [4]	 way_value(0)
+	631
+	553
+	428
+	483
+	361
+
+nom = 519		dist = [4]	 way_value(0)
+	400
+	74
+
+nom = 518		dist = [6]	 way_value(0)
+	409
+	464
+
+nom = 517		dist = [6]	 way_value(0)
+	701
+	540
+
+nom = 516		dist = [6]	 way_value(0)
+	559
+	668
+	446
+
+nom = 515		dist = [2]	 way_value(0)
+	589
+	204
+	245
+	49
+
+nom = 514		dist = [5]	 way_value(0)
+	888
+	536
+	166
+	482
+
+nom = 513		dist = [4]	 way_value(0)
+	886
+	185
+
+nom = 512		dist = [3]	 way_value(0)
+	159
+	392
+	997
+	358
+	837
+	232
+	213
+
+nom = 511		dist = [4]	 way_value(0)
+	985
+	568
+	997
+	769
+
+nom = 510		dist = [4]	 way_value(0)
+	803
+	619
+	302
+
+nom = 509		dist = [7]	 way_value(0)
+	879
+
+nom = 508		dist = [5]	 way_value(0)
+	920
+	679
+	449
+	280
+	431
+	18
+
+nom = 507		dist = [6]	 way_value(0)
+	366
+	116
+	286
+
+nom = 506		dist = [4]	 way_value(0)
+	156
+	129
+	140
+	752
+	559
+
+nom = 505		dist = [6]	 way_value(0)
+	731
+	693
+	226
+	218
+
+nom = 504		dist = [2]	 way_value(0)
+	960
+	502
+	886
+	85
+
+nom = 503		dist = [5]	 way_value(0)
+	726
+	855
+	499
+	448
+	196
+	184
+	64
+
+nom = 502		dist = [3]	 way_value(0)
+	568
+	504
+	643
+	491
+	402
+	458
+	233
+	79
+
+nom = 501		dist = [4]	 way_value(0)
+	967
+	752
+	703
+	947
+	261
+	111
+	32
+
+nom = 500		dist = [6]	 way_value(0)
+	740
+	374
+	373
+
+nom = 499		dist = [4]	 way_value(0)
+	554
+	216
+	503
+	657
+	167
+	136
+	872
+	385
+	678
+	294
+
+nom = 498		dist = [4]	 way_value(0)
+	855
+	672
+	350
+	159
+	151
+
+nom = 497		dist = [5]	 way_value(0)
+	993
+	529
+
+nom = 496		dist = [5]	 way_value(0)
+	912
+	826
+	759
+	566
+	295
+	128
+
+nom = 495		dist = [5]	 way_value(0)
+	701
+	176
+	140
+	375
+	776
+	1
+
+nom = 494		dist = [7]	 way_value(0)
+	957
+	77
+
+nom = 493		dist = [5]	 way_value(0)
+	708
+	373
+	193
+
+nom = 492		dist = [5]	 way_value(0)
+	613
+	532
+	633
+	6
+
+nom = 491		dist = [4]	 way_value(0)
+	911
+	905
+	502
+	946
+	113
+
+nom = 490		dist = [6]	 way_value(0)
+	775
+	130
+
+nom = 489		dist = [4]	 way_value(0)
+	947
+	934
+	980
+	471
+
+nom = 488		dist = [3]	 way_value(0)
+	713
+	449
+	387
+	445
+	784
+	208
+
+nom = 487		dist = [4]	 way_value(0)
+	318
+	91
+	91
+
+nom = 486		dist = [2]	 way_value(0)
+	834
+	769
+	424
+	960
+	318
+
+nom = 485		dist = [4]	 way_value(0)
+	604
+	419
+	482
+	250
+
+nom = 484		dist = [5]	 way_value(0)
+	883
+	444
+	349
+	254
+
+nom = 483		dist = [4]	 way_value(0)
+	356
+	600
+	309
+	520
+	522
+	316
+
+nom = 482		dist = [5]	 way_value(0)
+	485
+	926
+	514
+	316
+
+nom = 481		dist = [6]	 way_value(0)
+	600
+	915
+
+nom = 480		dist = [5]	 way_value(0)
+	478
+	474
+	295
+
+nom = 479		dist = [4]	 way_value(0)
+	778
+	554
+	994
+	466
+	266
+
+nom = 478		dist = [5]	 way_value(0)
+	888
+	480
+	862
+	143
+
+nom = 477		dist = [6]	 way_value(0)
+	751
+	146
+	831
+	152
+
+nom = 476		dist = [5]	 way_value(0)
+	224
+	726
+	354
+
+nom = 475		dist = [6]	 way_value(0)
+	464
+
+nom = 474		dist = [5]	 way_value(0)
+	480
+	580
+	196
+	205
+
+nom = 473		dist = [3]	 way_value(0)
+	878
+	738
+	235
+	705
+	683
+	470
+	215
+
+nom = 472		dist = [4]	 way_value(0)
+	802
+	728
+	597
+	631
+	365
+	294
+	136
+	409
+
+nom = 471		dist = [4]	 way_value(0)
+	562
+	489
+	333
+	284
+	136
+
+nom = 470		dist = [4]	 way_value(0)
+	994
+	527
+	473
+	60
+	359
+
+nom = 469		dist = [5]	 way_value(0)
+	956
+	421
+	791
+
+nom = 468		dist = [5]	 way_value(0)
+	904
+	544
+
+nom = 467		dist = [4]	 way_value(0)
+	66
+
+nom = 466		dist = [5]	 way_value(0)
+	726
+	479
+	359
+	434
+	163
+	142
+
+nom = 465		dist = [6]	 way_value(0)
+	423
+	165
+
+nom = 464		dist = [5]	 way_value(0)
+	923
+	518
+	475
+	226
+
+nom = 463		dist = [5]	 way_value(0)
+	578
+	299
+	246
+	144
+
+nom = 462		dist = [5]	 way_value(0)
+	999
+	944
+	647
+	11
+	325
+	195
+
+nom = 461		dist = [6]	 way_value(0)
+	887
+	749
+	857
+	329
+	309
+
+nom = 460		dist = [5]	 way_value(0)
+	959
+	610
+	702
+
+nom = 459		dist = [2]	 way_value(0)
+	212
+	806
+	109
+	850
+	320
+	168
+	315
+	619
+	405
+	187
+
+nom = 458		dist = [4]	 way_value(0)
+	768
+	502
+	547
+	418
+	389
+
+nom = 457		dist = [6]	 way_value(0)
+	968
+	300
+	44
+	13
+
+nom = 456		dist = [4]	 way_value(0)
+	745
+	592
+	131
+	130
+
+nom = 455		dist = [2]	 way_value(0)
+	356
+	115
+	874
+	99
+	66
+
+nom = 454		dist = [5]	 way_value(0)
+	961
+	432
+	163
+	243
+	190
+
+nom = 453		dist = [5]	 way_value(0)
+	961
+	698
+	700
+	357
+
+nom = 452		dist = [4]	 way_value(0)
+	400
+	194
+	718
+	781
+	368
+	240
+
+nom = 451		dist = [5]	 way_value(0)
+	94
+	183
+
+nom = 450		dist = [4]	 way_value(0)
+	600
+	552
+	186
+	38
+	343
+	261
+
+nom = 449		dist = [4]	 way_value(0)
+	857
+	508
+	488
+	60
+
+nom = 448		dist = [5]	 way_value(0)
+	748
+	503
+	422
+	427
+
+nom = 447		dist = [4]	 way_value(0)
+	748
+	663
+	970
+	992
+	308
+	983
+	751
+	213
+
+nom = 446		dist = [5]	 way_value(0)
+	550
+	902
+	516
+	163
+
+nom = 445		dist = [4]	 way_value(0)
+	812
+	488
+	881
+
+nom = 444		dist = [5]	 way_value(0)
+	816
+	765
+	484
+	372
+	353
+
+nom = 443		dist = [5]	 way_value(0)
+	942
+	923
+	203
+	244
+	250
+
+nom = 442		dist = [5]	 way_value(0)
+	41
+	776
+	699
+	35
+	434
+	922
+
+nom = 441		dist = [4]	 way_value(0)
+	872
+	850
+	752
+	680
+	890
+	381
+	296
+	87
+
+nom = 440		dist = [4]	 way_value(0)
+	695
+	592
+	593
+	122
+	12
+	8
+
+nom = 439		dist = [6]	 way_value(0)
+	561
+	390
+	182
+
+nom = 438		dist = [7]	 way_value(0)
+	932
+
+nom = 437		dist = [4]	 way_value(1)
+	end
+	616
+	726
+	918
+	286
+	41
+
+nom = 436		dist = [5]	 way_value(0)
+	876
+	690
+
+nom = 435		dist = [5]	 way_value(0)
+	683
+	369
+
+nom = 434		dist = [5]	 way_value(0)
+	442
+	466
+	299
+	267
+	96
+
+nom = 433		dist = [4]	 way_value(0)
+	574
+	917
+	415
+	57
+
+nom = 432		dist = [6]	 way_value(0)
+	645
+	454
+	812
+	271
+	18
+
+nom = 431		dist = [5]	 way_value(0)
+	958
+	508
+
+nom = 430		dist = [5]	 way_value(0)
+	876
+	389
+
+nom = 429		dist = [5]	 way_value(0)
+	998
+	593
+	692
+	180
+	833
+	184
+	400
+
+nom = 428		dist = [5]	 way_value(0)
+	520
+	104
+
+nom = 427		dist = [5]	 way_value(0)
+	782
+	448
+	117
+	529
+	210
+	300
+	846
+
+nom = 426		dist = [5]	 way_value(0)
+	975
+	796
+
+nom = 425		dist = [4]	 way_value(0)
+	823
+	330
+	198
+
+nom = 424		dist = [3]	 way_value(0)
+	486
+	679
+	782
+	875
+	93
+
+nom = 423		dist = [5]	 way_value(0)
+	593
+	465
+	387
+	299
+	527
+
+nom = 422		dist = [6]	 way_value(0)
+	907
+	448
+	385
+
+nom = 421		dist = [4]	 way_value(0)
+	847
+	674
+	469
+	612
+	160
+	994
+	62
+
+nom = 420		dist = [5]	 way_value(0)
+	847
+	818
+	805
+	799
+	70
+
+nom = 419		dist = [3]	 way_value(0)
+	770
+	630
+	537
+	485
+	215
+	26
+
+nom = 418		dist = [5]	 way_value(0)
+	590
+	458
+	578
+
+nom = 417		dist = [5]	 way_value(0)
+	805
+	223
+
+nom = 416		dist = [6]	 way_value(0)
+	968
+	820
+	901
+	11
+
+nom = 415		dist = [4]	 way_value(0)
+	433
+	315
+	98
+
+nom = 414		dist = [4]	 way_value(0)
+	315
+	6
+
+nom = 413		dist = [4]	 way_value(0)
+	770
+	640
+	354
+	222
+	197
+	66
+	57
+
+nom = 412		dist = [4]	 way_value(0)
+	57
+	707
+	57
+
+nom = 411		dist = [3]	 way_value(0)
+	758
+	685
+	777
+	353
+
+nom = 410		dist = [4]	 way_value(0)
+	906
+	827
+	916
+	619
+	195
+
+nom = 409		dist = [5]	 way_value(0)
+	653
+	518
+	472
+	846
+	280
+
+nom = 408		dist = [3]	 way_value(0)
+	818
+	759
+	571
+	615
+	86
+	283
+	370
+	745
+	382
+	348
+
+nom = 407		dist = [5]	 way_value(0)
+	584
+	121
+
+nom = 406		dist = [4]	 way_value(0)
+	984
+	284
+	154
+
+nom = 405		dist = [3]	 way_value(0)
+	685
+	684
+	459
+	995
+	345
+	157
+
+nom = 404		dist = [5]	 way_value(0)
+	851
+	172
+	152
+
+nom = 403		dist = [4]	 way_value(0)
+	637
+	205
+	327
+
+nom = 402		dist = [4]	 way_value(0)
+	502
+	85
+	724
+
+nom = 401		dist = [4]	 way_value(0)
+	601
+	346
+	727
+
+nom = 400		dist = [4]	 way_value(0)
+	804
+	519
+	452
+	429
+	84
+	148
+	186
+	107
+
+nom = 399		dist = [5]	 way_value(0)
+	342
+
+nom = 398		dist = [3]	 way_value(0)
+	939
+	860
+	302
+	609
+	355
+	313
+
+nom = 397		dist = [6]	 way_value(0)
+	41
+	277
+	220
+
+nom = 396		dist = [4]	 way_value(0)
+	726
+	187
+
+nom = 395		dist = [4]	 way_value(0)
+	997
+	701
+	660
+	342
+
+nom = 394		dist = [4]	 way_value(0)
+	777
+	673
+	86
+	348
+
+nom = 393		dist = [6]	 way_value(0)
+	633
+	127
+	130
+
+nom = 392		dist = [4]	 way_value(0)
+	906
+	588
+	512
+	702
+
+nom = 391		dist = [5]	 way_value(0)
+	591
+	157
+	369
+	314
+
+nom = 390		dist = [5]	 way_value(0)
+	938
+	602
+	439
+	678
+	277
+	73
+
+nom = 389		dist = [5]	 way_value(0)
+	921
+	665
+	430
+	458
+	852
+	18
+
+nom = 388		dist = [4]	 way_value(0)
+	813
+
+nom = 387		dist = [4]	 way_value(0)
+	488
+	423
+	288
+	190
+	140
+
+nom = 386		dist = [2]	 way_value(2)
+	960
+	560
+	564
+	272
+	230
+	779
+	737
+	368
+	339
+
+nom = 385		dist = [5]	 way_value(0)
+	864
+	499
+	422
+	591
+	581
+
+nom = 384		dist = [5]	 way_value(0)
+	607
+	642
+	200
+
+nom = 383		dist = [4]	 way_value(0)
+	750
+	527
+	761
+	348
+	954
+	677
+	335
+	318
+
+nom = 382		dist = [4]	 way_value(0)
+	408
+	252
+	380
+	225
+
+nom = 381		dist = [5]	 way_value(0)
+	919
+	861
+	441
+	378
+	9
+
+nom = 380		dist = [4]	 way_value(0)
+	870
+	748
+	338
+	382
+	177
+
+nom = 379		dist = [4]	 way_value(0)
+	251
+	358
+
+nom = 378		dist = [6]	 way_value(0)
+	900
+	682
+	381
+
+nom = 377		dist = [6]	 way_value(0)
+	567
+	957
+	708
+	129
+
+nom = 376		dist = [4]	 way_value(0)
+	553
+	532
+	749
+	117
+	320
+	281
+
+nom = 375		dist = [5]	 way_value(0)
+	996
+	495
+	524
+
+nom = 374		dist = [6]	 way_value(0)
+	500
+	967
+	952
+
+nom = 373		dist = [5]	 way_value(0)
+	493
+	500
+	12
+
+nom = 372		dist = [6]	 way_value(0)
+	699
+	444
+	635
+	337
+
+nom = 371		dist = [4]	 way_value(0)
+	970
+	842
+	695
+	587
+	580
+	578
+	168
+	705
+	217
+
+nom = 370		dist = [4]	 way_value(0)
+	757
+	408
+	528
+	298
+
+nom = 369		dist = [6]	 way_value(0)
+	165
+	391
+	435
+
+nom = 368		dist = [3]	 way_value(0)
+	945
+	649
+	386
+	452
+	745
+	62
+
+nom = 367		dist = [6]	 way_value(0)
+	938
+	710
+	43
+
+nom = 366		dist = [5]	 way_value(0)
+	922
+	759
+	507
+	945
+	203
+	304
+
+nom = 365		dist = [3]	 way_value(0)
+	549
+	472
+	118
+	569
+	288
+	196
+
+nom = 364		dist = [4]	 way_value(0)
+	217
+	105
+	780
+	132
+
+nom = 363		dist = [4]	 way_value(0)
+	230
+	195
+	48
+
+nom = 362		dist = [5]	 way_value(0)
+	978
+	620
+	719
+
+nom = 361		dist = [5]	 way_value(0)
+	750
+	520
+	775
+
+nom = 360		dist = [3]	 way_value(0)
+	571
+	84
+	166
+
+nom = 359		dist = [5]	 way_value(0)
+	664
+	470
+	466
+	774
+
+nom = 358		dist = [4]	 way_value(0)
+	810
+	633
+	512
+	110
+	379
+	954
+	146
+
+nom = 357		dist = [5]	 way_value(0)
+	776
+	191
+	453
+	199
+
+nom = 356		dist = [3]	 way_value(0)
+	483
+	455
+	911
+	42
+
+nom = 355		dist = [4]	 way_value(0)
+	723
+	154
+	398
+	79
+	721
+
+nom = 354		dist = [4]	 way_value(0)
+	620
+	215
+	74
+	476
+	694
+	413
+
+nom = 353		dist = [4]	 way_value(0)
+	949
+	444
+	411
+	334
+	952
+
+nom = 352		dist = [4]	 way_value(0)
+	548
+	600
+	648
+	328
+
+nom = 351		dist = [5]	 way_value(0)
+	161
+	921
+
+nom = 350		dist = [4]	 way_value(0)
+	498
+	191
+	344
+	801
+	113
+
+nom = 349		dist = [5]	 way_value(0)
+	782
+	484
+	530
+
+nom = 348		dist = [4]	 way_value(0)
+	394
+	383
+	547
+	408
+	344
+
+nom = 347		dist = [6]	 way_value(0)
+	523
+
+nom = 346		dist = [5]	 way_value(0)
+	893
+	777
+	401
+	137
+	14
+
+nom = 345		dist = [4]	 way_value(0)
+	819
+	800
+	727
+	405
+	289
+
+nom = 344		dist = [5]	 way_value(0)
+	350
+	180
+	894
+	208
+	268
+	739
+	348
+	796
+	317
+	147
+
+nom = 343		dist = [5]	 way_value(0)
+	875
+	450
+
+nom = 342		dist = [4]	 way_value(0)
+	677
+	399
+	395
+
+nom = 341		dist = [4]	 way_value(0)
+	586
+	248
+	564
+	151
+	256
+
+nom = 340		dist = [5]	 way_value(0)
+	988
+	983
+	875
+
+nom = 339		dist = [3]	 way_value(0)
+	386
+	181
+	278
+
+nom = 338		dist = [4]	 way_value(0)
+	380
+	189
+
+nom = 337		dist = [5]	 way_value(0)
+	743
+	575
+	531
+	372
+
+nom = 336		dist = [4]	 way_value(0)
+	925
+	700
+	560
+	335
+
+nom = 335		dist = [5]	 way_value(0)
+	799
+	630
+	383
+	336
+	742
+	231
+
+nom = 334		dist = [4]	 way_value(0)
+	353
+	227
+	270
+
+nom = 333		dist = [5]	 way_value(0)
+	858
+	986
+	62
+	566
+	285
+	773
+	246
+	471
+
+nom = 332		dist = [3]	 way_value(2)
+	737
+	695
+	524
+	536
+	80
+	757
+	331
+	121
+
+nom = 331		dist = [4]	 way_value(0)
+	861
+	834
+	745
+	602
+	332
+	129
+	292
+
+nom = 330		dist = [5]	 way_value(0)
+	667
+	425
+	247
+
+nom = 329		dist = [6]	 way_value(0)
+	809
+	461
+
+nom = 328		dist = [4]	 way_value(0)
+	612
+	352
+	587
+
+nom = 327		dist = [5]	 way_value(0)
+	869
+	403
+
+nom = 326		dist = [3]	 way_value(3)
+	909
+	788
+	661
+	737
+	72
+	122
+	705
+	170
+	12
+
+nom = 325		dist = [6]	 way_value(0)
+	462
+	137
+	626
+	54
+
+nom = 324		dist = [2]	 way_value(0)
+	99
+	592
+
+nom = 323		dist = [5]	 way_value(0)
+	780
+	533
+	920
+	84
+
+nom = 322		dist = [4]	 way_value(0)
+	781
+	695
+	804
+	738
+	245
+
+nom = 321		dist = [7]	 way_value(0)
+	607
+
+nom = 320		dist = [3]	 way_value(0)
+	459
+	376
+	280
+
+nom = 319		dist = [5]	 way_value(0)
+	881
+	868
+	707
+	35
+
+nom = 318		dist = [3]	 way_value(0)
+	487
+	383
+	289
+	486
+
+nom = 317		dist = [6]	 way_value(0)
+	762
+	344
+	1
+	143
+
+nom = 316		dist = [4]	 way_value(0)
+	606
+	482
+	483
+	892
+	52
+
+nom = 315		dist = [3]	 way_value(0)
+	788
+	459
+	414
+	415
+
+nom = 314		dist = [4]	 way_value(0)
+	844
+	556
+	391
+	196
+	175
+
+nom = 313		dist = [2]	 way_value(0)
+	960
+	638
+	398
+	735
+	160
+
+nom = 312		dist = [5]	 way_value(0)
+	177
+	883
+	280
+
+nom = 311		dist = [5]	 way_value(0)
+	948
+	928
+	295
+
+nom = 310		dist = [6]	 way_value(0)
+	862
+	32
+
+nom = 309		dist = [5]	 way_value(0)
+	839
+	483
+	461
+	104
+
+nom = 308		dist = [4]	 way_value(0)
+	447
+	804
+
+nom = 307		dist = [4]	 way_value(0)
+	224
+	256
+	201
+
+nom = 306		dist = [4]	 way_value(0)
+	637
+	15
+
+nom = 305		dist = [5]	 way_value(0)
+	136
+
+nom = 304		dist = [4]	 way_value(0)
+	602
+	529
+	366
+	951
+	217
+
+nom = 303		dist = [5]	 way_value(0)
+	282
+	164
+	128
+
+nom = 302		dist = [4]	 way_value(0)
+	510
+	398
+	904
+	259
+
+nom = 301		dist = [5]	 way_value(0)
+	7
+	262
+
+nom = 300		dist = [6]	 way_value(0)
+	457
+	427
+	58
+
+nom = 299		dist = [4]	 way_value(0)
+	771
+	699
+	463
+	434
+	423
+	165
+	290
+	57
+
+nom = 298		dist = [5]	 way_value(0)
+	370
+	965
+
+nom = 297		dist = [5]	 way_value(0)
+	521
+	62
+	765
+	211
+	278
+	239
+
+nom = 296		dist = [5]	 way_value(0)
+	579
+	441
+
+nom = 295		dist = [4]	 way_value(0)
+	496
+	311
+	480
+	262
+	115
+
+nom = 294		dist = [5]	 way_value(0)
+	472
+	499
+	83
+
+nom = 293		dist = [4]	 way_value(0)
+	740
+	850
+	140
+	57
+
+nom = 292		dist = [5]	 way_value(0)
+	632
+	971
+	86
+	331
+	6
+
+nom = 291		dist = [3]	 way_value(0)
+	943
+	685
+	545
+	2
+
+nom = 290		dist = [5]	 way_value(0)
+	639
+	299
+	975
+
+nom = 289		dist = [4]	 way_value(0)
+	318
+	345
+
+nom = 288		dist = [4]	 way_value(0)
+	938
+	387
+	365
+
+nom = 287		dist = [3]	 way_value(0)
+	737
+	686
+	97
+
+nom = 286		dist = [5]	 way_value(0)
+	437
+	507
+	228
+	122
+
+nom = 285		dist = [6]	 way_value(0)
+	333
+	854
+
+nom = 284		dist = [3]	 way_value(0)
+	908
+	406
+	471
+	978
+	232
+	10
+
+nom = 283		dist = [4]	 way_value(0)
+	724
+	408
+	584
+	101
+
+nom = 282		dist = [5]	 way_value(0)
+	982
+	303
+	58
+	777
+
+nom = 281		dist = [5]	 way_value(0)
+	917
+	376
+
+nom = 280		dist = [4]	 way_value(0)
+	730
+	508
+	757
+	320
+	409
+	531
+	312
+	171
+
+nom = 279		dist = [2]	 way_value(0)
+	960
+	850
+	811
+	251
+
+nom = 278		dist = [4]	 way_value(0)
+	700
+	609
+	137
+	917
+	297
+	339
+	6
+
+nom = 277		dist = [5]	 way_value(0)
+	397
+	555
+	147
+	657
+	917
+	390
+
+nom = 276		dist = [4]	 way_value(0)
+	722
+	705
+	564
+	238
+
+nom = 275		dist = [6]	 way_value(0)
+	866
+	78
+	67
+
+nom = 274		dist = [6]	 way_value(0)
+	165
+
+nom = 273		dist = [4]	 way_value(0)
+	727
+	201
+	995
+	218
+	101
+
+nom = 272		dist = [3]	 way_value(0)
+	748
+	386
+	871
+	546
+
+nom = 271		dist = [7]	 way_value(0)
+	432
+
+nom = 270		dist = [4]	 way_value(0)
+	52
+	836
+	793
+	334
+	701
+
+nom = 269		dist = [6]	 way_value(0)
+	989
+
+nom = 268		dist = [6]	 way_value(0)
+	344
+	846
+	77
+
+nom = 267		dist = [6]	 way_value(0)
+	762
+	434
+	105
+
+nom = 266		dist = [5]	 way_value(0)
+	479
+	602
+	181
+
+nom = 265		dist = [5]	 way_value(0)
+	984
+	798
+
+nom = 264		dist = [6]	 way_value(0)
+	627
+
+nom = 263		dist = [6]	 way_value(0)
+	862
+
+nom = 262		dist = [4]	 way_value(0)
+	301
+	665
+	295
+	15
+	168
+
+nom = 261		dist = [5]	 way_value(0)
+	892
+	450
+	501
+
+nom = 260		dist = [5]	 way_value(0)
+	899
+	649
+	29
+	139
+	32
+
+nom = 259		dist = [5]	 way_value(0)
+	302
+
+nom = 258		dist = [6]	 way_value(0)
+	845
+	799
+	633
+
+nom = 257		dist = [5]	 way_value(0)
+	605
+	754
+
+nom = 256		dist = [5]	 way_value(0)
+	341
+	307
+	539
+
+nom = 255		dist = [6]	 way_value(0)
+	838
+	250
+	872
+
+nom = 254		dist = [4]	 way_value(0)
+	587
+	484
+	641
+	669
+	46
+
+nom = 253		dist = [5]	 way_value(0)
+	632
+	202
+
+nom = 252		dist = [5]	 way_value(0)
+	382
+	205
+	79
+
+nom = 251		dist = [3]	 way_value(0)
+	782
+	655
+	379
+	279
+
+nom = 250		dist = [5]	 way_value(0)
+	255
+	485
+	443
+
+nom = 249		dist = [2]	 way_value(3)
+	843
+	813
+	752
+	74
+
+nom = 248		dist = [5]	 way_value(0)
+	341
+	203
+
+nom = 247		dist = [5]	 way_value(0)
+	869
+	330
+	654
+	989
+	144
+
+nom = 246		dist = [5]	 way_value(0)
+	867
+	786
+	333
+	463
+	671
+
+nom = 245		dist = [3]	 way_value(0)
+	515
+	322
+
+nom = 244		dist = [5]	 way_value(0)
+	443
+	911
+
+nom = 243		dist = [6]	 way_value(0)
+	983
+	454
+	78
+	45
+
+nom = 242		dist = [5]	 way_value(0)
+	838
+	906
+	148
+
+nom = 241		dist = [5]	 way_value(0)
+	902
+	859
+	75
+	853
+
+nom = 240		dist = [5]	 way_value(0)
+	935
+	846
+	452
+	211
+	82
+
+nom = 239		dist = [4]	 way_value(0)
+	742
+	562
+	297
+	599
+	918
+
+nom = 238		dist = [4]	 way_value(0)
+	651
+	276
+	835
+	47
+	159
+	146
+
+nom = 237		dist = [5]	 way_value(0)
+	686
+
+nom = 236		dist = [6]	 way_value(0)
+	955
+	605
+
+nom = 235		dist = [2]	 way_value(0)
+	473
+	569
+	637
+	98
+	587
+	806
+
+nom = 234		dist = [4]	 way_value(0)
+	886
+	991
+
+nom = 233		dist = [3]	 way_value(0)
+	727
+	705
+	502
+	145
+
+nom = 232		dist = [2]	 way_value(0)
+	960
+	677
+	974
+	512
+	594
+	10
+	284
+	201
+	175
+
+nom = 231		dist = [4]	 way_value(0)
+	335
+	822
+	186
+	78
+
+nom = 230		dist = [3]	 way_value(0)
+	986
+	959
+	578
+	386
+	363
+	760
+	208
+
+nom = 229		dist = [5]	 way_value(0)
+	665
+	540
+	684
+
+nom = 228		dist = [5]	 way_value(0)
+	286
+	162
+	81
+	35
+
+nom = 227		dist = [3]	 way_value(0)
+	897
+	805
+	617
+	334
+	124
+
+nom = 226		dist = [6]	 way_value(0)
+	505
+	464
+	790
+	702
+	789
+	114
+	59
+
+nom = 225		dist = [4]	 way_value(0)
+	592
+	673
+	528
+	382
+
+nom = 224		dist = [5]	 way_value(0)
+	476
+	307
+	985
+
+nom = 223		dist = [6]	 way_value(0)
+	417
+	188
+
+nom = 222		dist = [5]	 way_value(0)
+	876
+	413
+
+nom = 221		dist = [6]	 way_value(0)
+	734
+	883
+
+nom = 220		dist = [7]	 way_value(0)
+	397
+
+nom = 219		dist = [3]	 way_value(0)
+	746
+	868
+	145
+
+nom = 218		dist = [5]	 way_value(0)
+	273
+	505
+	721
+	722
+
+nom = 217		dist = [3]	 way_value(0)
+	895
+	364
+	304
+	897
+	371
+	755
+
+nom = 216		dist = [4]	 way_value(0)
+	499
+	985
+	115
+
+nom = 215		dist = [4]	 way_value(0)
+	419
+	354
+	946
+	473
+
+nom = 214		dist = [5]	 way_value(0)
+	553
+
+nom = 213		dist = [4]	 way_value(0)
+	989
+	447
+	512
+	181
+
+nom = 212		dist = [3]	 way_value(0)
+	962
+	459
+	654
+	766
+	79
+
+nom = 211		dist = [4]	 way_value(0)
+	756
+	654
+	297
+	240
+	885
+	169
+
+nom = 210		dist = [5]	 way_value(0)
+	952
+	722
+	641
+	427
+	948
+
+nom = 209		dist = [5]	 way_value(0)
+	548
+	536
+	103
+
+nom = 208		dist = [4]	 way_value(0)
+	985
+	344
+	488
+	230
+	671
+
+nom = 207		dist = [4]	 way_value(0)
+	673
+	595
+	73
+
+nom = 206		dist = [5]	 way_value(0)
+	634
+	36
+	28
+
+nom = 205		dist = [5]	 way_value(0)
+	403
+	252
+	474
+	900
+	106
+
+nom = 204		dist = [3]	 way_value(0)
+	618
+	515
+	771
+
+nom = 203		dist = [5]	 way_value(0)
+	993
+	632
+	443
+	366
+	248
+	20
+	33
+
+nom = 202		dist = [6]	 way_value(0)
+	953
+	253
+	690
+
+nom = 201		dist = [3]	 way_value(0)
+	273
+	232
+	85
+	969
+	15
+	307
+	95
+	996
+	158
+
+nom = 200		dist = [4]	 way_value(0)
+	735
+	384
+
+nom = 199		dist = [5]	 way_value(0)
+	774
+	357
+	174
+
+nom = 198		dist = [4]	 way_value(0)
+	971
+	425
+	635
+	126
+	62
+
+nom = 197		dist = [5]	 way_value(0)
+	413
+
+nom = 196		dist = [4]	 way_value(0)
+	579
+	474
+	503
+	365
+	314
+	182
+	133
+	46
+
+nom = 195		dist = [4]	 way_value(0)
+	980
+	812
+	972
+	363
+	410
+	462
+
+nom = 194		dist = [5]	 way_value(0)
+	452
+	64
+	828
+
+nom = 193		dist = [4]	 way_value(0)
+	722
+	609
+	493
+	94
+
+nom = 192		dist = [4]	 way_value(0)
+	721
+	727
+
+nom = 191		dist = [4]	 way_value(0)
+	886
+	805
+	357
+	350
+	791
+	136
+	74
+
+nom = 190		dist = [5]	 way_value(0)
+	829
+	546
+	959
+	387
+	454
+
+nom = 189		dist = [3]	 way_value(0)
+	338
+	685
+
+nom = 188		dist = [5]	 way_value(0)
+	761
+	223
+
+nom = 187		dist = [3]	 way_value(0)
+	923
+	700
+	396
+	459
+
+nom = 186		dist = [5]	 way_value(0)
+	906
+	837
+	450
+	400
+	231
+	136
+	31
+
+nom = 185		dist = [3]	 way_value(0)
+	977
+	941
+	566
+	513
+
+nom = 184		dist = [6]	 way_value(0)
+	429
+	503
+
+nom = 183		dist = [4]	 way_value(0)
+	918
+	451
+	44
+
+nom = 182		dist = [5]	 way_value(0)
+	667
+	196
+	439
+	103
+
+nom = 181		dist = [4]	 way_value(0)
+	913
+	339
+	213
+	604
+	266
+	117
+	763
+
+nom = 180		dist = [5]	 way_value(0)
+	527
+	429
+	344
+	633
+	691
+
+nom = 179		dist = [4]	 way_value(0)
+	940
+	910
+	704
+	939
+	63
+	12
+
+nom = 178		dist = [5]	 way_value(0)
+	862
+	616
+	867
+
+nom = 177		dist = [5]	 way_value(0)
+	690
+	312
+	764
+	380
+	62
+
+nom = 176		dist = [4]	 way_value(0)
+	495
+	163
+	115
+
+nom = 175		dist = [3]	 way_value(0)
+	608
+	314
+	232
+
+nom = 174		dist = [4]	 way_value(0)
+	543
+	199
+	10
+	29
+
+nom = 173		dist = [4]	 way_value(0)
+	579
+	150
+	980
+
+nom = 172		dist = [4]	 way_value(0)
+	864
+	404
+	158
+	98
+
+nom = 171		dist = [5]	 way_value(0)
+	882
+	665
+	580
+	280
+	93
+
+nom = 170		dist = [4]	 way_value(0)
+	611
+	326
+	15
+
+nom = 169		dist = [5]	 way_value(0)
+	211
+
+nom = 168		dist = [3]	 way_value(0)
+	459
+	371
+	262
+	521
+	556
+
+nom = 167		dist = [5]	 way_value(0)
+	994
+	499
+	803
+	749
+	824
+
+nom = 166		dist = [4]	 way_value(0)
+	514
+	360
+
+nom = 165		dist = [5]	 way_value(0)
+	889
+	696
+	649
+	369
+	299
+	274
+	465
+	837
+
+nom = 164		dist = [6]	 way_value(0)
+	984
+	734
+	303
+
+nom = 163		dist = [5]	 way_value(0)
+	454
+	446
+	176
+	117
+	466
+	832
+	154
+	65
+
+nom = 162		dist = [4]	 way_value(0)
+	536
+	228
+	57
+
+nom = 161		dist = [4]	 way_value(0)
+	763
+	718
+	621
+	351
+	14
+
+nom = 160		dist = [3]	 way_value(0)
+	808
+	421
+	313
+	683
+	936
+
+nom = 159		dist = [4]	 way_value(0)
+	855
+	512
+	498
+	631
+	238
+	917
+	144
+
+nom = 158		dist = [4]	 way_value(0)
+	172
+	201
+	102
+
+nom = 157		dist = [4]	 way_value(0)
+	836
+	696
+	391
+	405
+
+nom = 156		dist = [5]	 way_value(0)
+	759
+	506
+	838
+	94
+
+nom = 155		dist = [5]	 way_value(0)
+	693
+	580
+	39
+
+nom = 154		dist = [4]	 way_value(0)
+	355
+	406
+	974
+	757
+	144
+	163
+	78
+
+nom = 153		dist = [5]	 way_value(0)
+	777
+	672
+	791
+
+nom = 152		dist = [6]	 way_value(0)
+	404
+	477
+	143
+
+nom = 151		dist = [3]	 way_value(0)
+	671
+	625
+	569
+	565
+	341
+	498
+
+nom = 150		dist = [3]	 way_value(0)
+	173
+	34
+
+nom = 149		dist = [5]	 way_value(0)
+	45
+	95
+
+nom = 148		dist = [4]	 way_value(0)
+	400
+	66
+	242
+
+nom = 147		dist = [5]	 way_value(0)
+	995
+	929
+	661
+	277
+	344
+
+nom = 146		dist = [5]	 way_value(0)
+	662
+	477
+	934
+	926
+	358
+	238
+
+nom = 145		dist = [2]	 way_value(0)
+	219
+	99
+	233
+
+nom = 144		dist = [5]	 way_value(0)
+	934
+	623
+	154
+	721
+	247
+	159
+	463
+
+nom = 143		dist = [6]	 way_value(0)
+	152
+	317
+	478
+
+nom = 142		dist = [4]	 way_value(0)
+	709
+	650
+	554
+	466
+
+nom = 141		dist = [3]	 way_value(0)
+	629
+	108
+
+nom = 140		dist = [4]	 way_value(0)
+	984
+	506
+	495
+	808
+	293
+	387
+
+nom = 139		dist = [4]	 way_value(0)
+	813
+	687
+	260
+
+nom = 138		dist = [6]	 way_value(0)
+	884
+	931
+
+nom = 137		dist = [5]	 way_value(0)
+	346
+	325
+	278
+	584
+	86
+	858
+	111
+	719
+
+nom = 136		dist = [4]	 way_value(0)
+	541
+	499
+	472
+	305
+	471
+	186
+	769
+	191
+	66
+
+nom = 135		dist = [5]	 way_value(0)
+	566
+	937
+
+nom = 134		dist = [7]	 way_value(0)
+	792
+
+nom = 133		dist = [5]	 way_value(0)
+	196
+	794
+
+nom = 132		dist = [5]	 way_value(0)
+	892
+	852
+	364
+	582
+	949
+
+nom = 131		dist = [5]	 way_value(0)
+	568
+	456
+	800
+
+nom = 130		dist = [5]	 way_value(0)
+	907
+	393
+	490
+	456
+
+nom = 129		dist = [5]	 way_value(0)
+	926
+	853
+	506
+	331
+	854
+	377
+
+nom = 128		dist = [4]	 way_value(0)
+	870
+	852
+	303
+	496
+
+nom = 127		dist = [5]	 way_value(0)
+	827
+	393
+	837
+	879
+
+nom = 126		dist = [3]	 way_value(0)
+	819
+	198
+	761
+	934
+	969
+	940
+	108
+
+nom = 125		dist = [4]	 way_value(0)
+	661
+	594
+	970
+
+nom = 124		dist = [4]	 way_value(0)
+	227
+	928
+	67
+
+nom = 123		dist = [4]	 way_value(0)
+	570
+	706
+	907
+
+nom = 122		dist = [4]	 way_value(3)
+	746
+	563
+	440
+	326
+	564
+	286
+
+nom = 121		dist = [4]	 way_value(2)
+	end
+	67
+	407
+	332
+	92
+
+nom = 120		dist = [7]	 way_value(0)
+	692
+
+nom = 119		dist = [3]	 way_value(0)
+	632
+	61
+
+nom = 118		dist = [4]	 way_value(0)
+	365
+	795
+
+nom = 117		dist = [5]	 way_value(0)
+	934
+	427
+	376
+	181
+	163
+	595
+	37
+	701
+
+nom = 116		dist = [5]	 way_value(0)
+	507
+	7
+	68
+	27
+
+nom = 115		dist = [3]	 way_value(0)
+	640
+	455
+	216
+	295
+	769
+	176
+
+nom = 114		dist = [5]	 way_value(0)
+	889
+	226
+	103
+
+nom = 113		dist = [3]	 way_value(0)
+	977
+	922
+	550
+	491
+	350
+	103
+	72
+
+nom = 112		dist = [5]	 way_value(0)
+	944
+	743
+	923
+
+nom = 111		dist = [5]	 way_value(0)
+	833
+	137
+	501
+	0
+
+nom = 110		dist = [4]	 way_value(0)
+	358
+	980
+	539
+
+nom = 109		dist = [3]	 way_value(0)
+	880
+	459
+	741
+
+nom = 108		dist = [2]	 way_value(0)
+	808
+	806
+	552
+	141
+	126
+
+nom = 107		dist = [5]	 way_value(0)
+	828
+	574
+	400
+
+nom = 106		dist = [6]	 way_value(0)
+	205
+
+nom = 105		dist = [5]	 way_value(0)
+	364
+	267
+	901
+
+nom = 104		dist = [4]	 way_value(0)
+	800
+	729
+	631
+	428
+	746
+	309
+	693
+	920
+
+nom = 103		dist = [4]	 way_value(0)
+	778
+	742
+	182
+	721
+	114
+	113
+	740
+	209
+	82
+
+nom = 102		dist = [5]	 way_value(0)
+	978
+	605
+	842
+	158
+
+nom = 101		dist = [5]	 way_value(0)
+	819
+	756
+	728
+	712
+	273
+	283
+
+nom = 100		dist = [5]	 way_value(0)
+	723
+	743
+
+nom = 99		dist = [1]	 way_value(1)
+	start
+	455
+	324
+	145
+	737
+	713
+	897
+
+nom = 98		dist = [3]	 way_value(0)
+	919
+	707
+	587
+	235
+	172
+	415
+	996
+
+nom = 97		dist = [4]	 way_value(0)
+	859
+	764
+	641
+	600
+	287
+	774
+	810
+	59
+
+nom = 96		dist = [5]	 way_value(0)
+	434
+	707
+
+nom = 95		dist = [4]	 way_value(0)
+	965
+	906
+	597
+	201
+	542
+	149
+
+nom = 94		dist = [4]	 way_value(0)
+	540
+	451
+	193
+	156
+	577
+
+nom = 93		dist = [4]	 way_value(0)
+	781
+	705
+	638
+	568
+	424
+	171
+	787
+	2
+	949
+	611
+
+nom = 92		dist = [4]	 way_value(0)
+	834
+	667
+	121
+
+nom = 91		dist = [5]	 way_value(0)
+	535
+	487
+	487
+
+nom = 90		dist = [7]	 way_value(0)
+	55
+
+nom = 89		dist = [6]	 way_value(0)
+	716
+
+nom = 88		dist = [5]	 way_value(0)
+	948
+
+nom = 87		dist = [4]	 way_value(0)
+	602
+	589
+	441
+
+nom = 86		dist = [4]	 way_value(0)
+	984
+	948
+	873
+	408
+	394
+	292
+	137
+	535
+
+nom = 85		dist = [3]	 way_value(0)
+	402
+	201
+	737
+	504
+
+nom = 84		dist = [4]	 way_value(0)
+	700
+	400
+	360
+	323
+
+nom = 83		dist = [5]	 way_value(0)
+	986
+	661
+	814
+	750
+	294
+	954
+	567
+	23
+
+nom = 82		dist = [5]	 way_value(0)
+	103
+	240
+
+nom = 81		dist = [5]	 way_value(0)
+	527
+	228
+	41
+
+nom = 80		dist = [4]	 way_value(0)
+	590
+	332
+	552
+	802
+
+nom = 79		dist = [4]	 way_value(0)
+	355
+	212
+	252
+	502
+	1
+
+nom = 78		dist = [5]	 way_value(0)
+	275
+	243
+	154
+	842
+	844
+	895
+	231
+
+nom = 77		dist = [6]	 way_value(0)
+	268
+	55
+	494
+	728
+
+nom = 76		dist = [5]	 way_value(0)
+	877
+	775
+	671
+	635
+
+nom = 75		dist = [6]	 way_value(0)
+	241
+	37
+
+nom = 74		dist = [3]	 way_value(3)
+	639
+	354
+	249
+	781
+	713
+	786
+	519
+	698
+	191
+	996
+	800
+	909
+	772
+
+nom = 73		dist = [5]	 way_value(0)
+	927
+	867
+	207
+	686
+	390
+
+nom = 72		dist = [4]	 way_value(0)
+	664
+	326
+	113
+
+nom = 71		dist = [5]	 way_value(0)
+	906
+
+nom = 70		dist = [4]	 way_value(0)
+	420
+	63
+	723
+	57
+
+nom = 69		dist = [4]	 way_value(0)
+	866
+	20
+	66
+
+nom = 68		di
