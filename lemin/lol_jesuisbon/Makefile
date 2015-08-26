@@ -11,7 +11,10 @@ SRC = parsing.c\
 	  print.c\
 	  compute_path.c\
 	  particular.c\
-	  reinit_dist.c\
+	  resolve_2.c\
+	  find_all_path_2.c\
+	  ft_error.c\
+	  parsing_norme.c\
 
 OBJ = $(SRC:.c=.o)
 

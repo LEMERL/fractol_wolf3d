@@ -6,7 +6,7 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/24 06:21:38 by aiwanesk          #+#    #+#             */
-/*   Updated: 2015/08/24 06:21:40 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2015/08/26 16:22:55 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ int					find_short_link_norme(t_list *list, int ret);
 t_list				*ret_end(t_list *list);
 int					lin_parse_comm(char *str, t_status *status);
 char				*lin_parse_first(t_list **list);
+int					iter_path(t_list *list, int path_length, int ant_v);
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: aiwanesk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/24 02:23:25 by aiwanesk          #+#    #+#             */
-/*   Updated: 2015/08/24 04:01:24 by aiwanesk         ###   ########.fr       */
+/*   Updated: 2015/08/26 16:30:42 by aiwanesk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lemin.h"
+#include "../includes/lemin.h"
 
 int			lin_parse_comm(char *str, t_status *status)
 {
@@ -44,8 +44,10 @@ int			set_ant(int modif)
 
 	if (number == -42)
 	{
+		ft_putendl("before gnl");
 		while ((rd = get_next_line(0, &str)) != 0 || rd == 0)
 		{
+			ft_putendl("in loop gnl");
 			if (rd <= 0 || (tab = ft_strsplit(str, ' ')) == NULL
 					|| tab[0] == NULL || (ft_isnumber(tab[0]) == 0
 						&& lin_parse_comm(tab[0], NULL) == 0) || tab[1] != NULL)
@@ -60,6 +62,7 @@ int			set_ant(int modif)
 	}
 	else
 		number -= modif;
+	ft_putendl("after gnl");
 	return (number);
 }
 
